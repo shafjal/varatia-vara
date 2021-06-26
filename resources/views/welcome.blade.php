@@ -13,12 +13,13 @@
         <!-- Styles -->
         <!-- Font Awesome -->
         <script src="https://kit.fontawesome.com/caf4fd03c7.js" crossorigin="anonymous"></script>
-        <!-- Boostrap 4 -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <!-- Boostrap 4.0.0 -->
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+        <link rel="stylesheet" type="text/css" href="{{url('/bootstrap/dist/css/bootstrap.min.css')}}" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #EDBB99;
+                background-color: #58D68D;
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
@@ -52,6 +53,7 @@
 
             .title {
                 font-size: 84px;
+                margin: 5px;
             }
 
             .links > a {
@@ -67,6 +69,19 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+            .buttonCustom {
+                background-color:#F39C12;
+                display: inline-block;
+                transition: 0.5s;
+                color: white;
+                font-size: 20px;
+                font-weight: bold;
+            }
+
+            .buttonCustom:hover {
+                background-color: #D68910;
+                color: white;
+                }
         </style>
     </head>
     <body>
@@ -86,16 +101,15 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
-                    <!-- Laravel -->
-                    <video  controls loop width="500" height="240" autoplay>
-                        <source src="welcome.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
+                <div class="container">
+                <img src="/welcome3.png" alt="Girl in a jacket" width="200" height="200">
+                </div>
+                <div class=" title m-b-md">
+                    ভাড়াটিয়া-ভাড়া
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs"><button type="button" class="btn btn-info">About</button></a>
+                    <a href="https://laravel.com/docs"><button type="button" class="btn buttonCustom">About</button></a>
                     <a href="https://laravel.com/docs"><button type="button" class="btn btn-info">Tutorial</button></a>
                     <!-- <a href="https://laracasts.com">Laracasts</a> -->
                     <!-- <a href="https://laravel-news.com">News</a> -->
