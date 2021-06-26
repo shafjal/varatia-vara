@@ -19,8 +19,9 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #58D68D;
-                color: #636b6f;
+                background-color: #8E44AD;
+                /* color: #636b6f; */
+                color: #FDFEFE;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
                 height: 100vh;
@@ -68,8 +69,9 @@
 
             .m-b-md {
                 margin-bottom: 30px;
+                /* margin-bottom: 40px; */
             }
-            .buttonCustom {
+            .buttonCustomAbout {
                 background-color:#F39C12;
                 display: inline-block;
                 transition: 0.5s;
@@ -78,8 +80,22 @@
                 font-weight: bold;
             }
 
-            .buttonCustom:hover {
-                background-color: #D68910;
+            .buttonCustomAbout:hover {
+                background-color: #58D68D;
+                color: white;
+                }
+
+                .buttonCustomTutorial {
+                background-color:#F08080;
+                display: inline-block;
+                transition: 0.5s;
+                color: white;
+                font-size: 20px;
+                font-weight: bold;
+            }
+
+            .buttonCustomTutorial:hover {
+                background-color: #58D68D;
                 color: white;
                 }
         </style>
@@ -104,13 +120,14 @@
                 <div class="container">
                 <img src="/welcome3.png" alt="Girl in a jacket" width="200" height="200">
                 </div>
-                <div class=" title m-b-md">
-                    ভাড়াটিয়া-ভাড়া
+                <div class="text-center title m-b-md">
+                    <h1 class="">ভাড়াটিয়া-ভাড়া<h1>
                 </div>
 
+
                 <div class="links">
-                    <a href="https://laravel.com/docs"><button type="button" class="btn buttonCustom">About</button></a>
-                    <a href="https://laravel.com/docs"><button type="button" class="btn btn-info">Tutorial</button></a>
+                    <a href="https://laravel.com/docs"><button type="button" class="btn buttonCustomAbout">About</button></a>
+                    <a href="https://laravel.com/docs"><button type="button" class="btn buttonCustomTutorial">Tutorial</button></a>
                     <!-- <a href="https://laracasts.com">Laracasts</a> -->
                     <!-- <a href="https://laravel-news.com">News</a> -->
                     <!-- <a href="https://blog.laravel.com">Blog</a> -->
