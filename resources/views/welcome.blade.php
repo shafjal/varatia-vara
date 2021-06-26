@@ -85,7 +85,7 @@
                 color: white;
                 }
 
-                .buttonCustomTutorial {
+            .buttonCustomTutorial {
                 background-color:#F08080;
                 display: inline-block;
                 transition: 0.5s;
@@ -98,6 +98,35 @@
                 background-color: #58D68D;
                 color: white;
                 }
+                
+
+            .buttonCustomLogin {
+                background-color:#5cb85c;
+                display: inline-block;
+                transition: 0.5s;
+                color: white;
+                font-size: 20px;
+                font-weight: bold;
+            }
+
+            .buttonCustomLogin:hover {
+                background-color: #58D68D;
+                color: white;
+                }
+
+            .buttonCustomRegister {
+                background-color:#0275d8;
+                display: inline-block;
+                transition: 0.5s;
+                color: white;
+                font-size: 20px;
+                font-weight: bold;
+            }
+
+            .buttonCustomRegister:hover {
+                background-color: #58D68D;
+                color: white;
+                }
         </style>
     </head>
     <body>
@@ -107,10 +136,10 @@
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
-                        <a href="{{ route('login') }}"><button type="button" class="btn btn-success">Login</button></a>
+                        <a href="{{ route('login') }}"><button type="button" class="btn buttonCustomLogin">Login</button></a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}"><button type="button" class="btn btn-primary">Register</button></a>
+                            <a href="{{ route('register') }}"><button type="button" class="btn buttonCustomRegister">Register</button></a>
                         @endif
                     @endauth
                 </div>
