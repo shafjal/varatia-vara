@@ -7,7 +7,10 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <!-- <title>{{ config('app.name', 'Laravel') }}</title> -->
+    <title>Varatia-Vara(ভাড়াটিয়া-ভাড়া)</title>
+        <!-- Title Logo -->
+    <link rel="icon" href="/rent.png" type="image/gif/png">
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -18,13 +21,44 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+            .buttonCustomLogin {
+                background-color:#5cb85c;
+                display: inline-block;
+                transition: 0.5s;
+                color: white;
+                font-size: 12px;
+                font-weight: bold;
+            }
+
+            .buttonCustomLogin:hover {
+                background-color: #58D68D;
+                color: white;
+                }
+
+                .buttonCustomRegister {
+                background-color:#0275d8;
+                display: inline-block;
+                transition: 0.5s;
+                color: white;
+                font-size: 12px;
+                font-weight: bold;
+            }
+
+            .buttonCustomRegister:hover {
+                background-color: #58D68D;
+                color: white;
+                }
+    </style>
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-primary shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    <!-- {{ config('app.name', 'Laravel') }} -->
+                    <img src="/navbarBrand.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                    Varatia-Vara(ভাড়াটিয়া-ভাড়া)
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -41,11 +75,12 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <!-- <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a> -->
+                                <a class="nav-link" href="{{ route('login') }}"><button type="button" class="btn buttonCustomLogin">Login</button></a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}"><button type="button" class="btn buttonCustomRegister">Register</button></a>
                                 </li>
                             @endif
                         @else
