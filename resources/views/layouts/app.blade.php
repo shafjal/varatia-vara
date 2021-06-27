@@ -49,6 +49,16 @@
                 background-color: #58D68D;
                 color: white;
                 }
+
+                html, body {
+                background-color: #8E44AD;
+                /* color: #636b6f; */
+                color: #292b2c;
+                font-family: 'Nunito', sans-serif;
+                font-weight: 200;
+                height: 100vh;
+                margin: 0;
+            }
     </style>
 </head>
 <body>
