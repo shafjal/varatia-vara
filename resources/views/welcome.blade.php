@@ -141,6 +141,45 @@
                 background-color: #CCCCFF;
                 color: white;
                 }
+            .buttonCustomHome {
+                background-color:#1ABC9C;
+                display: inline-block;
+                transition: 0.5s;
+                color: white;
+                font-size: 20px;
+                font-weight: bold;
+            }
+
+            .buttonCustomHome:hover {
+                background-color: #BB8FCE;
+                color: white;
+                }
+                .buttonCustomLogout {
+                background-color:#C0392B;
+                display: inline-block;
+                transition: 0.5s;
+                color: white;
+                font-size: 20px;
+                font-weight: bold;
+            }
+
+            .buttonCustomLogout:hover {
+                background-color: #F1948A;
+                color: white;
+                }
+
+                .imgShadow {
+                    width: 200px;
+                    height: 200px;
+                    border:2px solid #fff;
+                    -moz-box-shadow: 7px 7px 4px #ccc;
+                    -webkit-box-shadow: 7px 7px 4px #ccc;
+                    box-shadow: 7px 7px 4px #ccc;
+                    -moz-border-radius:20px;
+                    -webkit-border-radius:20px;
+                    border-radius:20px;
+                    }
+
         </style>
     </head>
     <body>
@@ -149,7 +188,17 @@
                 <div class="top-right links">
                     @auth
                         <!-- <a href="{{ url('/home') }}">Home</a> -->
-                        <a href="{{ route('login') }}"><button type="button" class="btn buttonCustomLogin">Home</button></a>
+                        <a href="{{ route('login') }}"><button type="button" class="btn buttonCustomHome">Dashboard</button></a>
+                        {{-- logout --}}
+                        <a  href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                      document.getElementById('logout-form').submit();">
+                         <button type="button" class="btn buttonCustomLogout">Logut</button>
+                     </a>
+
+                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                         @csrf
+                     </form>
                     @else
                         <a href="{{ route('login') }}"><button type="button" class="btn buttonCustomLogin">Login</button></a>
 
@@ -162,9 +211,9 @@
 
             <div class="content">
                 <div class="container">
-                <img src="/welcome3.png" alt="Girl in a jacket" width="200" height="200">
+                <img class="imgShadow" src="/welcome3.png" alt="Girl in a jacket" width="200" height="200">
                 </div>
-                <div class="text-center title m-b-md">
+                <div class="text-center title m-b-md mt-4">
                     <h1 class="">ভাড়াটিয়া-ভাড়া<h1>
                 </div>
 
