@@ -124,7 +124,21 @@
             }
 
             .buttonCustomRegister:hover {
-                background-color: #58D68D;
+                background-color: #85C1E9;
+                color: white;
+                }
+
+            .buttonCustomContact {
+                background-color:#40E0D0;
+                display: inline-block;
+                transition: 0.5s;
+                color: white;
+                font-size: 20px;
+                font-weight: bold;
+            }
+
+            .buttonCustomContact:hover {
+                background-color: #CCCCFF;
                 color: white;
                 }
         </style>
@@ -156,8 +170,9 @@
 
 
                 <div class="links">
-                    <a href="https://laravel.com/docs"><button type="button" class="btn buttonCustomAbout">About</button></a>
+                    <a href="{{ url('/about') }}"><button type="button" class="btn buttonCustomAbout">About Varatia-Vara</button></a>
                     <a href="https://laravel.com/docs"><button type="button" class="btn buttonCustomTutorial">Tutorial</button></a>
+                    <a href="https://laravel.com/docs"><button type="button" class="btn buttonCustomContact">Contact Us</button></a>
                     <!-- <a href="https://laracasts.com">Laracasts</a> -->
                     <!-- <a href="https://laravel-news.com">News</a> -->
                     <!-- <a href="https://blog.laravel.com">Blog</a> -->

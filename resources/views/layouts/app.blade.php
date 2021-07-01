@@ -53,7 +53,7 @@
                 html, body {
                 background-color: #8E44AD;
                 /* color: #636b6f; */
-                color: #292b2c;
+                color: gray;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
                 height: 100vh;
