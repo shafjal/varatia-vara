@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+    {{-- login --}}
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card">

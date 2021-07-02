@@ -130,5 +130,20 @@
             @yield('content')
         </main>
     </div>
+    <!-- Footer -->
+<div class="contianer-fluid fixed-bottom ">
+    <!-- Copyright -->
+  <div class="row justify-content-center footer text-center p-1" style="background-color: #007bff; color:white;">
+    <div class="col-md-11 col-sm-11 col-10">
+        © 2021 Copyright:
+        <a class="text-reset fw-bold" href="https://www.shuvoafjalme.cf/">Shuvo Afjal</a>
+    </div>
+    <div class="col-md-1 col-sm-1 col-1">
+        v:0
+    </div>
+
+  </div>
+  <!-- Copyright -->
+</div>
 </body>
 </html>
