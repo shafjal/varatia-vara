@@ -222,14 +222,8 @@
                     <a href="{{ url('/about') }}"><button type="button" class="btn buttonCustomAbout">About Varatia-Vara</button></a>
                     <a href="https://laravel.com/docs"><button type="button" class="btn buttonCustomTutorial">Tutorial</button></a>
                     <a href="https://laravel.com/docs"><button type="button" class="btn buttonCustomContact">Contact Us</button></a>
-                    <!-- <a href="https://laracasts.com">Laracasts</a> -->
-                    <!-- <a href="https://laravel-news.com">News</a> -->
-                    <!-- <a href="https://blog.laravel.com">Blog</a> -->
-                    <!-- <a href="https://nova.laravel.com">Nova</a> -->
-                    <!-- <a href="https://forge.laravel.com">Forge</a> -->
-                    <!-- <a href="https://vapor.laravel.com">Vapor</a> -->
-                    <!-- <a href="https://github.com/laravel/laravel">GitHub</a> -->
                 </div>
+
             </div>
         </div>
 
