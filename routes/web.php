@@ -22,6 +22,11 @@ Route::get('/about', function () {
     return view('about');
 });
 
+//About Page
+Route::get('/version', function () {
+    return view('version');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

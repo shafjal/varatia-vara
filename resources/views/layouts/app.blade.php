@@ -139,7 +139,7 @@
         <a class="text-reset fw-bold" href="https://www.shuvoafjalme.cf/">Shuvo Afjal</a>
     </div>
     <div class="col-md-1 col-sm-1 col-1">
-        v:0
+        <a class="text-reset fw-bold" href="{{url('version')}}">v:1.0</a>
     </div>
 
   </div>
