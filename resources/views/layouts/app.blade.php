@@ -20,6 +20,12 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
+            <!-- Font Awesome -->
+            <script src="https://kit.fontawesome.com/caf4fd03c7.js" crossorigin="anonymous"></script>
+            <!-- Boostrap 4.0.0 -->
+            <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+            <link rel="stylesheet" type="text/css" href="{{url('/bootstrap/dist/css/bootstrap.min.css')}}" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+            
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
             .buttonCustomLogin {
@@ -109,6 +115,14 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    {{-- Welcome --}}
+                                    <a class="dropdown-item" href="{{ url('/') }}">
+                                        {{ __('Home') }}
+                                       </a>
+                                    {{-- Dasboard --}}
+                                    <a class="dropdown-item" href="{{ route('home') }}">
+                                     {{ __('Dasboard') }}
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -130,20 +144,7 @@
             @yield('content')
         </main>
     </div>
-    <!-- Footer -->
-<div class="contianer-fluid fixed-bottom ">
-    <!-- Copyright -->
-  <div class="row justify-content-center footer text-center p-1" style="background-color: #007bff; color:white;">
-    <div class="col-md-11 col-sm-10 col-10">
-        © 2021 Copyright:
-        <a class="text-reset fw-bold" href="https://www.shuvoafjalme.cf/">Shuvo Afjal</a>
-    </div>
-    <div class="col-md-1 col-sm-2 col-2">
-        <a class="text-reset fw-bold" href="{{url('version')}}">v:1.0</a>
-    </div>
 
-  </div>
-  <!-- Copyright -->
 </div>
 </body>
 </html>

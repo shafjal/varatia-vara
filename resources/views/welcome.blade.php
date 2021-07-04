@@ -220,11 +220,24 @@
 
                 <div class="links">
                     <a href="{{ url('/about') }}"><button type="button" class="btn buttonCustomAbout">About Varatia-Vara</button></a>
-                    <a href="https://laravel.com/docs"><button type="button" class="btn buttonCustomTutorial">Tutorial</button></a>
+                    <a href="{{ url('/tutorial')}}"><button type="button" class="btn buttonCustomTutorial">Tutorial</button></a>
                     <a href="https://laravel.com/docs"><button type="button" class="btn buttonCustomContact">Contact Us</button></a>
                 </div>
+                    <!-- Footer -->
+                <div class="contianer-fluid fixed-bottom ">
+                    <!-- Copyright -->
+                    <div class="row justify-content-center footer text-center p-1" style="background-color: #007bff; color:white;">
+                        <div class="offset-md-2 col-md-8 col-sm-10 col-10">
+                            © 2021 Copyright:
+                            <a class="text-reset fw-bold" style="color: white" href="https://www.shuvoafjalme.cf/">Shuvo Afjal</a>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-2">
+                            <a class="text-reset fw-bold" style="color: white" href="{{url('version')}}">v:1.0</a>
+                        </div>
 
-            </div>
+                    </div>
+                    <!-- Copyright -->
+                </div>
         </div>
 
         <!-- js -->

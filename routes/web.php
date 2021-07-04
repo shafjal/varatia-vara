@@ -22,9 +22,14 @@ Route::get('/about', function () {
     return view('about');
 });
 
-//About Page
+//Version Page
 Route::get('/version', function () {
     return view('version');
+});
+
+//tutorial Page
+Route::get('/tutorial', function () {
+    return view('tutorial');
 });
 
 Auth::routes();
