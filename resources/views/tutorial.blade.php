@@ -34,7 +34,12 @@
         <div class="card">
             <div class="card-header text-center"><h3><b> Download PDF</b></h3></div>
             <div class="card-body text-center">
-                
+              <a  href="{{url('/pdf/tutorial.pdf')}}">
+                <span style="font-size: 48px; color: rgb(156, 31, 9);">
+                    <i class="fas fa-file-pdf"></i>
+                  </span>
+            </a>
+            <p>Tutorial</p>
             </div>
         </div>
     </div>
