@@ -14,22 +14,22 @@ use Illuminate\Support\Facades\Route;
 */
 // Welcome
 Route::get('/', function () {
-    return view('welcome');
+    return view('page.welcome');
 });
 
 //About Page
 Route::get('/about', function () {
-    return view('about');
+    return view('page.about');
 });
 
 //Version Page
 Route::get('/version', function () {
-    return view('version');
+    return view('page.version');
 });
 
 //tutorial Page
 Route::get('/tutorial', function () {
-    return view('tutorial');
+    return view('page.tutorial');
 });
 
 Auth::routes();
