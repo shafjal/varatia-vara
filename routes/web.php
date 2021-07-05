@@ -31,6 +31,10 @@ Route::get('/version', function () {
 Route::get('/tutorial', function () {
     return view('page.tutorial');
 });
+//contact Page
+Route::get('/contact', function () {
+    return view('page.contact');
+});
 
 Auth::routes();
 

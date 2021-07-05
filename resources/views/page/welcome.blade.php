@@ -221,7 +221,7 @@
                 <div class="links">
                     <a href="{{ url('/about') }}"><button type="button" class="btn buttonCustomAbout">About Varatia-Vara</button></a>
                     <a href="{{ url('/tutorial')}}"><button type="button" class="btn buttonCustomTutorial">Tutorial</button></a>
-                    <a href="https://laravel.com/docs"><button type="button" class="btn buttonCustomContact">Contact Us</button></a>
+                    <a href="{{ url('/contact')}}"><button type="button" class="btn buttonCustomContact">Contact Us</button></a>
                 </div>
                     <!-- Footer -->
                 <div class="contianer-fluid fixed-bottom ">

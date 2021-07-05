@@ -75,6 +75,23 @@
                 
                 color:white;
             }
+
+            .icofont{
+                padding: 20px;
+                font-size: 30px;
+                width: 30px;
+                text-align: center;
+                text-decoration: none;
+                border-radius: 50%;
+            }
+            .icofont:hover {
+            opacity: 0.7;
+            }
+
+            .icofont-facebook{
+                background: #3B5998;
+                color: white;
+            }
     </style>
 </head>
 <body>
