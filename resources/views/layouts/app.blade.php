@@ -25,7 +25,8 @@
             <!-- Boostrap 4.0.0 -->
             <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
             <link rel="stylesheet" type="text/css" href="{{url('/bootstrap/dist/css/bootstrap.min.css')}}" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-            
+            {{-- Icofont --}}
+            <link rel="stylesheet" href="{{url('/icofont/icofont.min.css')}}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
             .buttonCustomLogin {
