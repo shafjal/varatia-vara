@@ -8,9 +8,9 @@
 
               <div class="card-body">
                 <ol class="list-group">
-                    <li class="list-group-item list-group-item-primary"><i style="font-size: 24px; color:green;" class="icofont-address-book"><span style="color: black"> Location: Mirpur 6</span></i></li>
-                    <li class="list-group-item list-group-item-success"><i style="font-size: 24px; color:gray;" class="icofont-ui-contact-list"><span style="color: black"> Phone: 015 33 92 39 62</span></i></li>
-                    <li class="list-group-item list-group-item-primary"><i style="font-size: 24px; color:red;" class="icofont-email"><span style="color: black"> Mail: shuvoafjal@gmail.com</span></i></li>
+                    <li class="list-group-item list-group-item-primary"><i style="font-size: 12px; color:green;" class="icofont-address-book"><span style="color: black"> Location: Mirpur 6</span></i></li>
+                    <li class="list-group-item list-group-item-success"><i style="font-size: 12px; color:gray;" class="icofont-ui-contact-list"><span style="color: black"> Phone: 015 33 92 39 62</span></i></li>
+                    <li class="list-group-item list-group-item-primary"><i style="font-size: 12px; color:red;" class="icofont-email"><span style="color: black"> Mail: shuvoafjal@gmail.com</span></i></li>
                 </ol>
               </div>
           </div>
