@@ -14,11 +14,28 @@
                         </div>
                     @endif
                     @foreach ($admin as $user)
-                    {{$user->id}}
-                    {{$user->name}}
-                    {{$user->email}}
+                    <ul id="printableArea">
+                        <Li>Id = {{$user->id}}</Li>
+                        <li>Name = {{$user->name}}</li>
+                        <li>email = {{$user->email}}</li>
+                    </ul>
                     @endforeach
-                    {{ __('You are logged in!') }}
+                    
+                    {{-- ajax --}}
+                    {{-- <input type="button" onclick="printDiv('printableArea')" value="print" />
+                    <script>
+                        function printDiv(divName) {
+                                    var printContents = document.getElementById(divName).innerHTML;
+                                    var originalContents = document.body.innerHTML;
+
+                                    document.body.innerHTML = printContents;
+
+                                    window.print();
+
+                                    document.body.innerHTML = originalContents;
+                                }
+                    </script> --}}
+                    {{-- {{ __('You are logged in!') }} --}}
                 </div>
             </div>
         </div>

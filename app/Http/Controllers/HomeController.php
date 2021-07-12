@@ -26,5 +26,6 @@ class HomeController extends Controller
     {
         $admin = User::all();
         return view('page.home',compact('admin'));
+      
     }
 }
