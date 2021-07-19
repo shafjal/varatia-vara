@@ -36,6 +36,11 @@ Route::get('/contact', function () {
     return view('page.contact');
 });
 
+//Profile
+Auth::routes();
+
+Route::get('/profile', 'HomeController@profile')->name('profile');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

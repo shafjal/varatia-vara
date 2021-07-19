@@ -137,11 +137,18 @@
                                     {{-- Welcome --}}
                                     <a class="dropdown-item" href="{{ url('/') }}">
                                         {{ __('Home') }}
-                                       </a>
+                                    </a>
                                     {{-- Dasboard --}}
                                     <a class="dropdown-item" href="{{ route('home') }}">
                                      {{ __('Dasboard') }}
                                     </a>
+                                    {{-- Profile --}}
+                                    <a class="dropdown-item" href="{{ route('profile') }}">
+                                        {{ __('Profile') }}
+                                       </a>
+                                    {{-- Divider --}}
+                                    <div class="dropdown-divider"></div>
+                                    {{-- Logout --}}
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
