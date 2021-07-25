@@ -203,7 +203,7 @@
                         <a href="{{ route('login') }}"><button type="button" class="btn buttonCustomLogin">Login</button></a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}"><button type="button" class="btn buttonCustomRegister">Register</button></a>
+                            {{-- <a href="{{ route('register') }}"><button type="button" class="btn buttonCustomRegister">Register</button></a> --}}
                         @endif
                     @endauth
                 </div>

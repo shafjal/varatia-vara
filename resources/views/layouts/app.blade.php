@@ -93,6 +93,9 @@
                 background: #3B5998;
                 color: white;
             }
+            .Metallic-Silver{
+                background: #BCC6CC
+            }
     </style>
 </head>
 <body>
@@ -123,9 +126,9 @@
                                 <a class="nav-link" href="{{ route('login') }}"><button type="button" class="btn buttonCustomLogin">Login</button></a>
                             </li>
                             @if (Route::has('register'))
-                                <li class="nav-item">
+                                {{-- <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}"><button type="button" class="btn buttonCustomRegister">Register</button></a>
-                                </li>
+                                </li> --}}
                             @endif
                         @else
                             <li class="nav-item dropdown">
