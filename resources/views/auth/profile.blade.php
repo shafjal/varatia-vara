@@ -45,6 +45,11 @@
                                             </tr>
                                         </tbody>
                                     </table>
+                                    {{-- Current Time --}}
+                                    {{-- @php
+                                        date_default_timezone_set("Asia/Dhaka");
+                                        echo date('Y-m-d h:i:s');
+                                    @endphp --}}
                             </div>
                         </div>
                     {{-- {{ __('You are logged in!') }} --}}
