@@ -1,103 +1,131 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- <title>{{ config('app.name', 'Laravel') }}</title> -->
     <title>Varatia-Vara(ভাড়াটিয়া-ভাড়া)</title>
-        <!-- Title Logo -->
+    <!-- Title Logo -->
     <link rel="icon" href="/rent.png" type="image/gif/png">
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-            <!-- Font Awesome -->
-            <script src="https://kit.fontawesome.com/caf4fd03c7.js" crossorigin="anonymous"></script>
-            <!-- Boostrap 4.0.0 -->
-            <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
-            <link rel="stylesheet" type="text/css" href="{{url('/bootstrap/dist/css/bootstrap.min.css')}}" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-            {{-- Icofont --}}
-            <link rel="stylesheet" href="{{url('/icofont/icofont.min.css')}}">
-            <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-            
-    <style>
-            .buttonCustomLogin {
-                background-color:#5cb85c;
-                display: inline-block;
-                transition: 0.5s;
-                color: white;
-                font-size: 12px;
-                font-weight: bold;
-            }
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/caf4fd03c7.js" crossorigin="anonymous"></script>
+    <!-- Boostrap 4.0.0 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url('/bootstrap/dist/css/bootstrap.min.css') }}"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    {{-- Icofont --}}
+    <link rel="stylesheet" href="{{ url('/icofont/icofont.min.css') }}">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    {{-- SB Template --}}
+    <link href="{{ asset('sb/css/app.css') }}" rel="stylesheet" />
+    <script src="sb/js/scripts.js"></script>
 
-            .buttonCustomLogin:hover {
-                background-color: #58D68D;
-                color: white;
-                }
-
-                .buttonCustomRegister {
-                background-color:#0275d8;
-                display: inline-block;
-                transition: 0.5s;
-                color: white;
-                font-size: 12px;
-                font-weight: bold;
-            }
-
-            .buttonCustomRegister:hover {
-                background-color: #58D68D;
-                color: white;
-                }
-
-                html, body {
-                background-color: #8E44AD;
-                /* color: #636b6f; */
-                color: gray;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .navBar{
-                
-                color:white;
-            }
-            .navBar:hover{
-                
-                color:white;
-            }
-
-            .icofont{
-                padding: 20px;
-                font-size: 30px;
-                width: 30px;
-                text-align: center;
-                text-decoration: none;
-                border-radius: 50%;
-            }
-            .icofont:hover {
-            opacity: 0.7;
-            }
-
-            .icofont-facebook{
-                background: #3B5998;
-                color: white;
-            }
-            .Metallic-Silver{
-                background: #BCC6CC
-            }
-    </style>
 </head>
+
+<style>
+    .cardShadow {
+        -webkit-box-shadow: 5px 10px 12px 1px rgba(0, 0, 0, 0.47);
+        box-shadow: 5px 10px 12px 1px rgba(0, 0, 0, 0.47);
+    }
+
+    .myShadow {
+        /* -webkit-box-shadow: 11px 23px 14px 8px rgba(0, 0, 0, 0.67);
+        box-shadow: 11px 23px 14px 8px rgba(0, 0, 0, 0.67); */
+        -webkit-box-shadow: 11px 12px 4px 8px rgba(0, 0, 0, 0.67);
+        box-shadow: 11px 12px 4px 8px rgba(0, 0, 0, 0.67);
+    }
+
+    .buttonCustomLogin {
+        background-color: #5cb85c;
+        display: inline-block;
+        transition: 0.5s;
+        color: white;
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    .buttonCustomLogin:hover {
+        background-color: #58D68D;
+        color: white;
+    }
+
+    .buttonCustomRegister {
+        background-color: #0275d8;
+        display: inline-block;
+        transition: 0.5s;
+        color: white;
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    .buttonCustomRegister:hover {
+        background-color: #58D68D;
+        color: white;
+    }
+
+    html,
+    body {
+        /* background-color: #B2BEB5; */
+        background-color: #8E44AD;
+        /* color: #636b6f; */
+        color: gray;
+        font-family: 'Nunito', sans-serif;
+        font-weight: 200;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .navBar {
+
+        color: white;
+    }
+
+    .navBar:hover {
+
+        color: white;
+    }
+
+    .icofont {
+        padding: 20px;
+        font-size: 30px;
+        width: 30px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 50%;
+    }
+
+    .icofont:hover {
+        opacity: 0.7;
+    }
+
+    .icofont-facebook {
+        background: #3B5998;
+        color: white;
+    }
+
+    .Metallic-Silver {
+        background: #BCC6CC
+    }
+</style>
+</head>
+
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark bg-primary shadow-sm">
@@ -107,7 +135,9 @@
                     <img src="/navbarBrand.png" width="30" height="30" class="d-inline-block align-top" alt="">
                     Varatia-Vara(ভাড়াটিয়া-ভাড়া)
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -121,48 +151,57 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                            <li class="nav-item">
-                                <!-- <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a> -->
-                                <a class="nav-link" href="{{ route('login') }}"><button type="button" class="btn buttonCustomLogin">Login</button></a>
-                            </li>
-                            @if (Route::has('register'))
-                                {{-- <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}"><button type="button" class="btn buttonCustomRegister">Register</button></a>
-                                </li> --}}
-                            @endif
+                        {{-- <li class="nav-item">
+                            <!-- <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a> -->
+                            <a class="nav-link" href="{{ route('login') }}"><button type="button"
+                                    class="btn buttonCustomLogin">Login</button></a>
+                        </li> --}}
+                        @if (Route::has('register'))
+                        {{-- <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}"><button type="button"
+                                    class="btn buttonCustomRegister">Register</button></a>
+                        </li> --}}
+                        @endif
                         @else
-                            <li class="nav-item dropdown">
-                                <a  id="navbarDropdown" class="nav-link dropdown-toggle navBar" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                        <li class="nav-item">
+                            <button type="button" class="btn btn-primary">
+                                <span class="badge badge-small"><i class="icofont-ui-message icofont-2x"></i></span>
+                                <span style="font-size: 16px; "><sup>4</sup></span>
+                            </button>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle navBar" href="#" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }}
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                {{-- Welcome --}}
+                                <a class="dropdown-item" href="{{ url('/') }}">
+                                    {{ __('Home') }}
+                                </a>
+                                {{-- Dasboard --}}
+                                <a class="dropdown-item" href="{{ route('home') }}">
+                                    {{ __('Dasboard') }}
+                                </a>
+                                {{-- Profile --}}
+                                <a class="dropdown-item" href="{{ route('profile') }}">
+                                    {{ __('Profile') }}
+                                </a>
+                                {{-- Divider --}}
+                                <div class="dropdown-divider"></div>
+                                {{-- Logout --}}
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                                                                                                             document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    {{-- Welcome --}}
-                                    <a class="dropdown-item" href="{{ url('/') }}">
-                                        {{ __('Home') }}
-                                    </a>
-                                    {{-- Dasboard --}}
-                                    <a class="dropdown-item" href="{{ route('home') }}">
-                                     {{ __('Dasboard') }}
-                                    </a>
-                                    {{-- Profile --}}
-                                    <a class="dropdown-item" href="{{ route('profile') }}">
-                                        {{ __('Profile') }}
-                                       </a>
-                                    {{-- Divider --}}
-                                    <div class="dropdown-divider"></div>
-                                    {{-- Logout --}}
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
                         @endguest
                     </ul>
                 </div>
@@ -174,8 +213,11 @@
         </main>
     </div>
 
-</div>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script type="text/javascript" src="js/jquery.printPage.js"></script>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="sb/js/scripts.js"></script>
 </body>
+
 </html>

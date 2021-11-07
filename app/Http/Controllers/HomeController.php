@@ -25,7 +25,7 @@ class HomeController extends Controller
     public function index()
     {
         $admin = User::all();
-        return view('page.home', compact('admin'));
+        return view('page.dashboard', compact('admin'));
     }
 
     public function profile()
