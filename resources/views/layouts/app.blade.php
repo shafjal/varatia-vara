@@ -120,6 +120,10 @@
     .Metallic-Silver {
         background: #BCC6CC
     }
+
+    .textColor {
+        color: white;
+    }
 </style>
 </head>
 
@@ -160,14 +164,23 @@
                         </li> --}}
                         @endif
                         @else
+
+                        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                            <div class="input-group">
+                                <input class="form-control" type="text" placeholder="Search for..."
+                                    aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                                <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i
+                                        class="fas fa-search"></i></button>
+                            </div>
+                        </form>
+
                         <li class="nav-item">
-                            <button type="button" class="btn btn-primary">
+                            <a href="" type="button" class="btn btn-primary">
                                 Message
                                 <span class="badge badge-small"><i class="icofont-ui-message icofont-2x"
                                         style="color: lightgreen"></i></span>
                                 <span style="font-size: 16px;color: #FFFF00 "><sup><b>4</b></sup></span>
-
-                            </button>
+                            </a>
                         </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle navBar" href="#" role="button"

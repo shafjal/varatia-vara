@@ -1,7 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+
+<div class="container-fluid px-4">
+    <h1 class="mt-4 textColor">Dashboard</h1>
+    {{-- <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">Dashboard</li>
+    </ol> --}}
+
+</div>
+
+{{-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card myShadow">
@@ -20,25 +29,9 @@
                         <li>email = {{$user->email}}</li>
                     </ul>
                     @endforeach
-
-                    {{-- ajax --}}
-                    {{-- <input type="button" onclick="printDiv('printableArea')" value="print" />
-                    <script>
-                        function printDiv(divName) {
-                                    var printContents = document.getElementById(divName).innerHTML;
-                                    var originalContents = document.body.innerHTML;
-
-                                    document.body.innerHTML = printContents;
-
-                                    window.print();
-
-                                    document.body.innerHTML = originalContents;
-                                }
-                    </script> --}}
-                    {{-- {{ __('You are logged in!') }} --}}
                 </div>
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 @endsection
