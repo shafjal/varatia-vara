@@ -40,16 +40,13 @@
 </head>
 
 <style>
-    .cardShadow {
-        -webkit-box-shadow: 5px 10px 12px 1px rgba(0, 0, 0, 0.47);
-        box-shadow: 5px 10px 12px 1px rgba(0, 0, 0, 0.47);
-    }
-
     .myShadow {
         /* -webkit-box-shadow: 11px 23px 14px 8px rgba(0, 0, 0, 0.67);
         box-shadow: 11px 23px 14px 8px rgba(0, 0, 0, 0.67); */
-        -webkit-box-shadow: 11px 12px 4px 8px rgba(0, 0, 0, 0.67);
-        box-shadow: 11px 12px 4px 8px rgba(0, 0, 0, 0.67);
+        /* -webkit-box-shadow: 11px 12px 4px 8px rgba(0, 0, 0, 0.67);
+        box-shadow: 11px 12px 4px 8px rgba(0, 0, 0, 0.67); */
+        -webkit-box-shadow: 5px 10px 12px 1px rgba(0, 0, 0, 0.47);
+        box-shadow: 5px 10px 12px 1px rgba(0, 0, 0, 0.47);
     }
 
     .buttonCustomLogin {
@@ -165,8 +162,11 @@
                         @else
                         <li class="nav-item">
                             <button type="button" class="btn btn-primary">
-                                <span class="badge badge-small"><i class="icofont-ui-message icofont-2x"></i></span>
-                                <span style="font-size: 16px; "><sup>4</sup></span>
+                                Message
+                                <span class="badge badge-small"><i class="icofont-ui-message icofont-2x"
+                                        style="color: lightgreen"></i></span>
+                                <span style="font-size: 16px;color: #FFFF00 "><sup><b>4</b></sup></span>
+
                             </button>
                         </li>
                         <li class="nav-item dropdown">
