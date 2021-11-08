@@ -86,7 +86,8 @@
             <div class="card mb-4 myShadow">
                 <div class="card-header">
                     <i class="fas fa-table me-1"></i>
-                    Possible Cost List: {{ $curentMonth }} (Tk 95,000)
+                    Possible Cost List: {{ $curentMonth }} <span style="background-color: green; color:white">Total Tk:
+                        95,000</span>
                     <a href="" data-toggle="modal" data-target="#exampleModalCenter">
                         <i class="fas fa-plus-square me-1 float-right" style="font-size: 20px; color: Dodgerblue;">
                         </i>
@@ -103,7 +104,23 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-
+                                    <form>
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="inputEmail" type="text"
+                                                placeholder="Task Name" />
+                                            {{-- <label for="inputEmail">Task Name</label> --}}
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="inputPassword" type="text"
+                                                placeholder="Location" />
+                                            {{-- <label for="inputPassword">Amount</label> --}}
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="inputPassword" type="number"
+                                                placeholder="Amount" />
+                                            {{-- <label for="inputPassword">Amount</label> --}}
+                                        </div>
+                                    </form>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
