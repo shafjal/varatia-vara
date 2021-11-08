@@ -276,7 +276,7 @@ const myBarChart = new Chart(ctx, {
                 '#ff6384',
                 '#36a2eb',
                 '#ffce56',
-                'rgba(75, 192, 192, 0.2)',
+                '#4bc0c0',
                 '#4bc0c0',
                 '#ff9f40'
             ],
