@@ -28,8 +28,9 @@ class HomeController extends Controller
         $admin = User::all();
         $currentDate = Carbon::now()->format('d/m/y');
         $curentDay = Carbon::createFromFormat('d/m/Y',$currentDate)->format('l');
-        
-        return view('page.dashboard', compact('admin','curentDay','currentDate'));
+        $curentMonth = Carbon::createFromFormat('d/m/Y',$currentDate)->format('M');
+    
+        return view('page.dashboard', compact('admin','curentDay','currentDate','curentMonth'));
        
     }
 
