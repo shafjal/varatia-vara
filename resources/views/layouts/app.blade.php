@@ -25,6 +25,7 @@
     <!-- Styles -->
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/caf4fd03c7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url('/fontawesome/css/all.min.css') }}">
     <!-- Boostrap 4.0.0 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -51,6 +52,15 @@
         box-shadow: 11px 12px 4px 8px rgba(0, 0, 0, 0.67); */
         -webkit-box-shadow: 5px 10px 12px 1px rgba(0, 0, 0, 0.47);
         box-shadow: 5px 10px 12px 1px rgba(0, 0, 0, 0.47);
+    }
+
+    .myShadow2 {
+        /* -webkit-box-shadow: 11px 23px 14px 8px rgba(0, 0, 0, 0.67);
+        box-shadow: 11px 23px 14px 8px rgba(0, 0, 0, 0.67); */
+        /* -webkit-box-shadow: 11px 12px 4px 8px rgba(0, 0, 0, 0.67);
+        box-shadow: 11px 12px 4px 8px rgba(0, 0, 0, 0.67); */
+        -webkit-box-shadow: 7px 4px 20px -3px #000000;
+        box-shadow: 7px 4px 20px -3px #000000;
     }
 
     .buttonCustomLogin {

@@ -14,7 +14,7 @@
         <div class="col-xl-3 col-md-6">
             <div class="card bg-success text-white mb-4 myShadow">
                 <div class="card-header">
-                    <i class="fa fa-money fa-2x" aria-hidden="true" style="float:left;">
+                    <i class="fas fa-money-bill-alt fa-2x myShadow2" aria-hidden="true" style="float:left;">
 
                     </i>
                     <h5 class="text-right" style="margin-top: 1px">Current Balance</h5>
@@ -31,7 +31,7 @@
         <div class="col-xl-3 col-md-6">
             <div class="card bg-warning text-white mb-4 myShadow">
                 <div class="card-header">
-                    <i class="fa fa-money fa-2x" aria-hidden="true" style="float:left;">
+                    <i class="fas fa-money-bill-alt fa-2x myShadow2" aria-hidden="true" style="float:left;">
 
                     </i>
                     <h5 class="text-right" style="margin-top: 1px">Current Due</h5>
@@ -48,7 +48,7 @@
         <div class="col-xl-3 col-md-6">
             <div class="card bg-danger text-white mb-4 myShadow">
                 <div class="card-header">
-                    <i class="fa fa-money fa-2x" aria-hidden="true" style="float:left;">
+                    <i class="fas fa-money-bill-alt fa-2x myShadow2" aria-hidden="true" style="float:left;">
 
                     </i>
                     <h5 class="text-right" style="margin-top: 1px">Previous Due</h5>
@@ -65,7 +65,7 @@
         <div class="col-xl-3 col-md-6">
             <div class="card bg-info text-white mb-4 myShadow">
                 <div class="card-header">
-                    <i class="fa fa-money fa-2x" aria-hidden="true" style="float:left;">
+                    <i class="fas fa-money-bill-alt fa-2x myShadow2" aria-hidden="true" style="float:left;">
 
                     </i>
                     <h5 class="text-right" style="margin-top: 1px">Estimet Cost</h5>
@@ -80,42 +80,122 @@
             </div>
         </div>
     </div>
-    {{-- Due List/Table Person this month --}}
+    {{-- Possible Cost List Current Month --}}
     <div class="row">
         <div class="col-xl-12">
             <div class="card mb-4 myShadow">
                 <div class="card-header">
                     <i class="fas fa-table me-1"></i>
-                    DataTable Example
+                    Possible Cost List: {{ $curentMonth }} (Tk 95,000)
+                    <a href="" data-toggle="modal" data-target="#exampleModalCenter">
+                        <i class="fas fa-plus-square me-1 float-right" style="font-size: 20px; color: Dodgerblue;">
+                        </i>
+                    </a>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Add Possible Cost</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="card-body">
-                    <table class="table table-bordered table-hover" id="datatablesSimple">
-                        <thead class="text-center bg-info">
-                            <tr>
-                                <th>Name</th>
-                                <th>Phone</th>
-                                <th>Floor/Apt. Number</th>
-                                <th>Last Payment date</th>
-                                <th>Current Due</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-center">
-                            <tr>
-                                <td>Tiger Nixon</td>
-                                <td>02 999 9999</td>
-                                <td>6B</td>
-                                <td>2011/04/25</td>
-                                <td>Tk 350000</td>
-                            </tr>
-                            <tr>
-                                <td>Garrett Winters</td>
-                                <td>02 888 8888</td>
-                                <td>8B</td>
-                                <td>2011/07/25</td>
-                                <td>Tk 70,750</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover " id="datatablesSimple">
+                            <thead class="text-center bg-info">
+                                <tr>
+                                    <th>Task Name</th>
+                                    <th>Location</th>
+                                    <th>Amount</th>
+                                    <th colspan="2">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-center">
+                                <tr>
+                                    <td>Roof/Tiles</td>
+                                    <td>2B</td>
+                                    <td>20000</td>
+                                    <td>
+                                        <a href=""><i class="fas fa-trash-alt" style="color: red"></i></a>
+                                    </td>
+                                    <td>
+                                        <a href=""><i class="fas fa-edit" style="color: blue"></i></a>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>Wash Room</td>
+                                    <td>4A</td>
+                                    <td>75000</td>
+                                    <td>
+                                        <a href=""><i class="fas fa-trash-alt" style="color: red"></i></a>
+                                    </td>
+                                    <td>
+                                        <a href=""><i class="fas fa-edit" style="color: blue"></i></a>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- Due List/Table Person current month --}}
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card mb-4 myShadow">
+                <div class="card-header">
+                    <i class="fas fa-table me-1"></i>
+                    Due of Sppecific Tenant For Month: {{ $curentMonth }}
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover" id="datatablesSimple">
+                            <thead class="text-center bg-info">
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Phone</th>
+                                    <th>Floor/Apt. Number</th>
+                                    <th>Last Payment date</th>
+                                    <th>Current Due</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-center">
+                                <tr>
+                                    <td>Tiger Nixon</td>
+                                    <td>02 999 9999</td>
+                                    <td>6B</td>
+                                    <td>2011/04/25</td>
+                                    <td>Tk 350000</td>
+                                </tr>
+                                <tr>
+                                    <td>Garrett Winters</td>
+                                    <td>02 888 8888</td>
+                                    <td>8B</td>
+                                    <td>2011/07/25</td>
+                                    <td>Tk 70,750</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
                 </div>
             </div>
         </div>
