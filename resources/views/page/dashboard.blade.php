@@ -3,7 +3,11 @@
 @section('content')
 
 <div class="container-fluid px-4">
-    <h1 class="mt-4 textColor">Dashboard</h1>
+    <h5 class="mt-4 textColor">Dashboard <span style="float:right">
+            {{ $curentDay}},
+            {{ $currentDate }}
+
+        </span></h5>
     <hr style="width:100%;text-align:left;margin-left:0; border: 1px solid white;">
     {{-- card section --}}
     <div class="row">

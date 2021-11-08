@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -25,7 +26,11 @@ class HomeController extends Controller
     public function index()
     {
         $admin = User::all();
-        return view('page.dashboard', compact('admin'));
+        $currentDate = Carbon::now()->format('d/m/y');
+        $curentDay = Carbon::createFromFormat('d/m/Y',$currentDate)->format('l');
+        
+        return view('page.dashboard', compact('admin','curentDay','currentDate'));
+       
     }
 
     public function profile()
