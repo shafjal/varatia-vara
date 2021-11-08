@@ -86,7 +86,8 @@
             <div class="card mb-4 myShadow">
                 <div class="card-header">
                     <i class="fas fa-table me-1"></i>
-                    Possible Cost List: {{ $curentMonth }} <span style="background-color: green; color:white">Total Tk:
+                    Possible Cost List: <span style="background-color: yellow">{{ $curentMonth }}</span>
+                    <span style="background-color: green; color:white">Total Tk:
                         95,000</span>
                     <a href="" data-toggle="modal" data-target="#exampleModalCenter">
                         <i class="fas fa-plus-square me-1 float-right" style="font-size: 20px; color: Dodgerblue;">
@@ -180,7 +181,8 @@
             <div class="card mb-4 myShadow">
                 <div class="card-header">
                     <i class="fas fa-table me-1"></i>
-                    Due of Sppecific Tenant For Month: {{ $curentMonth }}
+                    Due of Sppecific Tenant Current Month: <span style="background-color: yellow">{{ $curentMonth
+                        }}</span>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -219,7 +221,7 @@
     </div>
     {{-- Revenue Chart current month--}}
     <h5 class="mt-4 textColor text-center">
-        Revenue Chart For Month: {{ $curentMonth }}
+        Revenue Chart For Current Year: {{ $currentYear }}
     </h5>
     <hr style="width:100%;text-align:left;margin-left:0; border: 1px solid white;">
     <div class="row">

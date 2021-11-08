@@ -26,11 +26,12 @@ class HomeController extends Controller
     public function index()
     {
         $admin = User::all();
-        $currentDate = Carbon::now()->format('d/m/y');
+        $currentDate = Carbon::now()->format('d/m/Y');
+        $currentYear = Carbon::now()->format('Y');
         $curentDay = Carbon::createFromFormat('d/m/Y',$currentDate)->format('l');
-        $curentMonth = Carbon::createFromFormat('d/m/Y',$currentDate)->format('M');
+        $curentMonth = Carbon::createFromFormat('d/m/Y',$currentDate)->format('F');
     
-        return view('page.dashboard', compact('admin','curentDay','currentDate','curentMonth'));
+        return view('page.dashboard', compact('admin','curentDay','currentDate','curentMonth','currentYear'));
        
     }
 
