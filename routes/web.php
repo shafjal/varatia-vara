@@ -40,6 +40,7 @@ Route::get('/contact', function () {
 Auth::routes();
 
 Route::get('/profile', 'HomeController@profile')->name('profile');
+Route::get('/message', 'MessageController@index')->name('message');
 
 Auth::routes();
 

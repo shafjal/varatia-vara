@@ -187,11 +187,10 @@
                         </form>
 
                         <li class="nav-item">
-                            <a href="" type="button" class="btn btn-primary">
-                                Message
-                                <span class="badge badge-small"><i class="icofont-ui-message icofont-2x"
+                            <a href="{{ route('message') }}" type="button" class="btn btn-primary">Message
+                                <span class="badge badge-small"><i class="fas fa-envelope-square fa-2x"
                                         style="color: lightgreen"></i></span>
-                                <span style="font-size: 16px;color: #FFFF00 "><sup><b>2</b></sup></span>
+                                <span style="font-size: 16px;color: #FFFF00 "><sup><b>4</b></sup></span>
                             </a>
                         </li>
                         <li class="nav-item dropdown">
