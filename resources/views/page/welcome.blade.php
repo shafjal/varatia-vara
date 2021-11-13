@@ -243,7 +243,7 @@
 
         <div class="content">
             <div class="container">
-                <img class="imgShadow" src="/welcome3.png" alt="" width="200" height="200">
+                <img class="imgShadow" src="{{url('/welcome3.png')}}" alt="" width="200" height="200">
             </div>
             <div class="text-center title m-b-md mt-4">
                 <h1 class="">ভাড়াটিয়া-ভাড়া<h1>
