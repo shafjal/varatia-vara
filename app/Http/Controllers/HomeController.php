@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Role;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
@@ -34,10 +35,22 @@ class HomeController extends Controller
         return view('page.dashboard', compact('admin','curentDay','currentDate','curentMonth','currentYear'));
        
     }
+        public function selectDashboard()
+    {
+        $admin = User::all();
+        $currentDate = Carbon::now()->timezone('Asia/Dhaka')->format('d/m/Y');
+        $currentYear = Carbon::now()->timezone('Asia/Dhaka')->format('Y');
+        $curentDay = Carbon::createFromFormat('d/m/Y',$currentDate)->format('l');
+        $curentMonth = Carbon::createFromFormat('d/m/Y',$currentDate)->format('F');
+        return view('page.selectDashboard', compact('admin','curentDay','currentDate','curentMonth','currentYear'));
+       
+    }
+    
 
     public function profile()
     {
-        $admin = User::all();
-        return view('auth.profile', compact('admin'));
+        //$admin = User::where('1');
+        //dd($admin);
+        return view('auth.profile');
     }
 }

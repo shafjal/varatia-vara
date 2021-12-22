@@ -18,6 +18,7 @@
                     </div>
                     @endif
                     {{-- pic + Details --}}
+
                     <div class="row justify-content-center ">
                         <div class="col-md-3 bg-info myShadow">
                             <img class="card-img-top mt-2" src="/avater.jpg" alt="Card image cap">
@@ -37,7 +38,7 @@
                                 </thead>
                                 <tbody class="">
                                     <tr>
-                                        <td>Shuvo Afjal</td>
+                                        <td>{{ Auth::user()->name }}</td>
                                         <td>59 BGB</td>
                                         <td>shuvoafjal@gmail.com</td>
                                         <td>

@@ -45,11 +45,13 @@ Route::get('/message', 'MessageController@index')->name('message');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/selectDashboard', 'HomeController@selectDashboard')->name('selectDashboard');
+Route::get('/tenant', 'TenantController@index')->name('tenant');
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');

@@ -12,6 +12,10 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- <title>{{ config('app.name', 'Laravel') }}</title> -->
+    @auth
+    <title>V-V ||{{ Auth::user()->name }}</title>
+    <link rel="icon" href="url('/rent.png')}}" type="image/gif/png">
+    @endauth
     <title>Varatia-Vara(ভাড়াটিয়া-ভাড়া)</title>
     <!-- Title Logo -->
 
@@ -208,8 +212,12 @@
                                     {{ __('Home') }}
                                 </a>
                                 {{-- Dasboard --}}
-                                <a class="dropdown-item" href="{{ route('home') }}">
+                                <a class="dropdown-item" href="{{ route('selectDashboard') }}">
                                     {{ __('Dasboard') }}
+                                </a>
+                                {{-- Tenant --}}
+                                <a class="dropdown-item" href="{{ route('tenant') }}">
+                                    {{ __('Tenant Details') }}
                                 </a>
                                 {{-- Profile --}}
                                 <a class="dropdown-item" href="{{ route('profile') }}">
