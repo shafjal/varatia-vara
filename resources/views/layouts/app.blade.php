@@ -143,6 +143,11 @@
     .textColor {
         color: white;
     }
+
+    .form-group.required .control-label:after {
+        content: "***";
+        color: red;
+    }
 </style>
 </head>
 
@@ -218,6 +223,10 @@
                                 {{-- Tenant --}}
                                 <a class="dropdown-item" href="{{ route('tenant') }}">
                                     {{ __('Tenant Details') }}
+                                </a>
+                                {{-- Tenant Create --}}
+                                <a class="dropdown-item" href="{{ route('tenant.create') }}">
+                                    {{ __('Tenant Create') }}
                                 </a>
                                 {{-- Profile --}}
                                 <a class="dropdown-item" href="{{ route('profile') }}">

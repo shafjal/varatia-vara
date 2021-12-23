@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Tenant;
 use Illuminate\Http\Request;
 
 class TenantController extends Controller
@@ -13,7 +14,8 @@ class TenantController extends Controller
      */
     public function index()
     {
-        return view('page.tenant');
+        $tenats = Tenant::all();
+        return view('page.tenant', compact('tenats'))->with('no',1);
     }
 
     /**
@@ -23,7 +25,7 @@ class TenantController extends Controller
      */
     public function create()
     {
-        //
+        return view('page.tenantCreate');
     }
 
     /**
@@ -34,7 +36,67 @@ class TenantController extends Controller
      */
     public function store(Request $request)
     {
-        //
+            $validated = $request->validate([
+            'name' => 'required|max:255',
+            'fathers_name' => 'required|max:255',
+            'e_name' => 'required|max:255',
+            'e_address' => 'required|max:255',
+            'e_relation' => 'required|max:255',
+            'e_phone' => 'required|max:255',
+            'maritial_status' => 'required|max:255',
+            'address' => 'required|max:255',
+            'date_of_b' => 'required|max:255',
+            'phone' => 'required|max:255',
+            'nid' => 'required|max:255',
+            'education' => 'required|max:255',
+            'job_title' => 'required|max:255',
+            'job_location' => 'required|max:255',
+            'religious' => 'required|max:255',
+            'country' => 'required|max:255',
+    ]);
+
+        //     $newTenant = new Tenant([
+        //     'name' => $request->get('name'),
+        //     'fathers_name' => $request->get('fathers_name'),
+        //     'e_name' => $request->get('e_name'),
+        //     'e_address' => $request->get('e_address'),
+        //     'e_relation' => $request->get('e_relation'),
+        //     'e_phone' => $request->get('e_phone'),
+        //     'maritial_status' => $request->get('maritial_status'),
+        //     'address' => $request->get('address'),
+        //     'e_relation' => $request->get('e_relation'),
+        //     'date_of_b' => $request->get('date_of_b'),
+        //     'phone' => $request->get('phone'),
+        //     'nid' => $request->get('nid'),
+        //     'education' => $request->get('education'),
+        //     'job_title' => $request->get('job_title'),
+        //     'job_location' => $request->get('job_location'),
+        //     'religious' => $request->get('religious'),
+        //     'country' => $request->get('country'),
+        // ]);
+        // $newTenant->save();
+        // return redirect('/tenant')->with('success', 'Tenant new data saved!');
+
+        Tenant::insert([
+            'name' => $request->name,
+            'fathers_name' => $request->fathers_name,
+            'e_name' => $request->e_name,
+            'e_address' => $request->e_address,
+            'e_relation' => $request->e_relation,
+            'e_phone' => $request->e_phone,
+            'maritial_status' => $request->maritial_status,
+            'address' => $request->address,
+            'e_relation' => $request->e_relation,
+            'date_of_b' => $request->date_of_b,
+            'phone' => $request->phone,
+            'nid' => $request->nid,
+            'education' => $request->education,
+            'job_title' => $request->job_title,
+            'job_location' => $request->job_location,
+            'religious' => $request->religious,
+            'country' => $request->country
+        ]);
+        return redirect('/tenant/create')->with('success', 'Tenant new data saved!');
     }
 
     /**
@@ -79,6 +141,8 @@ class TenantController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tenant = Tenant::find($id);
+        $tenant->delete();
+        return redirect('/tenant')->with('success-delete', 'Tenant data deleted!');
     }
 }

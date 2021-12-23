@@ -38,15 +38,19 @@ Route::get('/contact', function () {
 
 //Profile
 Auth::routes();
-
+//Profile
 Route::get('/profile', 'HomeController@profile')->name('profile');
+//Message
 Route::get('/message', 'MessageController@index')->name('message');
-
-Auth::routes();
-
+//Home
 Route::get('/home', 'HomeController@index')->name('home');
+//Select Dashboard
 Route::get('/selectDashboard', 'HomeController@selectDashboard')->name('selectDashboard');
+//Tenant
 Route::get('/tenant', 'TenantController@index')->name('tenant');
+Route::get('/tenant/create', 'TenantController@create')->name('tenant.create');
+Route::post('/tenant/create', 'TenantController@store')->name('tenant.store');
+Route::get('/tenant/{id}', 'TenantController@destroy')->name('tenant.destroy');
 
 // Auth::routes();
 
