@@ -22,7 +22,8 @@
                     <h5 class="text-center">70,000/=</h5>
                 </div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
-                    <a class="small text-white stretched-link" href="#">View Details</a>
+                    <a class="small text-white stretched-link" href="#" data-toggle="modal"
+                        data-target="#viewdetails">View Details</a>
                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                 </div>
             </div>
@@ -38,7 +39,8 @@
                     <h5 class="text-center">70,000/=</h5>
                 </div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
-                    <a class="small text-white stretched-link" href="#">View Details</a>
+                    <a class="small text-white stretched-link" href="#" data-toggle="modal"
+                        data-target="#viewdetails">View Details</a>
                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                 </div>
             </div>
@@ -53,7 +55,8 @@
                     <h5 class="text-center">70,000/=</h5>
                 </div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
-                    <a class="small text-white stretched-link" href="#">View Details</a>
+                    <a class="small text-white stretched-link" href="#" data-toggle="modal"
+                        data-target="#viewdetails">View Details</a>
                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                 </div>
             </div>
@@ -69,8 +72,54 @@
                     <h5 class="text-center">95,000/=</h5>
                 </div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
-                    <a class="small text-white stretched-link" href="#">View Details</a>
+                    <a class="small text-white stretched-link" href="#" data-toggle="modal"
+                        data-target="#viewdetails">View Details</a>
                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="viewdetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Add Possible Cost</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-bordered table-hover " id="datatablesSimple">
+                            <thead class="text-center bg-info">
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-center">
+                                <tr>
+                                    <td>Tiger Nixon</td>
+                                    <td>20000</td>
+                                </tr>
+                                <tr>
+                                    <td>Tiger Nixon</td>
+                                    <td>20000</td>
+                                </tr>
+                                <tr>
+                                    <td>Tiger Nixon</td>
+                                    <td>20000</td>
+                                </tr>
+                                <tr>
+                                    <td>Total</td>
+                                    <td>80000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -214,87 +263,5 @@
             </div>
         </div>
     </div>
-    {{-- Revenue Chart current month--}}
-    <h5 class="mt-4 textColor text-center">
-        Revenue Chart For Current Year: {{ $currentYear }}
-    </h5>
-    <hr style="width:100%;text-align:left;margin-left:0; border: 1px solid white;">
-    <div class="row">
-        <div class="col-xl-12">
-            <div class="card mb-4 myShadow">
-                <div class="card-header">
-                    <i class="fas fa-chart-bar me-1"></i>
-                    Bar Chart
-                </div>
-                <div class="card-body">
-                    <canvas id="myChart" width="100%" height="20">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
-{{-- <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card myShadow">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
-                    </div>
-                    @endif
-                    @foreach ($admin as $user)
-                    <ul id="printableArea">
-                        <Li>Id = {{$user->id}}</Li>
-                        <li>Name = {{$user->name}}</li>
-                        <li>email = {{$user->email}}</li>
-                    </ul>
-                    @endforeach
-                </div>
-            </div>
-        </div>
-    </div>
-</div> --}}
-
-{{-- chartJavascript --}}
-<script>
-    const ctx = document.getElementById('myChart').getContext('2d');
-const myBarChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ['Jan', 'Feb', 'March', 'June', 'July', 'Aug'],
-        datasets: [{
-            label: 'Revenue:',
-            data: [70000, 50000, 8000, 70000, 90000, 30000],
-            backgroundColor: [
-                '#ff6384',
-                '#36a2eb',
-                '#ffce56',
-                '#4bc0c0',
-                '#4bc0c0',
-                '#ff9f40'
-            ],
-            borderColor: [
-                '#ff6384',
-                '#36a2eb',
-                '#ffce56',
-                '#4bc0c0',
-                '#9966ff',
-                '#ff9f40'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
-});
-</script>
-@endsection
+    @endsection

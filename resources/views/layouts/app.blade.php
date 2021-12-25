@@ -12,11 +12,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- <title>{{ config('app.name', 'Laravel') }}</title> -->
-    @auth
-    <title>V-V ||{{ Auth::user()->name }}</title>
     <link rel="icon" href="url('/rent.png')}}" type="image/gif/png">
-    @endauth
-    <title>Varatia-Vara(ভাড়াটিয়া-ভাড়া)</title>
+    <title>Varatia-Vara</title>
     <!-- Title Logo -->
 
     {{--
@@ -227,6 +224,10 @@
                                 {{-- Tenant Create --}}
                                 <a class="dropdown-item" href="{{ route('tenant.create') }}">
                                     {{ __('Tenant Create') }}
+                                </a>
+                                {{-- Report --}}
+                                <a class="dropdown-item" href="{{ route('report.generate') }}">
+                                    {{ __('Report') }}
                                 </a>
                                 {{-- Profile --}}
                                 <a class="dropdown-item" href="{{ route('profile') }}">
