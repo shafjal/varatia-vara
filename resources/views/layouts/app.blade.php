@@ -145,6 +145,20 @@
         content: "***";
         color: red;
     }
+
+    .noticeHeader {
+        background-color: #cbb8d4;
+        color: black;
+    }
+
+    .noticeBody {
+        background-color: #f3eef5;
+        color: black;
+    }
+
+    .noticeFooter {
+        background-color: #dfdc5b;
+    }
 </style>
 </head>
 
@@ -194,14 +208,14 @@
                                         class="fas fa-search"></i></button>
                             </div>
                         </form>
-
                         <li class="nav-item">
-                            <a href="{{ route('message') }}" type="button" class="btn btn-primary">Message
+                            <a href="{{ route('message') }}" type="button" class="btn btn-success">Message
                                 <span class="badge badge-small"><i class="fas fa-envelope-square fa-2x"
                                         style="color: lightgreen"></i></span>
                                 <span style="font-size: 16px;color: #FFFF00 "><sup><b>4</b></sup></span>
                             </a>
                         </li>
+
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle navBar" href="#" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -228,6 +242,14 @@
                                 {{-- Report --}}
                                 <a class="dropdown-item" href="{{ route('report.generate') }}">
                                     {{ __('Report') }}
+                                </a>
+                                {{-- Notice --}}
+                                <a class="dropdown-item" href="{{ route('notice') }}">
+                                    {{ __('Notice') }}
+                                </a>
+                                {{-- Leave Notice --}}
+                                <a class="dropdown-item" href="{{ route('notice') }}">
+                                    {{ __('Leave Notice') }}
                                 </a>
                                 {{-- Profile --}}
                                 <a class="dropdown-item" href="{{ route('profile') }}">

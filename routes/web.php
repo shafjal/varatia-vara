@@ -53,6 +53,8 @@ Route::post('/tenant/create', 'TenantController@store')->name('tenant.store');
 Route::get('/tenant/{id}', 'TenantController@destroy')->name('tenant.destroy');
 //Report Genenate
 Route::get('/report', 'ReportController@index')->name('report.generate');
+//Notice
+Route::get('/notice', 'NoticeController@index')->name('notice');
 
 
 // Auth::routes();
