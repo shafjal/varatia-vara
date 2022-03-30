@@ -265,7 +265,7 @@
                     style="background-color: #007bff; color:white;">
                     <div class="offset-md-2 col-md-8 col-sm-10 col-10">
                         © 2021 Copyright:
-                        <a class="text-reset fw-bold" style="color: white" href="https://www.shuvoafjalme.cf/">Shuvo
+                        <a class="text-reset fw-bold" style="color: white" href="http://www.shuvoafjalme.cf/">Shuvo
                             Afjal</a>
                     </div>
                     <div class="col-md-2 col-sm-2 col-2">
