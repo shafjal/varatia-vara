@@ -3,12 +3,17 @@
 @section('content')
 
 <div class="container-fluid px-4">
-    <h3 class="mt-4 textColor">Select Building <span style="float:right">
+    <h3 class="mt-4 textColor">Select Building
+        <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModalCenterReply"
+            title="Create New">
+            +
+        </button>
+        <span style="float:right">
             {{ $curentDay}},
             {{ $currentDate }}
-
-        </span></h3>
-    <hr style="width:100%;text-align:left;margin-left:0; border: 1px solid white;">
+        </span>
+    </h3>
+    <hr style="width:100%;text-align:left;margin-left:0; border: 1px solid white;margin-top: 30px;">
     {{-- card section --}}
     <div class="row">
         <div class="col-xl-3 col-md-6">
@@ -63,6 +68,49 @@
             </div>
         </div>
 
+    </div>
+
+    <div class="modal fade" id="exampleModalCenterReply" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitleReply" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Create Appartment</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-floating mb-3">
+                            <div class="input-group">
+                                <input class="form-control" id="inputPassword" type="text"
+                                    placeholder="EX: Abanil Apartment" />
+                            </div>
+                            <label for="inputPassword">Apartment Name</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <div class="input-group">
+                                <input class="form-control" id="inputPassword" type="text" placeholder="EX: 16 " />
+                            </div>
+                            <label for="inputPassword">Total Flat</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <div class="input-group">
+                                <input class="form-control" id="inputPassword" type="text"
+                                    placeholder="EX: H#21/21,Block#C,Mirpur 6, Dhaka" />
+                            </div>
+                            <label for="inputPassword">Address</label>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Create</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     @endsection
