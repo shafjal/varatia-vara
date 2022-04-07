@@ -5,7 +5,34 @@
 <div class="container-fluid px-4">
     {{-- Revenue Chart current year--}}
     <h5 class="mt-4 textColor">
-        Revenue Chart For Current Year: {{ '$currentYear' }}
+        Revenue Chart For Current Year: {{ '$currentYear' }} <span><i class="fas fa-filter fa-sm">Filter:</i>
+            <div class="btn-group">
+                <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Month
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">January</a>
+                    <a class="dropdown-item" href="#">February</a>
+                    <a class="dropdown-item" href="#">March</a>
+                </div>
+            </div>
+            <span style="background: yellow;color:black">to</span>
+            <div class="btn-group">
+                <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Month
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">January</a>
+                    <a class="dropdown-item" href="#">February</a>
+                    <a class="dropdown-item" href="#">March</a>
+                </div>
+            </div>
+            <button type="button" class="btn btn-success btn-sm">Filter</button>
+            <button type="button" class="btn btn-secondary btn-sm">Reset
+            </button>
+        </span>
     </h5>
     <hr style="width:100%;text-align:left;margin-left:0; border: 1px solid white;">
     <div class="row">

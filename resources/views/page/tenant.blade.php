@@ -3,7 +3,29 @@
 @section('content')
 
 <div class="container-fluid px-4">
-    <h5 class="mt-4 textColor">Tenant Details </h5>
+    <h5 class="mt-4 textColor">Tenant Details
+        <a class="btn btn-success btn-sm" href="{{ route('tenant.create') }}">
+            +
+        </a>
+        <span style="float:right">
+            {{-- Dropdown Searcch --}}
+            <div class="btn-group dropleft">
+                <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" style="background: #8ef4bb"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    All Tenant
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background: #f9e829">
+                    <a class="dropdown-item" href="#">Flat:1</a>
+                    <a class="dropdown-item" href="#">Flat:2</a>
+                    <a class="dropdown-item" href="#">Flat:3</a>
+                    <a class="dropdown-item" href="#">Flat:4</a>
+                    <a class="dropdown-item" href="#">Flat:5</a>
+                    <a class="dropdown-item" href="#">Flat:6</a>
+                    <a class="dropdown-item" href="#">Flat:7</a>
+                </div>
+            </div>
+        </span>
+    </h5>
     <hr style="width:100%;text-align:left;margin-left:0; border: 1px solid white;">
     {{-- card section --}}
     <div class="row">
@@ -24,12 +46,9 @@
                         <th>Name</th>
                         <th>Apartment</th>
                         <th>Flat No</th>
-                        <th>Parmanent Address</th>
                         <th>Phone</th>
-                        <th>Emargency Name</th>
-                        <th>Emargency Phone</th>
                         {{-- <th>Email <span> <sub>(Can Not Be Change)</sub></span></th> --}}
-                        <th colspan="4">Action</th>
+                        <th colspan="3">Action</th>
                     </tr>
                 </thead>
 
@@ -40,11 +59,8 @@
                         <td>{{ $tenant->name }}</td>
                         <td>{{ 'Abanil Apartment' }}</td>
                         <td>{{ '7B' }}</td>
-                        <td>{{ $tenant->address }}</td>
                         <td>{{ $tenant->phone }}</td>
-                        <td>{{ $tenant->e_name }}</td>
-                        <td>{{ $tenant->e_phone }}</td>
-                        <td class="text-center">
+                        <td d class="text-center">
                             <a title="View" href="" data-toggle="modal" data-target="#exampleModalCenter">
                                 <i class="fas fa-eye" style="color: green"></i>
                             </a>
@@ -52,12 +68,6 @@
                         <td class="text-center">
                             <a title="Edit" href="" data-toggle="modal" data-target="#exampleModalCenter">
                                 <i class="fas fa-edit" style="color: blue"></i>
-                            </a>
-                        </td>
-                        <td class="text-center">
-                            <a title="Attach Apartment/Flat No" href="" data-toggle="modal"
-                                data-target="#exampleModalCenter">
-                                <i class="fas fa-plus-square" style="color: blue"></i>
                             </a>
                         </td>
                         <td class="text-center">
