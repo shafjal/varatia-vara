@@ -56,6 +56,9 @@ Route::get('/report', 'ReportController@index')->name('report.generate');
 //Notice
 Route::get('/notice', 'NoticeController@index')->name('notice');
 
+//Tenant User
+Route::get('/tenantDashboard', 'TenantUserContorller@index')->name('tenant.Dashboard');
+
 
 // Auth::routes();
 

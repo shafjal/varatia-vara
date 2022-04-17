@@ -21,7 +21,7 @@
 
                     <div class="row justify-content-center ">
                         <div class="col-md-3 bg-info myShadow">
-                            <img class="card-img-top mt-2" src="/avater.jpg" alt="Card image cap">
+                            <img class="card-img-top mt-2" src="/avater3.jpg" alt="Card image cap">
                             <div class="offset-md-2 col-md-1 col-lg-1 mt-3">
                                 <button type="button" class="btn btn-success">Upload Picture</button>
                             </div>

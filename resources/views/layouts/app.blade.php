@@ -96,7 +96,8 @@
     html,
     body {
         /* background-color: #B2BEB5; */
-        background-color: #8E44AD;
+        /* background-color: #8E44AD; */
+        background-color: #c186df;
         /* color: #636b6f; */
         color: gray;
         font-family: 'Nunito', sans-serif;
@@ -139,6 +140,10 @@
 
     .textColor {
         color: white;
+    }
+
+    .textColor2 {
+        color: #636b6f;
     }
 
     .form-group.required .control-label:after {

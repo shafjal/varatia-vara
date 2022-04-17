@@ -24,7 +24,8 @@
         html,
         body {
             /* background-color: #B2BEB5; */
-            background-color: #8E44AD;
+            background-color: #a49ca8;
+            /* background-color: #eefcff; */
             /* color: #636b6f; */
             color: #FDFEFE;
             font-family: 'Nunito', sans-serif;
