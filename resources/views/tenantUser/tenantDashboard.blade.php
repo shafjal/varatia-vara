@@ -16,14 +16,14 @@
                 <div class="card-header">
                     <i class="fas fa-money-bill-alt fa-2x myShadow2" aria-hidden="true" style="float:left;">
                     </i>
-                    <h5 class="text-right" style="margin-top: 1px">Current Balance</h5>
+                    <h5 class="text-right" style="margin-top: 1px">{{ $curentMonth }}`s Month Payment</h5>
                 </div>
                 <div class="card-body">
-                    <h5 class="text-center">70,000/=</h5>
+                    <h5 class="text-center">30,000/=</h5>
                 </div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
                     <a class="small text-white stretched-link" href="#" data-toggle="modal"
-                        data-target="#viewdetails">View Details</a>
+                        data-target="#currentMonthPayment">View Details</a>
                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                 </div>
             </div>
@@ -62,8 +62,8 @@
             </div>
         </div>
         <!-- Modal -->
-        <div class="modal fade" id="viewdetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-            aria-hidden="true">
+        <div class="modal fade" id="currentMonthPayment" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -76,26 +76,41 @@
                         <table class="table table-bordered table-hover " id="datatablesSimple">
                             <thead class="text-center bg-info">
                                 <tr>
+                                    <th>#</th>
                                     <th>Name</th>
                                     <th>Amount</th>
                                 </tr>
                             </thead>
                             <tbody class="text-center">
-                                <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>20000</td>
+                                <tr class="table-secondary">
+                                    <td><i class="fa-solid fa-house"></i></td>
+                                    <td>House Rent</td>
+                                    <td>22000</td>
                                 </tr>
-                                <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>20000</td>
+                                <tr class="table-primary">
+                                    <td><i class="fa-solid fa-plug-circle-bolt"></i></td>
+                                    <td>Electricty</td>
+                                    <td>1500</td>
                                 </tr>
-                                <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>20000</td>
+                                <tr class="table-secondary">
+                                    <td><i class="fa-solid fa-fire-burner"></i></td>
+                                    <td>Gas</td>
+                                    <td>500</td>
                                 </tr>
-                                <tr>
-                                    <td>Total</td>
-                                    <td>80000</td>
+                                <tr class="table-primary">
+                                    <td><i class="fa-solid fa-file-invoice"></i></td>
+                                    <td>Service Charge</td>
+                                    <td>3000</td>
+                                </tr>
+                                <tr class="table-secondary">
+                                    <td><i class="fa-solid fa-circle-dot"></i></td>
+                                    <td>Other</td>
+                                    <td>3000</td>
+                                </tr>
+                                <tr style="background-color: #94549c; color:whitesmoke">
+                                    <td><i class="fa-solid fa-equals"></i></td>
+                                    <td><strong><b>Total</b></strong></td>
+                                    <td><strong><b>30,000</b></strong></td>
                                 </tr>
                             </tbody>
                         </table>

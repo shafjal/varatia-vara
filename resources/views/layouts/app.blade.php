@@ -29,7 +29,10 @@
     <!-- Styles -->
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/caf4fd03c7.js" crossorigin="anonymous"></script>
+    {{-- version 4 --}}
     <link rel="stylesheet" href="{{ url('/fontawesome/css/all.min.css') }}">
+    {{-- version 6 --}}
+    <link rel="stylesheet" href="{{ url('/fontawesome6/css/all.min.css') }}">
     <!-- Boostrap 4.0.0 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
