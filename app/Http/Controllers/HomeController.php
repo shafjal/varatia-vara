@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Apartment;
 use App\Role;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
@@ -31,6 +32,7 @@ class HomeController extends Controller
         $currentYear = Carbon::now()->timezone('Asia/Dhaka')->format('Y');
         $curentDay = Carbon::createFromFormat('d/m/Y',$currentDate)->format('l');
         $curentMonth = Carbon::createFromFormat('d/m/Y',$currentDate)->format('F');
+        
     
         return view('page.dashboard', compact('admin','curentDay','currentDate','curentMonth','currentYear'));
        
@@ -38,11 +40,13 @@ class HomeController extends Controller
         public function selectDashboard()
     {
         $admin = User::all();
+        $imgs = Apartment::all();
         $currentDate = Carbon::now()->timezone('Asia/Dhaka')->format('d/m/Y');
         $currentYear = Carbon::now()->timezone('Asia/Dhaka')->format('Y');
         $curentDay = Carbon::createFromFormat('d/m/Y',$currentDate)->format('l');
         $curentMonth = Carbon::createFromFormat('d/m/Y',$currentDate)->format('F');
-        return view('page.selectDashboard', compact('admin','curentDay','currentDate','curentMonth','currentYear'));
+        // dd($imgs);
+        return view('page.selectDashboard', compact('admin','curentDay','currentDate','curentMonth','currentYear','imgs'));
        
     }
     
@@ -53,4 +57,34 @@ class HomeController extends Controller
         //dd($admin);
         return view('auth.profile');
     }
+
+    public function store(Request $request)
+        {
+                $validated = $request->validate([
+                'apartment_name' => 'required|max:255',
+                'total_flat' => 'required|max:255',
+                'apartment_address' => 'required|max:255',
+                'apartmant_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+                    $up_location = '/img/apartment/';
+                    $apartmant_image = $up_location.hexdec(uniqid()).'.'.$request->apartmant_image->extension();  
+   
+                    $request->apartmant_image->move(public_path('img/apartment'), $apartmant_image);
+
+            // $apartmant_image = $request->file('apartmant_image');
+            // $name_gen = hexdec(uniqid());
+            // $img_ext = strtolower($apartmant_image->getClientOriginalExtension());
+            // $img_name = $name_gen.".".$img_ext;
+            // $up_location = '/public/img/apartment/';
+            // $last_image = $up_location.$img_name;
+            // $apartmant_image -> move($up_location,$img_name);
+
+            Apartment::insert([
+                'apartment_name' => $request->apartment_name,
+                'total_flat' => $request->total_flat,
+                'apartment_address' => $request->apartment_address,
+                'apartmant_image' => $apartmant_image,
+            ]);
+            return redirect('/selectDashboard')->with('success', 'Tenant new data saved!');
+        }
 }

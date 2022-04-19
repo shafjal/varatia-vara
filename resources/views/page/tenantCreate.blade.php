@@ -13,6 +13,7 @@
                     <h3 class="text-center font-weight-bold my-2">Tenant Registration</h3>
                 </div>
                 <div class="card-body">
+                    {{-- success message --}}
                     @if (session('success'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                         <strong>{{ session('success')}}</strong>

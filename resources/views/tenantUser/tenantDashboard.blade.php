@@ -16,7 +16,7 @@
                 <div class="card-header">
                     <i class="fas fa-money-bill-alt fa-2x myShadow2" aria-hidden="true" style="float:left;">
                     </i>
-                    <h5 class="text-right" style="margin-top: 1px">{{ $curentMonth }}`s Month Payment</h5>
+                    <h5 class="text-right" style="margin-top: 1px">{{ $curentMonth }}`s Month Payable</h5>
                 </div>
                 <div class="card-body">
                     <h5 class="text-center">30,000/=</h5>
@@ -33,14 +33,14 @@
                 <div class="card-header">
                     <i class="fas fa-money-bill-alt fa-2x myShadow2" aria-hidden="true" style="float:left;">
                     </i>
-                    <h5 class="text-right" style="margin-top: 1px">Current Due</h5>
+                    <h5 class="text-right" style="margin-top: 1px">Total Paid</h5>
                 </div>
                 <div class="card-body">
-                    <h5 class="text-center">70,000/=</h5>
+                    <h5 class="text-center">1,26,000/=</h5>
                 </div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
                     <a class="small text-white stretched-link" href="#" data-toggle="modal"
-                        data-target="#viewdetails">View Details</a>
+                        data-target="#totalPayment">View Details</a>
                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                 </div>
             </div>
@@ -52,16 +52,77 @@
                     <h5 class="text-right" style="margin-top: 1px">Previous Due</h5>
                 </div>
                 <div class="card-body">
-                    <h5 class="text-center">70,000/=</h5>
+                    <h5 class="text-center">1,24,000/=</h5>
                 </div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
-                    <a class="small text-white stretched-link" href="#" data-toggle="modal"
-                        data-target="#viewdetails">View Details</a>
+                    <a class="small text-white stretched-link" href="#" data-toggle="modal" data-target="#totalDue">View
+                        Details</a>
                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                 </div>
             </div>
         </div>
-        <!-- Modal -->
+        <!-- Modal Total Paid-->
+        <div class="modal fade" id="totalPayment" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Add Possible Cost</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-bordered table-hover " id="datatablesSimple">
+                            <thead class="text-center bg-info">
+                                <tr>
+                                    <th>#</th>
+                                    <th>Year</th>
+                                    <th>Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-center">
+                                <tr class="table-secondary">
+                                    <td><i class="fa-solid fa-calendar-days"></i></td>
+                                    <td>2018</td>
+                                    <td>22000</td>
+                                </tr>
+                                <tr class="table-primary">
+                                    <td><i class="fa-solid fa-calendar-days"></i></td>
+                                    <td>2019</td>
+                                    <td>24000</td>
+                                </tr>
+                                <tr class="table-secondary">
+                                    <td><i class="fa-solid fa-calendar-days"></i></td>
+                                    <td>2020</td>
+                                    <td>24000</td>
+                                </tr>
+                                <tr class="table-primary">
+                                    <td><i class="fa-solid fa-calendar-days"></i></td>
+                                    <td>2021</td>
+                                    <td>26000</td>
+                                </tr>
+                                <tr class="table-secondary">
+                                    <td><i class="fa-solid fa-calendar-days"></i></td>
+                                    <td>2022</td>
+                                    <td>30000</td>
+                                </tr>
+                                <tr style="background-color: #94549c; color:whitesmoke">
+                                    <td><i class="fa-solid fa-equals"></i></td>
+                                    <td><strong><b>Total</b></strong></td>
+                                    <td><strong><b>1,26,000</b></strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p style="color: red">***In word, One Lakh Twenty Six Thousand Taka Only</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal Month Payable-->
         <div class="modal fade" id="currentMonthPayment" tabindex="-1" role="dialog"
             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -114,6 +175,7 @@
                                 </tr>
                             </tbody>
                         </table>
+                        <p style="color: red">***In word, Thirty Thousand Taka Only</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -121,145 +183,120 @@
                 </div>
             </div>
         </div>
-    </div>
-    {{-- Possible Cost List Current Month --}}
-    <div class="row">
-        <div class="col-xl-12">
-            <div class="card mb-4 myShadow">
-                <div class="card-header">
-                    <i class="fas fa-table me-1"></i>
-                    Possible Cost List: <span style="background-color: yellow">{{ $curentMonth }}</span>
-                    <span style="background-color: green; color:white">Total Tk:
-                        95,000</span>
-                    <a href="" data-toggle="modal" data-target="#exampleModalCenter">
-                        <i class="fas fa-plus-square me-1 float-right" style="font-size: 20px; color: Dodgerblue;">
-                        </i>
-                    </a>
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLongTitle">Add Possible Cost</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <form>
-                                        <div class="form-floating mb-3">
-                                            <input class="form-control" id="inputEmail" type="text"
-                                                placeholder="Task Name" />
-                                            {{-- <label for="inputEmail">Task Name</label> --}}
-                                        </div>
-                                        <div class="form-floating mb-3">
-                                            <input class="form-control" id="inputPassword" type="text"
-                                                placeholder="Location" />
-                                            {{-- <label for="inputPassword">Amount</label> --}}
-                                        </div>
-                                        <div class="form-floating mb-3">
-                                            <input class="form-control" id="inputPassword" type="number"
-                                                placeholder="Amount" />
-                                            {{-- <label for="inputPassword">Amount</label> --}}
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
-                                </div>
-                            </div>
-                        </div>
+        <!-- Modal Previous-->
+        <div class="modal fade" id="totalDue" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Add Possible Cost</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
+                    <div class="modal-body">
                         <table class="table table-bordered table-hover " id="datatablesSimple">
                             <thead class="text-center bg-info">
                                 <tr>
-                                    <th>Task Name</th>
-                                    <th>Location</th>
+                                    <th>#</th>
+                                    <th>Year</th>
+                                    <th>Month</th>
                                     <th>Amount</th>
-                                    <th colspan="2">Action</th>
                                 </tr>
                             </thead>
                             <tbody class="text-center">
-                                <tr>
-                                    <td>Roof/Tiles</td>
-                                    <td>2B</td>
-                                    <td>20000</td>
-                                    <td>
-                                        <a href=""><i class="fas fa-trash-alt" style="color: red"></i></a>
-                                    </td>
-                                    <td>
-                                        <a href=""><i class="fas fa-edit" style="color: blue"></i></a>
-                                    </td>
-
+                                <tr class="table-secondary">
+                                    <td><i class="fa-solid fa-house"></i></td>
+                                    <td>2018</td>
+                                    <td>March</td>
+                                    <td>22000</td>
                                 </tr>
-                                <tr>
-                                    <td>Wash Room</td>
-                                    <td>4A</td>
-                                    <td>75000</td>
-                                    <td>
-                                        <a href=""><i class="fas fa-trash-alt" style="color: red"></i></a>
-                                    </td>
-                                    <td>
-                                        <a href=""><i class="fas fa-edit" style="color: blue"></i></a>
-                                    </td>
+                                <tr class="table-primary">
+                                    <td><i class="fa-solid fa-plug-circle-bolt"></i></td>
+                                    <td>2018</td>
+                                    <td>December</td>
+                                    <td>22000</td>
                                 </tr>
-
+                                <tr class="table-secondary">
+                                    <td><i class="fa-solid fa-fire-burner"></i></td>
+                                    <td>2019</td>
+                                    <td>January</td>
+                                    <td>24000</td>
+                                </tr>
+                                <tr class="table-primary">
+                                    <td><i class="fa-solid fa-file-invoice"></i></td>
+                                    <td>2021</td>
+                                    <td>March</td>
+                                    <td>26000</td>
+                                </tr>
+                                <tr class="table-secondary">
+                                    <td><i class="fa-solid fa-circle-dot"></i></td>
+                                    <td>2022</td>
+                                    <td>April</td>
+                                    <td>30000</td>
+                                </tr>
+                                <tr style="background-color: #94549c; color:whitesmoke">
+                                    <td><i class="fa-solid fa-equals"></i></td>
+                                    <td colspan="2"><strong><b>Total</b></strong></td>
+                                    <td><strong><b>30,000</b></strong></td>
+                                </tr>
                             </tbody>
                         </table>
+                        <p style="color: red">***In word, One Lakh Twenty Four Thousand Taka Only</p>
                     </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+    </div>
+    {{-- Notice --}}
+    <h5 class="mt-4 textColor">Notice From Owner</h5>
+    <hr style="width:100%;text-align:left;margin-left:0; border: 1px solid white;">
+    <div class="row justify-content-center">
+        <div class="col-xl-8 col-md-8">
+            <div class="card  text-white mb-4 myShadow">
+                <div class="card-header noticeHeader">
+                    <i class="fas fa-flag-checkered fa-2x myShadow2" aria-hidden="true" style="float:left;">
+                    </i>
+                    <h5 class="text-right" style="margin-top: 1px">Notice</h5>
+                </div>
+                <div class="card-body noticeBody">
+                    <h3 class="text-center"><u><b>Topic Name: Loren Ispum</b></u></h3>
+                    <h4>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                        the industry's standard
+                        dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it
+                        to make a type specimen
+                        book. It has survived not only five centuries, but also the leap into electronic typesetting,
+                        remaining essentially
+                        unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem
+                        Ipsum passages, and more
+                        recently with desktop publishing software like Aldus PageMaker including versions of Lorem
+                        Ipsum.</h4>
+                </div>
+                <div class="card-footer  justify-content-between noticeFooter">
+                    <p style="color: black">Created At: 7.30 pm / Date: 25 /12/12</p>
+                    {{-- <div class="small text-white"><i class="fas fa-angle-right"></i></div> --}}
                 </div>
             </div>
         </div>
     </div>
     {{-- Due List/Table Person current month --}}
     <div class="row">
-        <div class="col-xl-12">
+        <div class="offset-md-4 offset-xl-4 col-xl-4 col-md-4">
             <div class="card mb-4 myShadow">
-                <div class="card-header">
-                    <i class="fas fa-table me-1"></i>
-                    Due of Sppecific Tenant Current Month: <span style="background-color: yellow">{{ $curentMonth
-                        }}</span>
+                <div class="card-header noticeHeader">
+                    <i class="fa-brands fa-hire-a-helper"></i>
+                    Action Section
                 </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-bordered table-hover" id="datatablesSimple">
-                            <thead class="text-center bg-info">
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Phone</th>
-                                    <th>Floor/Apt. Number</th>
-                                    <th>Last Payment date</th>
-                                    <th>Current Due</th>
-                                </tr>
-                            </thead>
-                            <tbody class="text-center">
-                                <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>02 999 9999</td>
-                                    <td>6B</td>
-                                    <td>2011/04/25</td>
-                                    <td>Tk 350000</td>
-                                </tr>
-                                <tr>
-                                    <td>Garrett Winters</td>
-                                    <td>02 888 8888</td>
-                                    <td>8B</td>
-                                    <td>2011/07/25</td>
-                                    <td>Tk 70,750</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
+                <div class="card-body text-center">
+                    <a href=""><button type="button" class="btn buttonCustomLogin">Send Message</button></a>
+                    <a href=""><button type="button" class="btn buttonCustomLogin">Leave Notice</button></a>
                 </div>
             </div>
         </div>
     </div>
-
-    @endsection
+</div>
+@endsection
