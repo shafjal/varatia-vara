@@ -1,5 +1,6 @@
 <?php
 
+use App\Apartment;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -61,7 +62,8 @@ Route::get('/notice', 'NoticeController@index')->name('notice');
 Route::get('/tenantDashboard', 'TenantUserContorller@index')->name('tenant.Dashboard');
 //Apartment Create
 Route::post('/selectDashboard', 'HomeController@store')->name('apartment.store');
-
+// Apartment Destroy 
+Route::get('/selectDashboard/{id}', 'HomeController@destroy')->name('apartment.destroy');
 
 // Auth::routes();
 

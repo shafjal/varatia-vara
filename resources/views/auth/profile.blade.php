@@ -39,7 +39,7 @@
                                 <tbody class="">
                                     <tr>
                                         <td>{{ Auth::user()->name }}</td>
-                                        <td>59 BGB</td>
+                                        <td>Dhaka</td>
                                         <td>shuvoafjal@gmail.com</td>
                                         <td>
                                             <a href="" data-toggle="modal" data-target="#exampleModalCenter">
@@ -56,9 +56,10 @@
                                     Appartemnt Details
                                 </div>
                                 <div class="card-body">
-                                    <h5 class="card-title">Building Has: 1</h5>
-                                    <h5 class="card-title">Flat Number: 18</h5>
-                                    <h5 class="card-title">Total Tenant: 18</h5>
+                                    <h5 class="card-title">Building Has: {{ $total_apartmets }}</h5>
+                                    <h5 class="card-title">Total Number: {{ $sum_of_total_flats }}</h5>
+                                    <h5 class="card-title">Total Tenant: {{ $total_tenants }} <span> (<a
+                                                href="{{ route('tenant') }}">view</a>)</span></h5>
                                 </div>
                             </div>
                             {{-- Current Time --}}

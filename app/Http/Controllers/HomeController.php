@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Apartment;
 use App\Role;
+use App\Tenant;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
@@ -25,40 +26,43 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
-    {
-        $admin = User::all();
-        $currentDate = Carbon::now()->timezone('Asia/Dhaka')->format('d/m/Y');
-        $currentYear = Carbon::now()->timezone('Asia/Dhaka')->format('Y');
-        $curentDay = Carbon::createFromFormat('d/m/Y',$currentDate)->format('l');
-        $curentMonth = Carbon::createFromFormat('d/m/Y',$currentDate)->format('F');
+        public function index()
+        {
+                $admin = User::all();
+                $currentDate = Carbon::now()->timezone('Asia/Dhaka')->format('d/m/Y');
+                $currentYear = Carbon::now()->timezone('Asia/Dhaka')->format('Y');
+                $curentDay = Carbon::createFromFormat('d/m/Y',$currentDate)->format('l');
+                $curentMonth = Carbon::createFromFormat('d/m/Y',$currentDate)->format('F');
+                
         
-    
-        return view('page.dashboard', compact('admin','curentDay','currentDate','curentMonth','currentYear'));
-       
-    }
+            return view('page.dashboard', compact('admin','curentDay','currentDate','curentMonth','currentYear'));
+        
+        }
         public function selectDashboard()
-    {
-        $admin = User::all();
-        $imgs = Apartment::all();
-        $currentDate = Carbon::now()->timezone('Asia/Dhaka')->format('d/m/Y');
-        $currentYear = Carbon::now()->timezone('Asia/Dhaka')->format('Y');
-        $curentDay = Carbon::createFromFormat('d/m/Y',$currentDate)->format('l');
-        $curentMonth = Carbon::createFromFormat('d/m/Y',$currentDate)->format('F');
-        // dd($imgs);
-        return view('page.selectDashboard', compact('admin','curentDay','currentDate','curentMonth','currentYear','imgs'));
-       
-    }
+        {
+                $admin = User::all();
+                $imgs = Apartment::all();
+                $currentDate = Carbon::now()->timezone('Asia/Dhaka')->format('d/m/Y');
+                $currentYear = Carbon::now()->timezone('Asia/Dhaka')->format('Y');
+                $curentDay = Carbon::createFromFormat('d/m/Y',$currentDate)->format('l');
+                $curentMonth = Carbon::createFromFormat('d/m/Y',$currentDate)->format('F');
+                // dd($imgs);
+                return view('page.selectDashboard', compact('admin','curentDay','currentDate','curentMonth','currentYear','imgs'));
+            
+        }
     
 
-    public function profile()
-    {
-        //$admin = User::where('1');
-        //dd($admin);
-        return view('auth.profile');
-    }
+        public function profile()
+        {
+                //$admin = User::where('1');
+                //dd($admin);
+                $sum_of_total_flats = Apartment::all()->sum('id');
+                $total_apartmets = Apartment::all()->count();
+                $total_tenants = Tenant::all()->count();
+                return view('auth.profile', compact('sum_of_total_flats','total_apartmets','total_tenants'));
+        }
 
-    public function store(Request $request)
+        public function store(Request $request)
         {
                 $validated = $request->validate([
                 'apartment_name' => 'required|max:255',
@@ -85,6 +89,15 @@ class HomeController extends Controller
                 'apartment_address' => $request->apartment_address,
                 'apartmant_image' => $apartmant_image,
             ]);
-            return redirect('/selectDashboard')->with('success', 'Tenant new data saved!');
+            return redirect('/selectDashboard')->with('success', 'New Apartment Created');
         }
+
+        public function destroy($id)
+        {
+                $delete_this_apartment = Apartment::find($id);
+                $delete_this_apartment->delete();
+                return redirect('/selectDashboard')->with('success-delete', 'Dashboard data deleted!');
+        }
+
+
 }

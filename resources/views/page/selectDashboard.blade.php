@@ -10,6 +10,13 @@
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
+    @elseif (session('success-delete'))
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>{{ session('success-delete')}}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
     @endif
     <h3 class="mt-4 textColor">Select Building
         <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModalCenterReply"
@@ -31,11 +38,13 @@
             <div class="card bg-info text-white mb-4 myShadow" style="width: 18rem;">
                 <img class="card-img-top" src="{{ $img->apartmant_image }}" alt="Card image cap" style="height: 300px">
                 <div class="card-body">
-                    <h5 class="card-title">Abanil Apartment</h5>
+                    <h5 class="card-title">{{ $img->apartment_name }}</h5>
                     <p class="card-text">
-                        H#21/21,Block#C,Mirpur 6, Dhaka
+                        {{ $img->apartment_address }}
                     </p>
-                    <a href="{{ route('home') }}" class="btn btn-warning">Dashboard</a>
+                    <a href="{{ route('home') }}" class="btn btn-warning" title="Goto Dashboard">Dashboard</a>
+                    <a type="submit" style="float: right" href="{{ route('apartment.destroy', $img->id)}}"
+                        class="btn btn-danger" title="Delete"><i style="color: white" class="fa-solid fa-trash"></i></a>
                 </div>
             </div>
         </div>
@@ -115,5 +124,5 @@
             </div>
         </div>
     </div>
-
-    @endsection
+</div>
+@endsection
