@@ -167,6 +167,24 @@
     .noticeFooter {
         background-color: #dfdc5b;
     }
+
+    .imgShadow {
+        width: 200px;
+        height: 200px;
+        border: 1px solid #fff;
+        /* -moz-box-shadow: 7px 7px 4px #ccc;
+            -webkit-box-shadow: 7px 7px 4px #ccc;
+            box-shadow: 7px 7px 4px #ccc; */
+        /* -webkit-box-shadow: 11px 12px 4px 8px rgba(0, 0, 0, 0.67);
+            -moz-box-shadow: 11px 12px 4px 8px rgba(0, 0, 0, 0.67);
+            box-shadow: 11px 12px 4px 8px rgba(0, 0, 0, 0.67); */
+        -webkit-box-shadow: 5px 10px 12px 1px rgba(0, 0, 0, 0.47);
+        -moz-box-shadow: 11px 12px 4px 8px rgba(0, 0, 0, 0.67);
+        box-shadow: 5px 10px 12px 1px rgba(0, 0, 0, 0.47);
+        -moz-border-radius: 20px;
+        -webkit-border-radius: 20px;
+        border-radius: 20px;
+    }
 </style>
 </head>
 

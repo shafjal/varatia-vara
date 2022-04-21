@@ -4,8 +4,7 @@
 
 <div class="container-fluid px-4">
     <h5 class="mt-4 textColor">Tenant Details
-        <a class="btn btn-success btn-sm" href="{{ route('tenant.create') }}">
-            +
+        <a class="btn btn-success btn-sm" href="{{ route('tenant.create') }}">+
         </a>
         <span style="float:right">
             {{-- Dropdown Searcch --}}

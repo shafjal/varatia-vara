@@ -56,7 +56,7 @@
   </div>
 
   <div class="row justify-content-center mt-5">
-    <div class="col-md-6 col-6">
+    <div class="col-md-6 col-6 mb-5">
       <div class="card">
         <div class="card-header text-center">
           <h3><b> Download PDF</b></h3>
@@ -64,7 +64,7 @@
         <div class="card-body text-center">
           <a href="{{url('/pdf/tutorial.pdf')}}">
             <span style="font-size: 50px; color: rgb(255, 38, 0);">
-              <i class="icofont-file-pdf"></i>
+              <i class="fa-solid fa-file-pdf"></i>
             </span>
           </a>
           <p>Tutorial</p>
@@ -79,7 +79,7 @@
         <div class="card-body text-center">
           <a href="{{url('/video/video.mp4')}}">
             <span style="font-size: 50px; color: rgb(51, 26, 196);">
-              <i class="icofont-video-cam"></i>
+              <i class="fa-solid fa-video"></i>
             </span>
           </a>
           <p>Video</p>

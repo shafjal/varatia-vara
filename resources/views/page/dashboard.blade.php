@@ -3,11 +3,31 @@
 @section('content')
 
 <div class="container-fluid px-4">
-    <h5 class="mt-4 textColor">Admin Dashboard <span style="float:right">
+    <h5 class="mt-4 textColor">Admin Dashboard
+        <span style="">
+            {{-- Dropdown Searcch --}}
+
+            <div class="btn-group dropright">
+                <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Filter Building
+                </button>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    @foreach ($apartment_all as $apartment_name)
+                    <a class="dropdown-item" href="{{ route('home') }}">{{ $apartment_name->apartment_name }}</a>
+                    @endforeach
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{{ route('selectDashboard') }}">Select Building</a>
+                </div>
+            </div>
+
+        </span>
+        <span style="float:right">
             {{ $curentDay}},
             {{ $currentDate }}
-
-        </span></h5>
+        </span>
+    </h5>
     <hr style="width:100%;text-align:left;margin-left:0; border: 1px solid white;">
     {{-- card section --}}
     <div class="row">

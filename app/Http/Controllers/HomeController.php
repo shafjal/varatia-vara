@@ -33,9 +33,10 @@ class HomeController extends Controller
                 $currentYear = Carbon::now()->timezone('Asia/Dhaka')->format('Y');
                 $curentDay = Carbon::createFromFormat('d/m/Y',$currentDate)->format('l');
                 $curentMonth = Carbon::createFromFormat('d/m/Y',$currentDate)->format('F');
+                $apartment_all = Apartment::all();
                 
         
-            return view('page.dashboard', compact('admin','curentDay','currentDate','curentMonth','currentYear'));
+            return view('page.dashboard', compact('admin','curentDay','currentDate','curentMonth','currentYear','apartment_all'));
         
         }
         public function selectDashboard()
