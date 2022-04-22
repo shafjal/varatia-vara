@@ -57,7 +57,7 @@ class HomeController extends Controller
         {
                 //$admin = User::where('1');
                 //dd($admin);
-                $sum_of_total_flats = Apartment::all()->sum('id');
+                $sum_of_total_flats = Apartment::all()->sum('total_flat');
                 $total_apartmets = Apartment::all()->count();
                 $total_tenants = Tenant::all()->count();
                 return view('auth.profile', compact('sum_of_total_flats','total_apartmets','total_tenants'));
