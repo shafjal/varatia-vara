@@ -38,7 +38,7 @@
             <div class="card bg-info text-white mb-4 myShadow" style="width: 18rem;">
                 <img class="card-img-top" src="{{ $img->apartmant_image }}" alt="Card image cap" style="height: 300px">
                 <div class="card-body">
-                    <h5 class="card-title">{{ $img->apartment_name }}</h5>
+                    <h5 class="card-title">{{ $img->apartment_name }} {{ $img->id }}</h5>
                     <p class="card-text">
                         {{ $img->apartment_address }}
                     </p>
