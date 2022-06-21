@@ -8,6 +8,7 @@ use App\Tenant;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\File; 
 
 class HomeController extends Controller
 {
@@ -72,8 +73,7 @@ class HomeController extends Controller
                 'apartmant_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
                     $up_location = '/img/apartment/';
-                    $apartmant_image = $up_location.hexdec(uniqid()).'.'.$request->apartmant_image->extension();  
-   
+                    $apartmant_image = $up_location.hexdec(uniqid()).'.'.$request->apartmant_image->extension();     
                     $request->apartmant_image->move(public_path('img/apartment'), $apartmant_image);
 
             // $apartmant_image = $request->file('apartmant_image');
@@ -96,6 +96,12 @@ class HomeController extends Controller
         public function destroy($id)
         {
                 $delete_this_apartment = Apartment::find($id);
+                $old_img = $delete_this_apartment->apartmant_image;
+                $trim_name = substr($old_img,"14");
+                print_r($trim_name);
+                
+                unlink(base_path('public\img\apartment'.$trim_name));
+                
                 $delete_this_apartment->delete();
                 return redirect('/selectDashboard')->with('success-delete', 'Dashboard data deleted!');
         }

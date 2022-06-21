@@ -37,7 +37,7 @@ Route::get('/tutorial', function () {
 Route::get('/contact', function () {
     return view('page.contact');
 });
-
+//Admin Part -------------------------------------------------------------------------
 //Profile
 Auth::routes();
 //Profile
@@ -57,13 +57,18 @@ Route::get('/tenant/{id}', 'TenantController@destroy')->name('tenant.destroy');
 Route::get('/report', 'ReportController@index')->name('report.generate');
 //Notice
 Route::get('/notice', 'NoticeController@index')->name('notice');
-
-//Tenant User
-Route::get('/tenantDashboard', 'TenantUserContorller@index')->name('tenant.Dashboard');
 //Apartment Create
 Route::post('/selectDashboard', 'HomeController@store')->name('apartment.store');
 // Apartment Destroy 
 Route::get('/selectDashboard/{id}', 'HomeController@destroy')->name('apartment.destroy');
+// Chuktipotro
+Route::get('/chuktipotro-tenant', 'ChuktiPotro@index')->name('chuktipotro.index');
+Route::get('/chuktipotro-print', 'ChuktiPotro@print')->name('chuktipotro.print');
+
+
+//User Part -------------------------------------------------------------------------
+//Tenant User
+Route::get('/tenantDashboard', 'TenantUserContorller@index')->name('tenant.Dashboard');
 
 // Auth::routes();
 
