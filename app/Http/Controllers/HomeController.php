@@ -98,8 +98,6 @@ class HomeController extends Controller
                 $delete_this_apartment = Apartment::find($id);
                 $old_img = $delete_this_apartment->apartmant_image;
                 $trim_name = substr($old_img,"14");
-                print_r($trim_name);
-                
                 unlink(base_path('public\img\apartment'.$trim_name));
                 
                 $delete_this_apartment->delete();
