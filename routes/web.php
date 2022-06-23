@@ -63,7 +63,7 @@ Route::post('/selectDashboard', 'HomeController@store')->name('apartment.store')
 Route::get('/selectDashboard/{id}', 'HomeController@destroy')->name('apartment.destroy');
 // Chuktipotro
 Route::get('/chuktipotro-tenant', 'ChuktiPotro@index')->name('chuktipotro.index');
-Route::get('/chuktipotro-print', 'ChuktiPotro@print')->name('chuktipotro.print');
+Route::get('/chuktipotro-view', 'ChuktiPotro@print')->name('chuktipotro.print');
 
 
 //User Part -------------------------------------------------------------------------

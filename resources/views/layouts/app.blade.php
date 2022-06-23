@@ -15,10 +15,7 @@
     <link rel="icon" href="url('/rent.png')}}" type="image/gif/png">
     <title>Varatia-Vara</title>
     <!-- Title Logo -->
-
-    {{--
-    <link rel="icon" href="/rent.png" type="image/gif/png"> --}}
-    <link rel="icon" href="url('/rent.png')}}" type="image/gif/png">
+    <link rel="icon" href="/rent.png" type="image/gif/png">
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
