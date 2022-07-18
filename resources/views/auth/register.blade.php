@@ -11,17 +11,6 @@
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
                         <div class="form-group row">
-                            <label for="role_id" class="col-md-4 col-form-label text-md-right">User Type</label>
-                            <div class="col-md-6">
-                                <select class="form-control" id="role_id" name="role_id">
-                                    <option value="1">Admin</option>
-                                    <option value="2">User</option>
-                                </select>
-                            </div>
-
-                        </div>
-
-                        <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col-md-6">

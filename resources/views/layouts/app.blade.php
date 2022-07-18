@@ -37,7 +37,7 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     {{-- SB Template --}}
-    <link href="{{ asset('sb/css/app.css') }}" rel="stylesheet" />
+    {{-- <link href="{{ asset('/sb/css/app.css') }}" rel="stylesheet" /> --}}
     <script src="sb/js/scripts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
