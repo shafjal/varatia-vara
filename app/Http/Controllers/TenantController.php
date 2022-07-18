@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Tenant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class TenantController extends Controller
 {
@@ -99,7 +100,8 @@ class TenantController extends Controller
             'job_title' => $request->job_title,
             'job_location' => $request->job_location,
             'religious' => $request->religious,
-            'country' => $request->country
+            'country' => $request->country,
+            
         ]);
         return redirect('/tenant/create')->with('success', 'Tenant new data saved!');
     }

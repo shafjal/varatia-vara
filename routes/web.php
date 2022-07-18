@@ -48,7 +48,7 @@ Route::get('/message', 'MessageController@index')->name('message');
 Route::get('/home', 'HomeController@index')->name('home');
 //Select Dashboard
 Route::get('/selectDashboard', 'HomeController@selectDashboard')->name('selectDashboard');
-//Tenant
+//Tenant 
 Route::get('/tenant', 'TenantController@index')->name('tenant');
 Route::get('/tenant/create', 'TenantController@create')->name('tenant.create');
 Route::post('/tenant/create', 'TenantController@store')->name('tenant.store');
