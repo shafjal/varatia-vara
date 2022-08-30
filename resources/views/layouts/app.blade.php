@@ -37,7 +37,8 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     {{-- SB Template --}}
-    {{-- <link href="{{ asset('/sb/css/app.css') }}" rel="stylesheet" /> --}}
+    {{--
+    <link href="{{ asset('/sb/css/app.css') }}" rel="stylesheet" /> --}}
     <script src="sb/js/scripts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
@@ -182,6 +183,55 @@
         -webkit-border-radius: 20px;
         border-radius: 20px;
     }
+
+    /* Nested Dr CSS */
+    .dropdown-submenu {
+        position: relative;
+    }
+
+    .dropdown-submenu>.dropdown-menu {
+        top: 0;
+        right: 100%;
+        margin-top: -6px;
+        margin-left: -300px;
+        -webkit-border-radius: 0 6px 6px 6px;
+        -moz-border-radius: 0 6px 6px;
+        border-radius: 0 6px 6px 6px;
+    }
+
+    .dropdown-submenu:hover>.dropdown-menu {
+        display: block;
+    }
+
+    .dropdown-submenu>a:after {
+        display: block;
+        /* content: " "; */
+        float: right;
+        width: 0;
+        height: 0;
+        border-color: transparent;
+        border-style: solid;
+        border-width: 5px 0 5px 5px;
+        border-left-color: #ccc;
+        margin-top: 5px;
+        margin-right: -10px;
+    }
+
+    .dropdown-submenu:hover>a:after {
+        border-left-color: #fff;
+    }
+
+    .dropdown-submenu.pull-left {
+        float: none;
+    }
+
+    .dropdown-submenu.pull-left>.dropdown-menu {
+        left: -100%;
+        margin-left: 10px;
+        -webkit-border-radius: 6px 0 6px 6px;
+        -moz-border-radius: 6px 0 6px 6px;
+        border-radius: 6px 0 6px 6px;
+    }
 </style>
 </head>
 
@@ -239,14 +289,18 @@
                             </a>
                         </li>
 
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle navBar" href="#" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+
+                        {{-- Nested Drop --}}
+                        <div class="nav-item dropdown">
+                            {{-- <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Dropdown
+                            </button> --}}
+                            <a id="navbarDropdown dropdownMenu1" class="nav-link dropdown-toggle navBar" href="#"
+                                role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
-
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                {{-- Welcome --}}
+                            <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
                                 <a class="dropdown-item" href="{{ url('/') }}">
                                     {{ __('Home') }}
                                 </a>
@@ -254,6 +308,36 @@
                                 <a class="dropdown-item" href="{{ route('selectDashboard') }}">
                                     {{ __('Dasboard') }}
                                 </a>
+                                {{-- Bank Details --}}
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item " tabindex="-1" href="#">Bank Details</a>
+                                    <ul class="dropdown-menu">
+                                        <a class="dropdown-item" href="{{ route('selectDashboard') }}">
+                                            {{ __('Dasboard') }}
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('selectDashboard') }}">
+                                            {{ __('Dasboard') }}
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('selectDashboard') }}">
+                                            {{ __('Dasboard') }}
+                                        </a>
+                                        {{-- <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="#">Even More..</a>
+                                            <ul class="dropdown-menu">
+                                                <li class="dropdown-item"><a href="#">3rd level</a></li>
+                                                <li class="dropdown-submenu"><a class="dropdown-item" href="#">another
+                                                        level</a>
+                                                    <ul class="dropdown-menu">
+                                                        <li class="dropdown-item"><a href="#">4th level</a></li>
+                                                        <li class="dropdown-item"><a href="#">4th level</a></li>
+                                                        <li class="dropdown-item"><a href="#">4th level</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="dropdown-item"><a href="#">3rd level</a></li>
+                                            </ul>
+                                        </li> --}}
+                                    </ul>
+                                </li>
                                 {{-- Tenant --}}
                                 <a class="dropdown-item" href="{{ route('tenant') }}">
                                     {{ __('Tenant Details') }}
@@ -283,24 +367,26 @@
                                 {{-- Logout --}}
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
-                                                                                                                                             document.getElementById('logout-form').submit();">
+                                                                                                                                                                             document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
-                            </div>
-                        </li>
-                        @endguest
-                    </ul>
+                            </ul>
+                        </div>
                 </div>
+                {{-- End --}}
+                @endguest
+                </ul>
             </div>
-        </nav>
+    </div>
+    </nav>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
+    <main class="py-4">
+        @yield('content')
+    </main>
     </div>
 
     </div>
@@ -308,6 +394,9 @@
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
     </script>
     <script src="sb/js/scripts.js"></script>
+
+    {{-- Nested Dropdown Script --}}
+
 </body>
 
 </html>
