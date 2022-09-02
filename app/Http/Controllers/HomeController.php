@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Apartment;
 use App\Role;
 use App\Tenant;
+use App\Bank;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
@@ -102,6 +103,19 @@ class HomeController extends Controller
                 
                 $delete_this_apartment->delete();
                 return redirect('/selectDashboard')->with('success-delete', 'Dashboard data deleted!');
+        }
+
+        public function bankDestroy (Request $request){
+                $var = $request->cname;
+                $tenant = Bank::find($var);
+                $tenant->delete();
+                return redirect('/bank')->with('success-delete', 'Bank Account data deleted!');
+
+        }
+
+        public function bankDestroyAll(){
+                $bankDataAlls = Bank::all();
+                return view('page.bankDelete',compact('bankDataAlls'));
         }
 
 

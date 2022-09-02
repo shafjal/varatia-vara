@@ -310,16 +310,19 @@
                                 </a>
                                 {{-- Bank Details --}}
                                 <li class="dropdown-submenu">
-                                    <a class="dropdown-item " tabindex="-1" href="#">Bank Details</a>
+                                    <a class="dropdown-item " tabindex="-1" href="{{ url('bank') }}"><i
+                                            class="fas fa-arrow-left"></i>
+                                        Bank
+                                        Details</a>
                                     <ul class="dropdown-menu">
                                         <a class="dropdown-item" href="{{ route('selectDashboard') }}">
-                                            {{ __('Dasboard') }}
+                                            {{ __('New Transaction') }}
                                         </a>
-                                        <a class="dropdown-item" href="{{ route('selectDashboard') }}">
-                                            {{ __('Dasboard') }}
+                                        <a class="dropdown-item" href="{{ url('bank/create') }}">
+                                            {{ __('Add A/C') }}
                                         </a>
-                                        <a class="dropdown-item" href="{{ route('selectDashboard') }}">
-                                            {{ __('Dasboard') }}
+                                        <a class="dropdown-item" href="{{ route('bankAccount.Delete.all') }}">
+                                            {{ __('Remove A/C') }}
                                         </a>
                                         {{-- <li class="dropdown-submenu">
                                             <a class="dropdown-item" href="#">Even More..</a>

@@ -3,12 +3,10 @@
 @section('content')
 
 <div class="container-fluid px-4">
-    <h5 class="mt-4 textColor">Tenant Details
-        <a class="btn btn-success btn-sm" href="{{ route('tenant.create') }}">+ Add Tenant
-        </a>
+    <h5 class="mt-4 textColor"><span style="background-color: red">Delete Bank Account</span>
         <span style="float:right">
             {{-- Dropdown Searcch --}}
-            <div class="btn-group dropleft">
+            {{-- <div class="btn-group dropleft">
                 <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" style="background: #8ef4bb"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     All Tenant
@@ -22,7 +20,7 @@
                     <a class="dropdown-item" href="#">Flat:6</a>
                     <a class="dropdown-item" href="#">Flat:7</a>
                 </div>
-            </div>
+            </div> --}}
         </span>
     </h5>
     <hr style="width:100%;text-align:left;margin-left:0; border: 1px solid white;">
@@ -42,44 +40,38 @@
                 <thead class="bg-success text-center">
                     <tr>
                         <th>#</th>
-                        <th>Name</th>
-                        <th>Apartment</th>
-                        <th>Flat No</th>
-                        <th>Phone</th>
+                        <th>Bank Name</th>
+                        <th>Holder Name</th>
+                        <th>A/C Number</th>
+                        <th>Chq Number</th>
+                        <th>Atm Number</th>
                         {{-- <th>Email <span> <sub>(Can Not Be Change)</sub></span></th> --}}
-                        <th colspan="3">Action</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
 
-                @foreach ($tenats as $tenant)
+
                 <tbody class="bg-info">
+                    @foreach ($bankDataAlls as $bankData)
                     <tr class="text-center">
-                        <td>{{ $no++ }}</td>
-                        <td>{{ $tenant->name }}</td>
-                        <td>{{ 'Abanil Apartment' }}</td>
-                        <td>{{ '7B' }}</td>
-                        <td>{{ $tenant->phone }}</td>
-                        <td d class="text-center">
-                            <a title="View" href="" data-toggle="modal" data-target="#exampleModalCenter">
-                                <i class="fas fa-eye" style="color: green"></i>
-                            </a>
-                        </td>
+                        <td><i class="fa-solid fa-building-columns"></i></td>
+                        <td>{{$bankData->id }}</td>
+                        <td>{{$bankData->accountHolder_name }}</td>
+                        <td>{{$bankData->account_number }}</td>
+                        <td>{{$bankData->chq_number }}</td>
+                        <td>{{$bankData->atmCard_number }}</td>
+
                         <td class="text-center">
-                            <a title="Edit" href="" data-toggle="modal" data-target="#exampleModalCenter">
-                                <i class="fas fa-edit" style="color: blue"></i>
-                            </a>
-                        </td>
-                        <td class="text-center">
-                            <a title="Delete" type="submit" href="{{ route('tenant.destroy', $tenant->id)}}">
+                            <form action="{{ url('bank/'.$bankData->id) }}" method="post">
                                 @csrf
-                                <i class="fas fa-trash" style="color: red"></i>
-                            </a>
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                            </form>
                         </td>
 
                     </tr>
-
+                    @endforeach
                 </tbody>
-                @endforeach
             </table>
         </div>
 

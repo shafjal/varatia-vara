@@ -18,16 +18,15 @@
         </button>
     </div>
     @endif
-    <h3 class="mt-4 textColor">Select Building
-        <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModalCenterReply"
-            title="Create New">
-            +
-        </button>
+    <h5 class="mt-4 textColor">Select Building
+        <a class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModalCenterReply"
+            title="Create New"><i class="fa-solid fa-circle-plus"></i> Add Building
+        </a>
         <span style="float:right">
             {{ $curentDay}},
             {{ $currentDate }}
         </span>
-    </h3>
+    </h5>
     <hr style="width:100%;text-align:left;margin-left:0; border: 1px solid white;margin-top: 30px;">
     {{-- card section --}}
     <div class="row">
