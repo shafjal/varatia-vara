@@ -4,7 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Foundation\Auth\User;
+use Illuminate\Support\Facades\Auth;
 class RouteServiceProvider extends ServiceProvider
 {
     /**
@@ -21,7 +22,8 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    //public const HOME = '/home';
+
+    //public const HOME2 = '/home';
     public const HOME = '/selectDashboard';
     //public const USERHOME = '/dashboard';
 

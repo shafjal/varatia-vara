@@ -131,12 +131,29 @@
 
         }
 
+        .buttonCustomLoginTenant {
+            background-color: purple;
+            display: inline-block;
+            transition: 0.5s;
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+            -webkit-box-shadow: 5px 10px 12px 1px rgba(0, 0, 0, 0.47);
+            box-shadow: 5px 10px 12px 1px rgba(0, 0, 0, 0.47);
+        }
+
+
+        .buttonCustomLoginTenant:hover {
+            background-color: #58D68D;
+            color: white;
+        }
+
         .buttonCustomRegister {
             background-color: #0275d8;
             display: inline-block;
             transition: 0.5s;
             color: white;
-            font-size: 20px;
+            font-size: 15px;
             font-weight: bold;
             -webkit-box-shadow: 5px 10px 12px 1px rgba(0, 0, 0, 0.47);
             box-shadow: 5px 10px 12px 1px rgba(0, 0, 0, 0.47);
@@ -233,11 +250,12 @@
                 @csrf
             </form>
             @else
+            {{-- Login --}}
             <a href="{{ route('login') }}"><button type="button" class="btn buttonCustomLogin">Login</button></a>
 
-            @if (Route::has('register'))
-            {{-- <a href="{{ route('register') }}"><button type="button"
-                    class="btn buttonCustomRegister">Register</button></a> --}}
+            @if (Route::has('register.request'))
+            <a href="{{ route('register.request') }}"><button type="button" class="btn buttonCustomRegister">Register
+                    Request ?</button></a>
             @endif
             @endauth
         </div>

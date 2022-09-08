@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container-fluid px-4">
-    <h5 class="mt-4 textColor">Admin Dashboard
+    <h5 class="mt-4 textColor">Admin Dashboard {{ $currentAppt->apartment_name }}
         <span style="">
             {{-- Dropdown Searcch --}}
 
@@ -15,7 +15,8 @@
 
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     @foreach ($apartment_all as $apartment_name)
-                    <a class="dropdown-item" href="{{ route('home') }}">{{ $apartment_name->apartment_name }}</a>
+                    <a class="dropdown-item" href="{{ route('home2',$apartment_name->id) }}">{{
+                        $apartment_name->apartment_name }}</a>
                     @endforeach
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{{ route('selectDashboard') }}">Select Building</a>

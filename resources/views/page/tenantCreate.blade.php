@@ -75,6 +75,7 @@
                             <span class="text-danger">{{ $message}}</span>
                             @enderror
                         </div>
+
                         <div class="form-floating mb-3">
                             <select class="form-control" id="religious" name="religious">
                                 <option value="Islam">Islam</option>

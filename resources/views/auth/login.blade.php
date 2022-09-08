@@ -11,7 +11,7 @@
                     {{-- <div class="card shadow-lg border-0 rounded-lg mt-5"> --}}
                         <div class=" card myShadow border-0 rounded-lg mt-5">
                             <div class="card-header">
-                                <h3 class="text-center font-weight-bold my-2">Login</h3>
+                                <h3 class="text-center font-weight-bold my-2">Owner Login</h3>
                             </div>
                             <div class="card-body">
                                 <form method="POST" action="{{ route('login') }}">

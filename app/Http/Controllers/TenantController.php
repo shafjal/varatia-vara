@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Tenant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Foundation\Auth\User;
 
 class TenantController extends Controller
 {
@@ -13,9 +14,25 @@ class TenantController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-        public function __construct()
+    public function __construct()
     {
         $this->middleware('auth');
+    }
+
+    public function checkUserid()
+    {
+         $user = User::find(4);
+         $td = $user->id;
+        //  dd($td);
+        //  die;
+         $test_data = "4";
+        if ($td == $test_data) {
+                    $tenats = Tenant::all();
+        return view('page.tenant', compact('tenats'))->with('no',1);
+        } else {
+            return view('page.message');
+        }
+        
     }
     public function index()
     {
@@ -60,28 +77,6 @@ class TenantController extends Controller
             'religious' => 'required|max:255',
             'country' => 'required|max:255',
     ]);
-
-        //     $newTenant = new Tenant([
-        //     'name' => $request->get('name'),
-        //     'fathers_name' => $request->get('fathers_name'),
-        //     'e_name' => $request->get('e_name'),
-        //     'e_address' => $request->get('e_address'),
-        //     'e_relation' => $request->get('e_relation'),
-        //     'e_phone' => $request->get('e_phone'),
-        //     'maritial_status' => $request->get('maritial_status'),
-        //     'address' => $request->get('address'),
-        //     'e_relation' => $request->get('e_relation'),
-        //     'date_of_b' => $request->get('date_of_b'),
-        //     'phone' => $request->get('phone'),
-        //     'nid' => $request->get('nid'),
-        //     'education' => $request->get('education'),
-        //     'job_title' => $request->get('job_title'),
-        //     'job_location' => $request->get('job_location'),
-        //     'religious' => $request->get('religious'),
-        //     'country' => $request->get('country'),
-        // ]);
-        // $newTenant->save();
-        // return redirect('/tenant')->with('success', 'Tenant new data saved!');
 
         Tenant::insert([
             'name' => $request->name,
@@ -152,4 +147,5 @@ class TenantController extends Controller
         $tenant->delete();
         return redirect('/tenant')->with('success-delete', 'Tenant data deleted!');
     }
+
 }

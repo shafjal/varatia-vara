@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container-fluid px-4">
-    <h5 class="mt-4 textColor">User Dashboard <span style="float:right">
+    <h5 class="mt-4 textColor">Tenant User Dashboard <span style="float:right">
             {{ $curentDay}},
             {{ $currentDate }}
 

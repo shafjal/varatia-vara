@@ -289,25 +289,38 @@
                             </a>
                         </li>
 
-
-                        {{-- Nested Drop --}}
                         <div class="nav-item dropdown">
                             {{-- <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Dropdown
                             </button> --}}
+                            @if ( Auth::user()->role_id == 1)
                             <a id="navbarDropdown dropdownMenu1" class="nav-link dropdown-toggle navBar" href="#"
                                 role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
+                                <span><small>{{ __('S.Admin') }}</small></span>
                             </a>
+
                             <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+                                {{-- Home --}}
                                 <a class="dropdown-item" href="{{ url('/') }}">
                                     {{ __('Home') }}
                                 </a>
+                                {{-- Account Open --}}
+                                <a class="dropdown-item" href="{{ route('register.showReq') }}">
+                                    @php
+                                    $counts = DB::table('register_requests')->count();
+                                    @endphp
+                                    {{ __('Account Open') }} <i class="fas fa-arrow-right"></i><span
+                                        style="color: #58D68D"> {{ $counts }}</span>
+                                </a>
+
                                 {{-- Dasboard --}}
                                 <a class="dropdown-item" href="{{ route('selectDashboard') }}">
                                     {{ __('Dasboard') }}
                                 </a>
+
+                                {{-- Nested Drop --}}
                                 {{-- Bank Details --}}
                                 <li class="dropdown-submenu">
                                     <a class="dropdown-item " tabindex="-1" href="{{ url('bank') }}"><i
@@ -370,7 +383,7 @@
                                 {{-- Logout --}}
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
-                                                                                                                                                                             document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                         document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
 
@@ -378,6 +391,94 @@
                                     @csrf
                                 </form>
                             </ul>
+                            @else
+                            <a id="navbarDropdown dropdownMenu1" class="nav-link dropdown-toggle navBar" href="#"
+                                role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }}
+                                <span><small>{{ __('Admin') }}</small></span>
+                            </a>
+                            <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+                                <a class="dropdown-item" href="{{ url('/') }}">
+                                    {{ __('Home') }}
+                                </a>
+
+                                {{-- Dasboard --}}
+                                <a class="dropdown-item" href="{{ route('selectDashboard') }}">
+                                    {{ __('Dasboard') }}
+                                </a>
+
+                                {{-- Nested Drop --}}
+                                {{-- Bank Details --}}
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item " tabindex="-1" href="{{ url('bank') }}"><i
+                                            class="fas fa-arrow-left"></i>
+                                        Bank
+                                        Details</a>
+                                    <ul class="dropdown-menu">
+                                        <a class="dropdown-item" href="{{ route('selectDashboard') }}">
+                                            {{ __('New Transaction') }}
+                                        </a>
+                                        <a class="dropdown-item" href="{{ url('bank/create') }}">
+                                            {{ __('Add A/C') }}
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('bankAccount.Delete.all') }}">
+                                            {{ __('Remove A/C') }}
+                                        </a>
+                                        {{-- <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="#">Even More..</a>
+                                            <ul class="dropdown-menu">
+                                                <li class="dropdown-item"><a href="#">3rd level</a></li>
+                                                <li class="dropdown-submenu"><a class="dropdown-item" href="#">another
+                                                        level</a>
+                                                    <ul class="dropdown-menu">
+                                                        <li class="dropdown-item"><a href="#">4th level</a></li>
+                                                        <li class="dropdown-item"><a href="#">4th level</a></li>
+                                                        <li class="dropdown-item"><a href="#">4th level</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="dropdown-item"><a href="#">3rd level</a></li>
+                                            </ul>
+                                        </li> --}}
+                                    </ul>
+                                </li>
+                                {{-- Tenant --}}
+                                <a class="dropdown-item" href="{{ route('tenant') }}">
+                                    {{ __('Tenant Details') }}
+                                </a>
+                                {{-- Tenant Create --}}
+                                <a class="dropdown-item" href="{{ route('tenant.create') }}">
+                                    {{ __('Tenant Create') }}
+                                </a>
+                                {{-- Report --}}
+                                <a class="dropdown-item" href="{{ route('report.generate') }}">
+                                    {{ __('Report') }}
+                                </a>
+                                {{-- Notice --}}
+                                <a class="dropdown-item" href="{{ route('notice') }}">
+                                    {{ __('Notice') }}
+                                </a>
+                                {{-- Leave Notice --}}
+                                <a class="dropdown-item" href="{{ route('notice') }}">
+                                    {{ __('Leave Notice') }}
+                                </a>
+                                {{-- Profile --}}
+                                <a class="dropdown-item" href="{{ route('profile') }}">
+                                    {{ __('Profile') }}
+                                </a>
+                                {{-- Divider --}}
+                                <div class="dropdown-divider"></div>
+                                {{-- Logout --}}
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                                                                                                                                                                         document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </ul>
+                            @endif
                         </div>
                 </div>
                 {{-- End --}}

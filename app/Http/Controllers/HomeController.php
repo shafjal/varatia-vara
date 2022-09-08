@@ -28,17 +28,26 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-        public function index()
+    
+        public function index2(Request $request)
         {
+                $var = $request->id;
+                //$this->index($var);  
+                return $this->index($var);
+        }
+        public function index( $variable)
+        {
+                //dd($variable);
                 $admin = User::all();
                 $currentDate = Carbon::now()->timezone('Asia/Dhaka')->format('d/m/Y');
                 $currentYear = Carbon::now()->timezone('Asia/Dhaka')->format('Y');
                 $curentDay = Carbon::createFromFormat('d/m/Y',$currentDate)->format('l');
                 $curentMonth = Carbon::createFromFormat('d/m/Y',$currentDate)->format('F');
                 $apartment_all = Apartment::all();
+                $currentAppt = Apartment::find($variable);
                 
         
-            return view('page.dashboard', compact('admin','curentDay','currentDate','curentMonth','currentYear','apartment_all'));
+                return view('page.dashboard', compact('admin','curentDay','currentDate','curentMonth','currentYear','apartment_all','currentAppt'));
         
         }
         public function selectDashboard()

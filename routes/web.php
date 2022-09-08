@@ -4,7 +4,7 @@ use App\Apartment;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Foundation\Auth\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,10 +15,17 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//Register Request
+
+Route::get('/register/request', 'RegisterRequestController@index')->name('register.request');
+Route::post('/register/request', 'RegisterRequestController@store')->name('register.store');
+Route::get('/register/request', 'RegisterRequestController@ShowReq')->name('register.showReq');
+
+
 // Welcome
 Route::get('/', function () {
     return view('page.welcome');
-});
+})->name('welcome');
 
 //About Page
 Route::get('/about', function () {
@@ -38,6 +45,10 @@ Route::get('/tutorial', function () {
 Route::get('/contact', function () {
     return view('page.contact');
 });
+//contact Page
+Route::get('/login/tenant', function () {
+    return view('auth.tenatLogin');
+});
 //Admin Part -------------------------------------------------------------------------
 //Profile
 Auth::routes();
@@ -47,6 +58,7 @@ Route::get('/profile', 'HomeController@profile')->name('profile');
 Route::get('/message', 'MessageController@index')->name('message');
 //Home
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home/{id}', 'HomeController@index2')->name('home2');
 //Select Dashboard
 Route::get('/selectDashboard', 'HomeController@selectDashboard')->name('selectDashboard');
 //Tenant 
@@ -76,10 +88,14 @@ Route::get('bank/delete/all', 'HomeController@bankDestroyAll')->name('bankAccoun
 //Tenant User
 Route::get('/tenantDashboard', 'TenantUserContorller@index')->name('tenant.Dashboard');
 
-// Auth::routes();
-
-// Route::get('/home', 'HomeController@index')->name('home');
 
 // Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
+
+// Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');
+
+//test
+Route::get('/test', 'TenantController@checkUserid')->name('test');

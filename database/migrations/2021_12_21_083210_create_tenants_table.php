@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Hash;
 
 class CreateTenantsTable extends Migration
 {
@@ -30,7 +31,7 @@ class CreateTenantsTable extends Migration
             $table->string('job_title');
             $table->string('job_location');
             $table->string('religious');   
-            $table->string('country'); 
+            $table->string('country');
             $table->timestamps();
         });
     }

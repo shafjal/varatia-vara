@@ -41,7 +41,7 @@
                     <p class="card-text">
                         {{ $img->apartment_address }}
                     </p>
-                    <a href="{{ route('home') }}" class="btn btn-warning" title="Goto Dashboard">Dashboard</a>
+                    <a href="{{ route('home2',$img->id) }}" class="btn btn-warning" title="Goto Dashboard">Dashboard</a>
                     <a type="submit" style="float: right" href="{{ route('apartment.destroy', $img->id)}}"
                         class="btn btn-danger" title="Delete"><i style="color: white" class="fa-solid fa-trash"></i></a>
                 </div>
