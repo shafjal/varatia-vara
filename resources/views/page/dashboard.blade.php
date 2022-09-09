@@ -87,7 +87,7 @@
                 <div class="card-header">
                     <i class="fas fa-money-bill-alt fa-2x myShadow2" aria-hidden="true" style="float:left;">
                     </i>
-                    <h5 class="text-right" style="margin-top: 1px">Estimet Cost</h5>
+                    <h5 class="text-right" style="margin-top: 1px">Miscellaneous</h5>
                 </div>
                 <div class="card-body">
                     <h5 class="text-center">95,000/=</h5>
