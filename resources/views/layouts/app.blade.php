@@ -312,7 +312,7 @@
                                     $counts = DB::table('register_requests')->count();
                                     @endphp
                                     {{ __('Account Open') }} <i class="fas fa-arrow-right"></i><span
-                                        style="color: #58D68D"> {{ $counts }}</span>
+                                        style="color: #0000FF"> <b>{{ $counts }}</b></span>
                                 </a>
 
                                 {{-- Dasboard --}}
@@ -418,27 +418,32 @@
                                         <a class="dropdown-item" href="{{ route('selectDashboard') }}">
                                             {{ __('New Transaction') }}
                                         </a>
-                                        <a class="dropdown-item" href="{{ url('bank/create') }}">
+                                        {{-- <a class="dropdown-item" href="{{ url('bank/create') }}">
                                             {{ __('Add A/C') }}
-                                        </a>
+                                        </a> --}}
                                         <a class="dropdown-item" href="{{ route('bankAccount.Delete.all') }}">
                                             {{ __('Remove A/C') }}
                                         </a>
-                                        {{-- <li class="dropdown-submenu">
-                                            <a class="dropdown-item" href="#">Even More..</a>
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="">{{ __('Add A/C') }}</a>
                                             <ul class="dropdown-menu">
-                                                <li class="dropdown-item"><a href="#">3rd level</a></li>
-                                                <li class="dropdown-submenu"><a class="dropdown-item" href="#">another
+                                                <a class="dropdown-item" href="{{ url('bank/create') }}">
+                                                    {{ __('Bank A/C') }}
+                                                </a>
+                                                {{-- <li class="dropdown-submenu"><a class="dropdown-item"
+                                                        href="#">another
                                                         level</a>
                                                     <ul class="dropdown-menu">
                                                         <li class="dropdown-item"><a href="#">4th level</a></li>
                                                         <li class="dropdown-item"><a href="#">4th level</a></li>
                                                         <li class="dropdown-item"><a href="#">4th level</a></li>
                                                     </ul>
-                                                </li>
-                                                <li class="dropdown-item"><a href="#">3rd level</a></li>
+                                                </li> --}}
+                                                <a class="dropdown-item" href="{{ url('banks/mobileBanks') }}">
+                                                    {{ __('Mobile A/C') }}
+                                                </a>
                                             </ul>
-                                        </li> --}}
+                                        </li>
                                     </ul>
                                 </li>
                                 {{-- Tenant --}}

@@ -127,5 +127,12 @@ class HomeController extends Controller
                 return view('page.bankDelete',compact('bankDataAlls'));
         }
 
+        public function mcreate()
+        {
+                $banks = Bank::all();
+                $counts = Bank::count(); 
+                return view('page.mBanks', compact('banks','counts'))->with('no',1);
+        }
+
 
 }

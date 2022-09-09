@@ -252,10 +252,12 @@
             @else
             {{-- Login --}}
             <a href="{{ route('login') }}"><button type="button" class="btn buttonCustomLogin">Login</button></a>
-
-            @if (Route::has('register.request'))
-            <a href="{{ route('register.request') }}"><button type="button" class="btn buttonCustomRegister">Register
+            <a href="{{ url('/register/request') }}"><button type="button" class="btn buttonCustomRegister">Register
                     Request ?</button></a>
+            @if (Route::has('register.request'))
+            {{-- <a href="{{ route('register.request') }}"><button type="button"
+                    class="btn buttonCustomRegister">Register
+                    Request ?</button></a> --}}
             @endif
             @endauth
         </div>

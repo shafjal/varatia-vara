@@ -7,9 +7,7 @@ use App\RegisterRequest;
 
 class RegisterRequestController extends Controller
 {
-    public function index(){
-        return view('auth.registerRequest');
-    }
+
     public function store(Request $request)    {
             $validated = $request->validate([
             'name' => 'required|max:255',
@@ -26,6 +24,7 @@ class RegisterRequestController extends Controller
 
      public function ShowReq(){
         $register_requests = RegisterRequest::all();
+        $count = RegisterRequest::count();
         return view('page.registerCreate',compact('register_requests'));
      }
 }

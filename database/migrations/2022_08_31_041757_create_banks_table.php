@@ -17,10 +17,10 @@ class CreateBanksTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('bank_name');
-            $table->string('accountHolder_name');
-            $table->string('account_number');
-            $table->string('chq_number');
-            $table->string('atmCard_number');
+            $table->string('accountHolder_name')->nullable();
+            $table->string('account_number')->nullable();
+            $table->string('chq_number')->nullable();
+            $table->string('atmCard_number')->nullable();
         });
     }
 

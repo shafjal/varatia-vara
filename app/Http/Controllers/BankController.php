@@ -51,13 +51,13 @@ class BankController extends Controller
      */
     public function store(Request $request)
     {
-            $validated = $request->validate([
-            'bank_name' => 'required|max:255',
-            'accountHolder_name' => 'required|max:255',
-            'account_number' => 'required|max:255',
-            'chq_number' => 'required|max:255',
-            'atmCard_number' => 'required|max:255',
-    ]);
+    //         $validated = $request->validate([
+    //         'bank_name' => 'required|max:255',
+    //         'accountHolder_name' => 'required|max:255',
+    //         'account_number' => 'required|max:255',
+    //         'chq_number' => 'required|max:255',
+    //         'atmCard_number' => 'required|max:255',
+    // ]);
 
             Bank::insert([
             'bank_name' => $request->bank_name,
@@ -67,7 +67,7 @@ class BankController extends Controller
             'atmCard_number' => $request->atmCard_number,
             
         ]);
-        return redirect('/bank/create')->with('success', 'Account Added Successfully!');
+        return redirect('/bank')->with('success', 'Account Added Successfully!');
 
     }
 

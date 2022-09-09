@@ -5,12 +5,39 @@
 <div class="container-fluid px-4">
     <h5 class="mt-4 textColor">Bank Details Dashboard
         <span style="float:right">
-            <a class="btn btn-warning btn-sm" href="{{ route('tenant.create') }}" title="Withdraw Money"><i
+            <a class="btn btn-warning btn-sm" href="" title="Withdraw Money"><i
                     class="fa-solid fa-money-bill-transfer"></i> Withdraw
             </a>
-            <a class="btn btn-success btn-sm" href="{{ url('bank/create') }}" title="Add Account"><i
-                    class="fa-solid fa-circle-plus"></i> Add Account
+            <a class="btn btn-success btn-sm" href="" title="Add Account" data-toggle="modal"
+                data-target="#addAccount"><i class="fa-solid fa-circle-plus"></i> Add
+                Account
             </a>
+            {{-- Add Account Model --}}
+            <div class="modal fade" id="addAccount" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body text-center">
+                            <a class="btn btn-secondary " href="{{ url('bank/create') }}" title="Add Account"><i
+                                    class="fa-solid fa-circle-plus" style="color: lawngreen"></i> Bank Account
+                            </a>
+                            <a class="btn btn-secondary " href="{{ url('banks/mobileBanks') }}" title="Add Account"><i
+                                    class="fa-solid fa-circle-plus" style="color: lawngreen"></i> Mobile Bank Account
+                            </a>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
+                        </div>
+                    </div>
+                </div>
+            </div>
             <a class="btn btn-danger btn-sm" href="" title="Delete Account" data-toggle="modal"
                 data-target="#deleteAccount"><i class="fa-solid fa-eraser"></i>
                 Delete Account
@@ -343,6 +370,14 @@
     @if (session('success-delete'))
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
         <strong>{{ session('success-delete')}}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    @endif
+    @if (session('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>{{ session('success')}}</strong>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>

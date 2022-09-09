@@ -58,8 +58,16 @@
                         <td>{{$bankData->id }}</td>
                         <td>{{$bankData->accountHolder_name }}</td>
                         <td>{{$bankData->account_number }}</td>
+                        @if (is_null($bankData->chq_number))
+                        <td> Mobile Bank - No Data</td>
+                        @else
                         <td>{{$bankData->chq_number }}</td>
+                        @endif
+                        @if (is_null($bankData->atmCard_number))
+                        <td> Mobile Bank - No Data</td>
+                        @else
                         <td>{{$bankData->atmCard_number }}</td>
+                        @endif
 
                         <td class="text-center">
                             <form action="{{ url('bank/'.$bankData->id) }}" method="post">

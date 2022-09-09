@@ -17,10 +17,12 @@ use Illuminate\Foundation\Auth\User;
 */
 //Register Request
 
-Route::get('/register/request', 'RegisterRequestController@index')->name('register.request');
+// Route::get('/register/request', 'RegisterRequestController@index')->name('register.request');
 Route::post('/register/request', 'RegisterRequestController@store')->name('register.store');
-Route::get('/register/request', 'RegisterRequestController@ShowReq')->name('register.showReq');
-
+Route::get('/register/request/show', 'RegisterRequestController@ShowReq')->name('register.showReq');
+Route::get('/register/request', function () {
+   return view('auth.registerRequest');
+})->name('register.request');
 
 // Welcome
 Route::get('/', function () {
@@ -80,6 +82,8 @@ Route::get('/chuktipotro-view', 'ChuktiPotro@print')->name('chuktipotro.print');
 
 //Bank -RecourceRoute
 Route::resource('bank', 'BankController');
+Route::post('banks/mobileBanks', 'BankController@store');
+Route::get('banks/mobileBanks', 'HomeController@mcreate')->name('mBank');
 Route::post('bank/delete', 'HomeController@bankDestroy')->name('bankAccount.Delete');
 Route::get('bank/delete/all', 'HomeController@bankDestroyAll')->name('bankAccount.Delete.all');
 
