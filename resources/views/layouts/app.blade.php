@@ -294,6 +294,7 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Dropdown
                             </button> --}}
+                            {{-- Super Admin --}}
                             @if ( Auth::user()->role_id == 1)
                             <a id="navbarDropdown dropdownMenu1" class="nav-link dropdown-toggle navBar" href="#"
                                 role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -331,27 +332,32 @@
                                         <a class="dropdown-item" href="{{ route('selectDashboard') }}">
                                             {{ __('New Transaction') }}
                                         </a>
-                                        <a class="dropdown-item" href="{{ url('bank/create') }}">
+                                        {{-- <a class="dropdown-item" href="{{ url('bank/create') }}">
                                             {{ __('Add A/C') }}
-                                        </a>
+                                        </a> --}}
                                         <a class="dropdown-item" href="{{ route('bankAccount.Delete.all') }}">
                                             {{ __('Remove A/C') }}
                                         </a>
-                                        {{-- <li class="dropdown-submenu">
-                                            <a class="dropdown-item" href="#">Even More..</a>
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="">{{ __('Add A/C') }}</a>
                                             <ul class="dropdown-menu">
-                                                <li class="dropdown-item"><a href="#">3rd level</a></li>
-                                                <li class="dropdown-submenu"><a class="dropdown-item" href="#">another
+                                                <a class="dropdown-item" href="{{ url('bank/create') }}">
+                                                    {{ __('Bank A/C') }}
+                                                </a>
+                                                {{-- <li class="dropdown-submenu"><a class="dropdown-item"
+                                                        href="#">another
                                                         level</a>
                                                     <ul class="dropdown-menu">
                                                         <li class="dropdown-item"><a href="#">4th level</a></li>
                                                         <li class="dropdown-item"><a href="#">4th level</a></li>
                                                         <li class="dropdown-item"><a href="#">4th level</a></li>
                                                     </ul>
-                                                </li>
-                                                <li class="dropdown-item"><a href="#">3rd level</a></li>
+                                                </li> --}}
+                                                <a class="dropdown-item" href="{{ url('banks/mobileBanks') }}">
+                                                    {{ __('Mobile A/C') }}
+                                                </a>
                                             </ul>
-                                        </li> --}}
+                                        </li>
                                     </ul>
                                 </li>
                                 {{-- Tenant --}}
@@ -392,6 +398,7 @@
                                 </form>
                             </ul>
                             @else
+                            {{-- Admin --}}
                             <a id="navbarDropdown dropdownMenu1" class="nav-link dropdown-toggle navBar" href="#"
                                 role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}

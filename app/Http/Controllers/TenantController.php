@@ -19,20 +19,26 @@ class TenantController extends Controller
         $this->middleware('auth');
     }
 
+    public function familyMember(){
+        $tenats = Tenant::all();
+        return view('page.family', compact('tenats'));
+    }
+
     public function checkUserid()
     {
-         $user = User::find(4);
-         $td = $user->id;
-        //  dd($td);
-        //  die;
-         $test_data = "4";
-        if ($td == $test_data) {
-                    $tenats = Tenant::all();
-        return view('page.tenant', compact('tenats'))->with('no',1);
-        } else {
-            return view('page.message');
-        }
-        
+        //  $user = User::find(4);
+        //  $td = $user->id;
+        // //  dd($td);
+        // //  die;
+        //  $test_data = "4";
+        // if ($td == $test_data) {
+        //             $tenats = Tenant::all();
+        // return view('page.tenant', compact('tenats'))->with('no',1);
+        // } else {
+        //     return view('page.message');
+        // }
+
+        return view('page.test');
     }
     public function index()
     {

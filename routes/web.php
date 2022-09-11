@@ -68,6 +68,7 @@ Route::get('/tenant', 'TenantController@index')->name('tenant');
 Route::get('/tenant/create', 'TenantController@create')->name('tenant.create');
 Route::post('/tenant/create', 'TenantController@store')->name('tenant.store');
 Route::get('/tenant/{id}', 'TenantController@destroy')->name('tenant.destroy');
+Route::get('/tenant/family/add', 'TenantController@familyMember')->name('tenant.family');
 //Report Genenate
 Route::get('/report', 'ReportController@index')->name('report.generate');
 //Notice
