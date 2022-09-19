@@ -4,9 +4,9 @@
 
 <div class="container-fluid px-4">
     <h5 class="mt-4 textColor">Notice Board <span style="float:right">
-            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">
+            {{-- <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">
                 <i class="fas fa-pen-square fa-1x " aria-hidden="true" style="float:left;"> Create</i>
-            </button>
+            </button> --}}
         </span>
     </h5>
     <hr style="width:100%;text-align:left;margin-left:0; border: 1px solid white;">
@@ -35,12 +35,24 @@
                         </h5>
                     </span>
                     <span style="float:right">
-                        <form action="{{ url('notice/'.$notice->id) }}" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm"><i
-                                    class="fa-solid fa-trash"></i></button>
-                        </form>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <form action="" method="">
+                                    @csrf
+                                    @method('')
+                                    <button type="submit" class="btn btn-secondary btn-sm"><i
+                                            class="fa-solid fa-thumbs-down"> {{ '12' }}</i></button>
+                                </form>
+                            </div>
+                            <div class="offset-md-3 col-md-3">
+                                <form action="" method="">
+                                    @csrf
+                                    @method('')
+                                    <button type="submit" class="btn btn-success btn-sm"><i
+                                            class="fa-solid fa-thumbs-up"> {{ '14' }}</i></button>
+                                </form>
+                            </div>
+                        </div>
                     </span>
                 </div>
             </div>
@@ -82,7 +94,6 @@
 
                     </div>
                     <div class="modal-footer">
-
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary">
                             {{ __('Submit') }}

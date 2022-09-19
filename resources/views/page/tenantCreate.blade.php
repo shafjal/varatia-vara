@@ -84,7 +84,7 @@
                                 <option value="Buddhism">Buddhism</option>
                                 <option value="Buddhism">Other</option>
                             </select>
-                            <label class="control-label" for="inputEmargencyContactAddress">Maritial Status</label>
+                            <label class="control-label" for="inputEmargencyContactAddress">Religion Status</label>
                         </div>
                         <div class="form-floating mb-3">
                             <input id="education" type="text" class="form-control" name="education" required
@@ -171,7 +171,7 @@
                         <div class="form-floating mb-3">
                             <select class="form-control" id="maritial_status" name="maritial_status">
                                 <option value="Married">Married</option>
-                                <option value="Unmarried">Unmarried</option>
+                                <option value="Unmarried/Bachelor">Unmarried / Bachelor</option>
                                 <option value="Divorced">Divorced</option>
                             </select>
                             <label class="control-label" for="inputEmargencyContactAddress">Maritial Status</label>

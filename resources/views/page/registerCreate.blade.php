@@ -5,14 +5,30 @@
 
 <div class="container-fluid px-4">
 
-    <h5 class="mt-4 textColor">Add Account Details </h5>
+    <h5 class="mt-4 textColor">Approve Or Decline User </h5>
     <hr style="width:100%;text-align:left;margin-left:0; border: 1px solid white;">
+    {{-- Succuees Delete --}}
+    @if (session('success-delete'))
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>{{ session('success-delete')}}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    @endif
+    @if (session('success-approve'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>{{ session('success-approve')}}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    @endif
     {{-- card section --}}
     <div class="row ">
         <div class="offset-md-2 col-md-7 ">
             <table class="table table-bordered table-hover myShadow rounded-lg" id="datatablesSimple">
                 <thead class="text-center bg-info">
-
                     <tr>
                         <th>#</th>
                         <th>Name</th>
@@ -29,21 +45,24 @@
                         <td>{{ $register_request->name }}</td>
                         <td>{{ $register_request->email }}</td>
                         <td d class="text-center">
-                            <a title="Approve" href="" data-toggle="modal" data-target="#exampleModalCenter">
-                                <i class="fa-solid fa-square-check" style="color: green"></i>
-                            </a>
+                            <form action="{{ route('register.apporve',$register_request->id) }}" method="post">
+                                @csrf
+                                <button type="submit" class="btn btn-sm"><i class="fa-solid fa-square-check"
+                                        style="color: green"></i></button>
+                            </form>
                         </td>
                         <td class="text-center">
-                            <a title="Delete" type="submit" href="">
+                            <form action="{{ route('register.destroy',$register_request->id) }}" method="post">
                                 @csrf
-                                <i class="fa-solid fa-user-xmark" style="color: red"></i>
-                            </a>
+                                <button type="submit" class="btn btn-sm"><i class="fa-solid fa-user-xmark"
+                                        style="color: red"></i>
+                            </form>
                         </td>
                     </tr>
                     @endforeach
                     <tr style="background-color: #94549c; color:whitesmoke">
                         <td><i class="fa-solid fa-equals"></i></td>
-                        <td colspan="4"><strong><b>Total Account Created</b></strong></td>
+                        <td colspan="4"><strong><b>Total Account Request {{ $count }}</b></strong></td>
                     </tr>
                 </tbody>
 

@@ -373,11 +373,11 @@
                                     {{ __('Report') }}
                                 </a>
                                 {{-- Notice --}}
-                                <a class="dropdown-item" href="{{ route('notice') }}">
+                                <a class="dropdown-item" href="{{ url('notice') }}">
                                     {{ __('Notice') }}
                                 </a>
                                 {{-- Leave Notice --}}
-                                <a class="dropdown-item" href="{{ route('notice') }}">
+                                <a class="dropdown-item" href="{{ url('notice') }}">
                                     {{ __('Leave Notice') }}
                                 </a>
                                 {{-- Profile --}}
@@ -466,11 +466,11 @@
                                     {{ __('Report') }}
                                 </a>
                                 {{-- Notice --}}
-                                <a class="dropdown-item" href="{{ route('notice') }}">
+                                <a class="dropdown-item" href="{{ url('notice') }}">
                                     {{ __('Notice') }}
                                 </a>
                                 {{-- Leave Notice --}}
-                                <a class="dropdown-item" href="{{ route('notice') }}">
+                                <a class="dropdown-item" href="{{ url('notice') }}">
                                     {{ __('Leave Notice') }}
                                 </a>
                                 {{-- Profile --}}

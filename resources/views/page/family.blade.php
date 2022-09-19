@@ -25,14 +25,14 @@
             }
 </script>
 <div class="container-fluid px-4">
-    <h5 class="mt-4 textColor">Enter Tenant Details </h5>
+    <h5 class="mt-4 textColor">Enter Family Member Name & Phones Details </h5>
     <hr style="width:100%;text-align:left;margin-left:0; border: 1px solid white;">
     {{-- card section --}}
     <div class="row justify-content-center">
         <div class="col-md-7">
             <div class=" card myShadow border-0 rounded-lg">
                 <div class="card-header">
-                    <h3 class="text-center font-weight-bold my-2">Tenant Registration</h3>
+                    <h3 class="text-center font-weight-bold my-2">Add Family Member Against Tenant</h3>
                 </div>
                 <div class="card-body">
                     <script type='text/javascript'>

@@ -20,6 +20,8 @@ use Illuminate\Foundation\Auth\User;
 // Route::get('/register/request', 'RegisterRequestController@index')->name('register.request');
 Route::post('/register/request', 'RegisterRequestController@store')->name('register.store');
 Route::get('/register/request/show', 'RegisterRequestController@ShowReq')->name('register.showReq');
+Route::post('/register/request/show/{id}', 'RegisterRequestController@destroy')->name('register.destroy');
+Route::post('/register/request/show/{id}/approve', 'RegisterRequestController@apporve')->name('register.apporve');
 Route::get('/register/request', function () {
    return view('auth.registerRequest');
 })->name('register.request');
@@ -71,8 +73,8 @@ Route::get('/tenant/{id}', 'TenantController@destroy')->name('tenant.destroy');
 Route::get('/tenant/family/add', 'TenantController@familyMember')->name('tenant.family');
 //Report Genenate
 Route::get('/report', 'ReportController@index')->name('report.generate');
-//Notice
-Route::get('/notice', 'NoticeController@index')->name('notice');
+//Notice -RecourceRoute
+Route::resource('notice', 'NoticeController');
 //Apartment Create
 Route::post('/selectDashboard', 'HomeController@store')->name('apartment.store');
 // Apartment Destroy 
@@ -92,6 +94,8 @@ Route::get('bank/delete/all', 'HomeController@bankDestroyAll')->name('bankAccoun
 //User Part -------------------------------------------------------------------------
 //Tenant User
 Route::get('/tenantDashboard', 'TenantUserContorller@index')->name('tenant.Dashboard');
+//Tenant Notice 
+Route::get('/tenantNotice', 'HomeController@tenantNotice')->name('tenant.notice');
 
 
 // Auth::routes();

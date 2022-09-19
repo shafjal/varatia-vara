@@ -10,6 +10,7 @@ use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\File; 
+use App\Notice;
 
 class HomeController extends Controller
 {
@@ -132,6 +133,12 @@ class HomeController extends Controller
                 $banks = Bank::all();
                 $counts = Bank::count(); 
                 return view('page.mBanks', compact('banks','counts'))->with('no',1);
+        }
+
+        public function tenantNotice()
+        {
+                $notices = Notice::all();
+                return view('page.tenantNotice',compact('notices'));
         }
 
 

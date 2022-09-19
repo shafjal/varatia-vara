@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+use App\Notice;
 
 class NoticeController extends Controller
 {
@@ -18,8 +20,10 @@ class NoticeController extends Controller
     }
     public function index()
     {
-        return view('page.notice');
+        $notices = Notice::all();
+        return view('page.notice',compact('notices'));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -39,7 +43,13 @@ class NoticeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+            Notice::insert([
+            'topic_name' => $request->topic_name,
+            'topic_body' => $request->topic_body,
+            'created_at' => Carbon::now(),
+            
+        ]);
+        return redirect('/notice')->with('success', 'Account Added Successfully!');
     }
 
     /**
@@ -84,6 +94,8 @@ class NoticeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $notice = Notice::find($id);
+        $notice->delete();
+        return redirect('/notice')->with('success-delete', 'Account data deleted!');
     }
 }

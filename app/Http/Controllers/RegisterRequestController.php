@@ -25,6 +25,18 @@ class RegisterRequestController extends Controller
      public function ShowReq(){
         $register_requests = RegisterRequest::all();
         $count = RegisterRequest::count();
-        return view('page.registerCreate',compact('register_requests'));
+        return view('page.registerCreate',compact('register_requests','count'));
      }
+    public function apporve($id)
+    {
+        $register_request = RegisterRequest::find($id);
+        $register_request->delete();
+        return redirect('/register/request/show')->with('success-approve', 'Request Has been Approved!');
+    }
+    public function destroy($id)
+    {
+        $register_request = RegisterRequest::find($id);
+        $register_request->delete();
+        return redirect('/register/request/show')->with('success-delete', 'Request Has been Deleted!');
+    }
 }
