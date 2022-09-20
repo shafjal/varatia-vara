@@ -141,5 +141,4 @@ class HomeController extends Controller
                 return view('page.tenantNotice',compact('notices'));
         }
 
-
 }

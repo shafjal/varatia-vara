@@ -96,6 +96,10 @@ Route::get('bank/delete/all', 'HomeController@bankDestroyAll')->name('bankAccoun
 Route::get('/tenantDashboard', 'TenantUserContorller@index')->name('tenant.Dashboard');
 //Tenant Notice 
 Route::get('/tenantNotice', 'HomeController@tenantNotice')->name('tenant.notice');
+//Leave Notice 
+Route::get('/leave/notice', 'LeaveNoticeController@index')->name('leave.notice');
+Route::post('/leave/notice', 'LeaveNoticeController@store')->name('leave.store');
+Route::post('/leave/notice/{id}', 'LeaveNoticeController@destroy')->name('leave.destroy');
 
 
 // Auth::routes();

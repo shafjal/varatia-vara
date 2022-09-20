@@ -377,7 +377,7 @@
                                     {{ __('Notice') }}
                                 </a>
                                 {{-- Leave Notice --}}
-                                <a class="dropdown-item" href="{{ url('notice') }}">
+                                <a class="dropdown-item" href="{{ route('leave.notice') }}">
                                     {{ __('Leave Notice') }}
                                 </a>
                                 {{-- Profile --}}
@@ -470,7 +470,7 @@
                                     {{ __('Notice') }}
                                 </a>
                                 {{-- Leave Notice --}}
-                                <a class="dropdown-item" href="{{ url('notice') }}">
+                                <a class="dropdown-item" href="{{ route('leave.notice') }}">
                                     {{ __('Leave Notice') }}
                                 </a>
                                 {{-- Profile --}}
