@@ -232,6 +232,17 @@
         -moz-border-radius: 6px 0 6px 6px;
         border-radius: 6px 0 6px 6px;
     }
+
+    /* Vertical Line Css */
+    .vl {
+        border-left: 3px solid white;
+        height: 500px;
+        border-radius: 15px;
+    }
+
+    .card-border {
+        border-color: #ea0164;
+    }
 </style>
 </head>
 

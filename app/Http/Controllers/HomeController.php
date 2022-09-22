@@ -145,7 +145,7 @@ class HomeController extends Controller
                 public function deposit()
         {
              
-                return view('page.about');
+                return view('page.bankDeposit');
         }
 
 }

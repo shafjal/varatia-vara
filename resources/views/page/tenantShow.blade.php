@@ -190,12 +190,24 @@
                     </div>
 
                     {{-- Submit Button --}}
-                    <div class=" d-flex align-items-center justify-content-end mt-4 mb-0">
-                        <a title="View" href="{{ route('tenant.edit',$tenant_id->id) }}" class="btn btn-success">
-                            <i class="fas fa-edit"></i>
-                            Edit
-                        </a>
-                    </div>
+                    <span style="float: right">
+                        <div class=" row mt-4 mb-0">
+                            <div class="col-md-5">
+                                <a title="View" href="{{ route('tenant.edit',$tenant_id->id) }}"
+                                    class="btn btn-success">
+                                    <i class="fas fa-edit"></i>
+                                    Edit
+                                </a>
+                            </div>
+                            <div class="col-md-3">
+                                <a title="View" href="{{ route('tenant') }}" class="btn btn-primary">
+                                    <i class="fa-solid fa-backward"></i>
+                                    Back
+                                </a>
+                            </div>
+                        </div>
+                    </span>
+
                 </div>
             </div>
         </div>

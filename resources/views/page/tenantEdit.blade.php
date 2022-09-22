@@ -193,13 +193,22 @@
                             @enderror
                         </div>
 
-                        {{-- Submit Button --}}
-                        <div class=" d-flex align-items-center justify-content-end mt-4 mb-0">
-                            <button type="submit" class="btn btn-success">
-                                {{ __('Update Edit') }}
-                            </button>
-                        </div>
-                        <a href="{{ url()->previous() }}">Back</a>
+                        {{-- Submit Button & Back Button--}}
+                        <span style="float:right">
+                            <div class="row mt-4 mb-0">
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn btn-success">
+                                        {{ __('Update Edit') }}
+                                    </button>
+                                </div>
+                                <div class="col-md-3">
+                                    <a class="btn btn-primary" type="button" href="{{ url()->previous() }}">
+                                        <i class="fa-solid fa-backward"></i>
+                                        Back
+                                    </a>
+                                </div>
+                            </div>
+                        </span>
                     </form>
                 </div>
             </div>
