@@ -24,7 +24,7 @@ class CreateTenantsTable extends Migration
             $table->string('e_phone'); //e = emargency
             $table->string('maritial_status');
             $table->string('address');
-            $table->string('date_of_b');
+            $table->date('date_of_b');
             $table->string('phone');
             $table->string('nid');
             $table->string('education');

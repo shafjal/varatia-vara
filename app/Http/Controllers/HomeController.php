@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\File; 
 use App\Notice;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -47,7 +48,6 @@ class HomeController extends Controller
                 $apartment_all = Apartment::all();
                 $currentAppt = Apartment::find($variable);
                 
-        
                 return view('page.dashboard', compact('admin','curentDay','currentDate','curentMonth','currentYear','apartment_all','currentAppt'));
         
         }
@@ -139,6 +139,13 @@ class HomeController extends Controller
         {
                 $notices = Notice::all();
                 return view('page.tenantNotice',compact('notices'));
+        }
+
+        
+                public function deposit()
+        {
+             
+                return view('page.about');
         }
 
 }

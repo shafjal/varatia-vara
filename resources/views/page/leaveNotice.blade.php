@@ -57,7 +57,7 @@
                                 </div>
                                 <div class="card-body text-center">
                                     @if (is_null($leave_notice->end_date))
-                                    <h5 class="card-title"> Temporary Leave</h5>
+                                    <h5 class="card-title"> Parmantly Leave</h5>
                                     @else
                                     <h5 class="card-title"> {{$leave_notice->end_date}}</h5>
                                     @endif
@@ -132,12 +132,20 @@
                         </h5>
                     </span>
                     <span style="float:right">
-                        <form action="{{ route('leave.destroy',$leave_notice->id) }}" method="POST">
-                            @csrf
-                            @method('')
-                            <button type="submit" class="btn btn-danger btn-sm"><i
-                                    class="fa-solid fa-trash"></i></button>
-                        </form>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <button type="submit" class="btn btn-success btn-sm" data-toggle="modal"
+                                    data-target="#editmodal"><i class="fa-solid fa-user-pen"></i></button>
+                            </div>
+                            <div class="offset-md-3 col-md-3">
+                                <form action="{{ route('leave.destroy',$leave_notice->id) }}" method="POST">
+                                    @csrf
+                                    @method('')
+                                    <button type="submit" class="btn btn-danger btn-sm"><i
+                                            class="fa-solid fa-trash"></i></button>
+                                </form>
+                            </div>
+                        </div>
                     </span>
                 </div>
             </div>

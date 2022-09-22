@@ -5,6 +5,10 @@
 <div class="container-fluid px-4">
     <h5 class="mt-4 textColor">Bank Details Dashboard
         <span style="float:right">
+            <a class="btn btn-secondary btn-sm" href="{{ route('bankAccount.deposit') }}" title="Withdraw Money"><i
+                    class="fa-solid fa-money-bill-trend-up"></i>
+                Deposit
+            </a>
             <a class="btn btn-warning btn-sm" href="" title="Withdraw Money"><i
                     class="fa-solid fa-money-bill-transfer"></i> Withdraw
             </a>

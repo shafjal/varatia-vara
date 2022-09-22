@@ -59,16 +59,19 @@
                         <td>{{ 'Abanil Apartment' }}</td>
                         <td>{{ '7B' }}</td>
                         <td>{{ $tenant->phone }}</td>
+                        {{-- Assign --}}
                         <td d class="text-center">
                             <a title="View" href="" data-toggle="modal" data-target="#exampleModalCenter">
+                                <i class="fa-solid fa-house-circle-check" style="color: blue"></i>
+                            </a>
+                        </td>
+                        {{-- View--}}
+                        <td d class="text-center">
+                            <a title="View" href="{{ route('tenant.show',$tenant->id) }}">
                                 <i class="fas fa-eye" style="color: green"></i>
                             </a>
                         </td>
-                        <td class="text-center">
-                            <a title="Edit" href="" data-toggle="modal" data-target="#exampleModalCenter">
-                                <i class="fas fa-edit" style="color: blue"></i>
-                            </a>
-                        </td>
+                        {{-- Delete --}}
                         <td class="text-center">
                             <a title="Delete" type="submit" href="{{ route('tenant.destroy', $tenant->id)}}">
                                 @csrf

@@ -43,7 +43,7 @@ class TenantController extends Controller
     public function index()
     {
         
-        $tenats = Tenant::all();
+        $tenats = Tenant::all()->sortDesc();
         return view('page.tenant', compact('tenats'))->with('no',1);
     }
 
@@ -115,7 +115,8 @@ class TenantController extends Controller
      */
     public function show($id)
     {
-        //
+        $tenant_id = Tenant::find($id);
+        return view('page.tenantShow',compact('tenant_id'));
     }
 
     /**
@@ -126,7 +127,8 @@ class TenantController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tenant_id = Tenant::find($id);
+        return view('page.tenantEdit',compact('tenant_id'));
     }
 
     /**
@@ -138,7 +140,45 @@ class TenantController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+            $request->validate([
+            'name' => 'required|max:255',
+            'fathers_name' => 'required|max:255',
+            'e_name' => 'required|max:255',
+            'e_address' => 'required|max:255',
+            'e_relation' => 'required|max:255',
+            'e_phone' => 'required|max:255',
+            'maritial_status' => 'required|max:255',
+            'address' => 'required|max:255',
+            'date_of_b' => 'required|max:255',
+            'phone' => 'required|max:255',
+            'nid' => 'required|max:255',
+            'education' => 'required|max:255',
+            'job_title' => 'required|max:255',
+            'job_location' => 'required|max:255',
+            'religious' => 'required|max:255',
+            'country' => 'required|max:255',
+        ]);
+
+        $tenant = Tenant::find($id);
+        $tenant->name =  $request->get('name');
+        $tenant->fathers_name = $request->get('fathers_name');
+        $tenant->e_name = $request->get('e_name');
+        $tenant->e_address = $request->get('e_address');
+        $tenant->e_relation = $request->get('e_relation');
+        $tenant->e_phone = $request->get('e_phone');
+        $tenant->maritial_status = $request->get('maritial_status');
+        $tenant->address = $request->get('address');
+        $tenant->date_of_b = $request->get('date_of_b');
+        $tenant->phone = $request->get('phone');
+        $tenant->nid = $request->get('nid');
+        $tenant->education = $request->get('education');
+        $tenant->job_title = $request->get('job_title');
+        $tenant->job_location = $request->get('job_location');
+        $tenant->religious = $request->get('religious');
+        $tenant->country = $request->get('country');
+        $tenant->save();
+
+        return redirect('/tenant')->with('success', 'Contact updated!');
     }
 
     /**

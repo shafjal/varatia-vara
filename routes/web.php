@@ -67,6 +67,9 @@ Route::get('/home/{id}', 'HomeController@index2')->name('home2');
 Route::get('/selectDashboard', 'HomeController@selectDashboard')->name('selectDashboard');
 //Tenant 
 Route::get('/tenant', 'TenantController@index')->name('tenant');
+Route::get('/tenant/show/{id}', 'TenantController@show')->name('tenant.show');
+Route::get('/tenant/show/{id}/edit', 'TenantController@edit')->name('tenant.edit');
+Route::put('/tenant/show/{id}', 'TenantController@update')->name('tenant.update');
 Route::get('/tenant/create', 'TenantController@create')->name('tenant.create');
 Route::post('/tenant/create', 'TenantController@store')->name('tenant.store');
 Route::get('/tenant/{id}', 'TenantController@destroy')->name('tenant.destroy');
@@ -89,6 +92,8 @@ Route::post('banks/mobileBanks', 'BankController@store');
 Route::get('banks/mobileBanks', 'HomeController@mcreate')->name('mBank');
 Route::post('bank/delete', 'HomeController@bankDestroy')->name('bankAccount.Delete');
 Route::get('bank/delete/all', 'HomeController@bankDestroyAll')->name('bankAccount.Delete.all');
+Route::get('banks/deposit', 'HomeController@deposit')->name('bankAccount.deposit');
+
 
 
 //User Part -------------------------------------------------------------------------

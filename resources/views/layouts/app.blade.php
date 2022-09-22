@@ -377,8 +377,12 @@
                                     {{ __('Notice') }}
                                 </a>
                                 {{-- Leave Notice --}}
+                                @php
+                                $counts = DB::table('leave_notices')->count();
+                                @endphp
                                 <a class="dropdown-item" href="{{ route('leave.notice') }}">
-                                    {{ __('Leave Notice') }}
+                                    {{ __('Leave Notice') }}<i class="fas fa-arrow-right"></i><span
+                                        style="color: #0000FF"> <b>{{ $counts }}</b></span>
                                 </a>
                                 {{-- Profile --}}
                                 <a class="dropdown-item" href="{{ route('profile') }}">
@@ -470,8 +474,12 @@
                                     {{ __('Notice') }}
                                 </a>
                                 {{-- Leave Notice --}}
+                                @php
+                                $counts = DB::table('leave_notices')->count();
+                                @endphp
                                 <a class="dropdown-item" href="{{ route('leave.notice') }}">
-                                    {{ __('Leave Notice') }}
+                                    {{ __('Leave Notice') }}<i class="fas fa-arrow-right"></i><span
+                                        style="color: #0000FF"> <b>{{ $counts }}</b></span>
                                 </a>
                                 {{-- Profile --}}
                                 <a class="dropdown-item" href="{{ route('profile') }}">
