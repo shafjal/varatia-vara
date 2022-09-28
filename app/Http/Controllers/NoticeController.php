@@ -71,7 +71,7 @@ class NoticeController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('page.noticeEdit');
     }
 
     /**

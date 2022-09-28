@@ -141,11 +141,6 @@ class HomeController extends Controller
                 return view('page.tenantNotice',compact('notices'));
         }
 
-        
-                public function deposit()
-        {
-             
-                return view('page.bankDeposit');
-        }
+
 
 }

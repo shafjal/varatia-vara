@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\RegisterRequest;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterRequestController extends Controller
 {
@@ -19,7 +20,14 @@ class RegisterRequestController extends Controller
             'email' => $request->email,
             
         ]);
-        return redirect('/register/request');
+        
+        if (Auth::check()) {
+           return redirect('/register/request/show');
+        } else {
+           return redirect('/register/request');
+        }
+        
+        
     }
 
      public function ShowReq(){

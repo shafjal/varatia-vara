@@ -310,12 +310,14 @@
                             <a id="navbarDropdown dropdownMenu1" class="nav-link dropdown-toggle navBar" href="#"
                                 role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
-                                <span><small>{{ __('S.Admin') }}</small></span>
+                                <span style="background-color: #5cb85c"><small>{{ __('S.Admin') }}</small></span>
                             </a>
 
                             <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
                                 {{-- Home --}}
                                 <a class="dropdown-item" href="{{ url('/') }}">
+
+                                    <i class="fa-solid fa-house-user fa-sm " style="color: Dodgerblue;"></i>
                                     {{ __('Home') }}
                                 </a>
                                 {{-- Account Open --}}
@@ -323,36 +325,56 @@
                                     @php
                                     $counts = DB::table('register_requests')->count();
                                     @endphp
-                                    {{ __('Account Open') }} <i class="fas fa-arrow-right"></i><span
-                                        style="color: #0000FF"> <b>{{ $counts }}</b></span>
+                                    <i class="fa-solid fa-door-open fa-sm " style="color: Dodgerblue;"></i>
+
+                                    {{ __('Account Open') }}
+                                    <i class="fas fa-arrow-right"></i><span style="color: #0000FF">
+                                        <b>{{ $counts }}</b></span>
                                 </a>
 
                                 {{-- Dasboard --}}
                                 <a class="dropdown-item" href="{{ route('selectDashboard') }}">
+
+                                    <i class="fa-solid fa-chart-line fa-sm " style="color: Dodgerblue;"></i>
                                     {{ __('Dasboard') }}
                                 </a>
 
                                 {{-- Nested Drop --}}
                                 {{-- Bank Details --}}
                                 <li class="dropdown-submenu">
-                                    <a class="dropdown-item " tabindex="-1" href="{{ url('bank') }}"><i
-                                            class="fas fa-arrow-left"></i>
-                                        Bank
-                                        Details</a>
+                                    <a class="dropdown-item " tabindex="-1" href="{{ url('bank') }}">
+
+                                        <i class="fa-solid  fa-vault fa-sm " style="color: Dodgerblue;"></i>
+                                        {{ __('Bank') }}
+                                    </a>
                                     <ul class="dropdown-menu">
-                                        <a class="dropdown-item" href="{{ route('selectDashboard') }}">
-                                            {{ __('New Transaction') }}
+                                        <a class="dropdown-item" href="{{ route('bankAccount.withdraw') }}">
+                                            <i class="fa-solid fa-money-bill-transfer fa-sm "
+                                                style="color: tomato;"></i>
+                                            {{ __('Withdraw') }}
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('bankAccount.deposit') }}">
+                                            <i class="fa-solid fa-money-bill-transfer fa-sm "
+                                                style="color: Dodgerblue;"></i>
+                                            {{ __('Deposit') }}
                                         </a>
                                         {{-- <a class="dropdown-item" href="{{ url('bank/create') }}">
                                             {{ __('Add A/C') }}
                                         </a> --}}
                                         <a class="dropdown-item" href="{{ route('bankAccount.Delete.all') }}">
+                                            <i class="fa-solid fa-dumpster fa-sm " style="color: red;"></i>
                                             {{ __('Remove A/C') }}
                                         </a>
                                         <li class="dropdown-submenu">
-                                            <a class="dropdown-item" href="">{{ __('Add A/C') }}</a>
+                                            <a class="dropdown-item" href="">
+                                                <i class="fa-solid fa-file-circle-plus fa-sm "
+                                                    style="color: #42ba96;"></i>
+                                                {{ __('Add A/C') }}
+                                            </a>
                                             <ul class="dropdown-menu">
                                                 <a class="dropdown-item" href="{{ url('bank/create') }}">
+                                                    <i class="fa-solid fa-credit-card fa-sm "
+                                                        style="color: #42ba96;"></i>
                                                     {{ __('Bank A/C') }}
                                                 </a>
                                                 {{-- <li class="dropdown-submenu"><a class="dropdown-item"
@@ -365,6 +387,8 @@
                                                     </ul>
                                                 </li> --}}
                                                 <a class="dropdown-item" href="{{ url('banks/mobileBanks') }}">
+                                                    <i class="fa-solid fa-mobile-screen-button fa-sm "
+                                                        style="color: #42ba96;"></i>
                                                     {{ __('Mobile A/C') }}
                                                 </a>
                                             </ul>
@@ -373,18 +397,26 @@
                                 </li>
                                 {{-- Tenant --}}
                                 <a class="dropdown-item" href="{{ route('tenant') }}">
+
+                                    <i class="fa-solid fa-people-group fa-sm " style="color: Dodgerblue;"></i>
                                     {{ __('Tenant Details') }}
                                 </a>
                                 {{-- Tenant Create --}}
                                 <a class="dropdown-item" href="{{ route('tenant.create') }}">
-                                    {{ __('Tenant Create') }}
+
+                                    <i class="fa-solid fa-person-circle-plus fa-sm " style="color: Dodgerblue;"></i>
+                                    {{ __('Add Tenant') }}
                                 </a>
                                 {{-- Report --}}
                                 <a class="dropdown-item" href="{{ route('report.generate') }}">
+
+                                    <i class="fa-solid fa-file-lines fa-sm " style="color: Dodgerblue;"></i>
                                     {{ __('Report') }}
                                 </a>
                                 {{-- Notice --}}
                                 <a class="dropdown-item" href="{{ url('notice') }}">
+
+                                    <i class="fa-solid fa-bullhorn fa-sm " style="color: Dodgerblue;"></i>
                                     {{ __('Notice') }}
                                 </a>
                                 {{-- Leave Notice --}}
@@ -392,19 +424,23 @@
                                 $counts = DB::table('leave_notices')->count();
                                 @endphp
                                 <a class="dropdown-item" href="{{ route('leave.notice') }}">
-                                    {{ __('Leave Notice') }}<i class="fas fa-arrow-right"></i><span
-                                        style="color: #0000FF"> <b>{{ $counts }}</b></span>
+                                    <i class="fa-solid fa-bell fa-sm " style="color: Dodgerblue;"></i> {{ __('Leave
+                                    Notice') }}<i class="fas fa-arrow-right"></i><span style="color: #0000FF"> <b>{{
+                                            $counts }}</b></span>
                                 </a>
                                 {{-- Profile --}}
                                 <a class="dropdown-item" href="{{ route('profile') }}">
+
+                                    <i class="fa-solid fa-user-pen fa-sm " style="color: Dodgerblue;"></i>
                                     {{ __('Profile') }}
                                 </a>
                                 {{-- Divider --}}
                                 <div class="dropdown-divider"></div>
                                 {{-- Logout --}}
                                 <a class="dropdown-item" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                                                                                                                                                                                         document.getElementById('logout-form').submit();">
+                                    onclick="event.preventDefault();                                                                                                                                                                                                      document.getElementById('logout-form').submit();">
+
+                                    <i class="fa-solid fa-right-from-bracket fa-sm " style="color: tomato;"></i>
                                     {{ __('Logout') }}
                                 </a>
 
@@ -417,39 +453,58 @@
                             <a id="navbarDropdown dropdownMenu1" class="nav-link dropdown-toggle navBar" href="#"
                                 role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
-                                <span><small>{{ __('Admin') }}</small></span>
+                                <span style="background-color: #5cb85c"><small>{{ __('Admin') }}</small></span>
                             </a>
                             <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
                                 <a class="dropdown-item" href="{{ url('/') }}">
+
+                                    <i class="fa-solid fa-house-user fa-sm " style="color: Dodgerblue;"></i>
                                     {{ __('Home') }}
                                 </a>
 
                                 {{-- Dasboard --}}
                                 <a class="dropdown-item" href="{{ route('selectDashboard') }}">
+
+                                    <i class="fa-solid fa-chart-line fa-sm " style="color: Dodgerblue;"></i>
                                     {{ __('Dasboard') }}
                                 </a>
 
                                 {{-- Nested Drop --}}
                                 {{-- Bank Details --}}
                                 <li class="dropdown-submenu">
-                                    <a class="dropdown-item " tabindex="-1" href="{{ url('bank') }}"><i
-                                            class="fas fa-arrow-left"></i>
-                                        Bank
-                                        Details</a>
+                                    <a class="dropdown-item " tabindex="-1" href="{{ url('bank') }}">
+
+                                        <i class="fa-solid  fa-vault fa-sm " style="color: Dodgerblue;"></i>
+                                        {{ __('Bank') }}
+                                    </a>
                                     <ul class="dropdown-menu">
-                                        <a class="dropdown-item" href="{{ route('selectDashboard') }}">
-                                            {{ __('New Transaction') }}
+                                        <a class="dropdown-item" href="{{ route('bankAccount.withdraw') }}">
+                                            <i class="fa-solid fa-money-bill-transfer fa-sm "
+                                                style="color: tomato;"></i>
+                                            {{ __('Withdraw') }}
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('bankAccount.deposit') }}">
+                                            <i class="fa-solid fa-money-bill-transfer fa-sm "
+                                                style="color: Dodgerblue;"></i>
+                                            {{ __('Deposit') }}
                                         </a>
                                         {{-- <a class="dropdown-item" href="{{ url('bank/create') }}">
                                             {{ __('Add A/C') }}
                                         </a> --}}
                                         <a class="dropdown-item" href="{{ route('bankAccount.Delete.all') }}">
+                                            <i class="fa-solid fa-dumpster fa-sm " style="color: red;"></i>
                                             {{ __('Remove A/C') }}
                                         </a>
                                         <li class="dropdown-submenu">
-                                            <a class="dropdown-item" href="">{{ __('Add A/C') }}</a>
+                                            <a class="dropdown-item" href="">
+                                                <i class="fa-solid fa-file-circle-plus fa-sm "
+                                                    style="color: #42ba96;"></i>
+                                                {{ __('Add A/C') }}
+                                            </a>
                                             <ul class="dropdown-menu">
                                                 <a class="dropdown-item" href="{{ url('bank/create') }}">
+                                                    <i class="fa-solid fa-credit-card fa-sm "
+                                                        style="color: #42ba96;"></i>
                                                     {{ __('Bank A/C') }}
                                                 </a>
                                                 {{-- <li class="dropdown-submenu"><a class="dropdown-item"
@@ -462,6 +517,8 @@
                                                     </ul>
                                                 </li> --}}
                                                 <a class="dropdown-item" href="{{ url('banks/mobileBanks') }}">
+                                                    <i class="fa-solid fa-mobile-screen-button fa-sm "
+                                                        style="color: #42ba96;"></i>
                                                     {{ __('Mobile A/C') }}
                                                 </a>
                                             </ul>
@@ -470,18 +527,26 @@
                                 </li>
                                 {{-- Tenant --}}
                                 <a class="dropdown-item" href="{{ route('tenant') }}">
+
+                                    <i class="fa-solid fa-people-group fa-sm " style="color: Dodgerblue;"></i>
                                     {{ __('Tenant Details') }}
                                 </a>
                                 {{-- Tenant Create --}}
                                 <a class="dropdown-item" href="{{ route('tenant.create') }}">
-                                    {{ __('Tenant Create') }}
+
+                                    <i class="fa-solid fa-person-circle-plus fa-sm " style="color: Dodgerblue;"></i>
+                                    {{ __('Add Tenant') }}
                                 </a>
                                 {{-- Report --}}
                                 <a class="dropdown-item" href="{{ route('report.generate') }}">
+
+                                    <i class="fa-solid fa-file-lines fa-sm " style="color: Dodgerblue;"></i>
                                     {{ __('Report') }}
                                 </a>
                                 {{-- Notice --}}
                                 <a class="dropdown-item" href="{{ url('notice') }}">
+
+                                    <i class="fa-solid fa-bullhorn fa-sm " style="color: Dodgerblue;"></i>
                                     {{ __('Notice') }}
                                 </a>
                                 {{-- Leave Notice --}}
@@ -489,19 +554,23 @@
                                 $counts = DB::table('leave_notices')->count();
                                 @endphp
                                 <a class="dropdown-item" href="{{ route('leave.notice') }}">
-                                    {{ __('Leave Notice') }}<i class="fas fa-arrow-right"></i><span
-                                        style="color: #0000FF"> <b>{{ $counts }}</b></span>
+                                    <i class="fa-solid fa-bell fa-sm " style="color: Dodgerblue;"></i> {{ __('Leave
+                                    Notice') }}<i class="fas fa-arrow-right"></i><span style="color: #0000FF"> <b>{{
+                                            $counts }}</b></span>
                                 </a>
                                 {{-- Profile --}}
                                 <a class="dropdown-item" href="{{ route('profile') }}">
+
+                                    <i class="fa-solid fa-user-pen fa-sm " style="color: Dodgerblue;"></i>
                                     {{ __('Profile') }}
                                 </a>
                                 {{-- Divider --}}
                                 <div class="dropdown-divider"></div>
                                 {{-- Logout --}}
                                 <a class="dropdown-item" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                                                                                                                                                                                         document.getElementById('logout-form').submit();">
+                                    onclick="event.preventDefault();                                                                                                                                                                                                      document.getElementById('logout-form').submit();">
+
+                                    <i class="fa-solid fa-right-from-bracket fa-sm " style="color: tomato;"></i>
                                     {{ __('Logout') }}
                                 </a>
 

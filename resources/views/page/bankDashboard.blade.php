@@ -9,7 +9,7 @@
                     class="fa-solid fa-money-bill-trend-up"></i>
                 Deposit
             </a>
-            <a class="btn btn-warning btn-sm" href="" title="Withdraw Money"><i
+            <a class="btn btn-warning btn-sm" href="{{ route('bankAccount.withdraw') }}" title="Withdraw Money"><i
                     class="fa-solid fa-money-bill-transfer"></i> Withdraw
             </a>
             <a class="btn btn-success btn-sm" href="" title="Add Account" data-toggle="modal"
@@ -59,7 +59,7 @@
                     <h5 class="text-right" style="margin-top: 1px">Total Bank Balance</h5>
                 </div>
                 <div class="card-body">
-                    <h5 class="text-center">2,30,000/=</h5>
+                    <h5 class="text-center">{{ $amounts - $withdraws }} /=</h5>
                 </div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
                     <a class="small text-white stretched-link" href="#" data-toggle="modal"
@@ -76,7 +76,7 @@
                     <h5 class="text-right" style="margin-top: 1px; color:black">{{ $curentMonth }}`s Month Deposit</h5>
                 </div>
                 <div class="card-body">
-                    <h5 class="text-center" style="color: black">60,000/=</h5>
+                    <h5 class="text-center" style="color: black">{{ $this_mount_deposit }} /=</h5>
                 </div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
                     <a class="small  stretched-link" href="#" data-toggle="modal" data-target="#lastMonthDeposit"
@@ -93,7 +93,7 @@
                     <h5 class="text-right" style="margin-top: 1px">{{ $curentMonth }}`s Month Withdraw</h5>
                 </div>
                 <div class="card-body">
-                    <h5 class="text-center">1,24,000/=</h5>
+                    <h5 class="text-center">{{ $this_mount_withdraw }} /=</h5>
                 </div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
                     <a class="small text-white stretched-link" href="#" data-toggle="modal"
@@ -121,54 +121,29 @@
                                     <th>#</th>
                                     <th>Date</th>
                                     <th>Name</th>
-                                    <th>By</th>
+                                    <th>To</th>
                                     <th>Ammount</th>
                                 </tr>
                             </thead>
                             <tbody class="text-center">
-                                <tr class="table-secondary">
-                                    <td><i class="fa-solid fa-money-check-dollar"></i></td>
-                                    <td>23-01-2022</td>
-                                    <td>Kh. Afjal Hossen</td>
-                                    <td>Bank Cheque</td>
-                                    <td>30,000/=</td>
-                                </tr>
+                                @foreach ($all as $item)
                                 <tr class="table-primary">
                                     <td><i class="fa-solid fa-money-check-dollar"></i></td>
-                                    <td>23-01-2022</td>
-                                    <td>Kh. Afjal Hossen</td>
-                                    <td>Bank Cheque</td>
-                                    <td>30,000/=</td>
+                                    <td>{{ $item->created_at }}</td>
+                                    <td>{{ $item->name }}</td>
+                                    <td>{{ $item->bank_name }}</td>
+                                    <td>{{ $item->amount }}</td>
                                 </tr>
-                                <tr class="table-secondary">
-                                    <td><i class="fa-solid fa-money-check-dollar"></i></td>
-                                    <td>23-01-2022</td>
-                                    <td>Kh. Afjal Hossen</td>
-                                    <td>Bank Cheque</td>
-                                    <td>30,000/=</td>
-                                </tr>
-                                <tr class="table-primary">
-                                    <td><i class="fa-solid fa-money-check-dollar"></i></td>
-                                    <td>23-01-2022</td>
-                                    <td>Kh. Afjal Hossen</td>
-                                    <td>Bank Cheque</td>
-                                    <td>30,000/=</td>
-                                </tr>
-                                <tr class="table-secondary">
-                                    <td><i class="fa-solid fa-money-check-dollar"></i></td>
-                                    <td>23-01-2022</td>
-                                    <td>Kh. Afjal Hossen</td>
-                                    <td>Bank Cheque</td>
-                                    <td>30,000/=</td>
-                                </tr>
+                                @endforeach
                                 <tr style="background-color: #94549c; color:whitesmoke">
                                     <td><i class="fa-solid fa-equals"></i></td>
                                     <td colspan="3"><strong><b>Total</b></strong></td>
-                                    <td><strong><b>1,26,000</b></strong></td>
+                                    <td><strong><b>{{ $amounts }}</b></strong></td>
                                 </tr>
                             </tbody>
                         </table>
-                        <p style="color: red">***In word, One Lakh Twenty Six Thousand Taka Only</p>
+                        {{-- <p style="color: red">***In word, One Lakh Twenty Six Thousand Taka Only</p> --}}
+                        <p style="color: red">*** In word, {{ $word }}</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -182,7 +157,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Add Possible Cost</h5>
+                        <h5 class="modal-title" id="exampleModalLongTitle">{{ $curentMonth }}`s Month Deposit</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -199,49 +174,24 @@
                                 </tr>
                             </thead>
                             <tbody class="text-center">
+                                @foreach ($bank_users_all as $item)
                                 <tr class="table-secondary">
                                     <td><i class="fa-solid fa-money-check-dollar"></i></td>
-                                    <td>23-01-2022</td>
-                                    <td>Kh. Afjal Hossen</td>
-                                    <td>Bank Cheque</td>
-                                    <td>30,000/=</td>
+                                    <td>{{ $item->created_at }}</td>
+                                    <td>{{ $item->name }}</td>
+                                    <td>{{ $item->bank_name }}</td>
+                                    <td>{{ $item->amount }}</td>
                                 </tr>
-                                <tr class="table-primary">
-                                    <td><i class="fa-solid fa-money-check-dollar"></i></td>
-                                    <td>23-01-2022</td>
-                                    <td>Kh. Afjal Hossen</td>
-                                    <td>Bank Cheque</td>
-                                    <td>30,000/=</td>
-                                </tr>
-                                <tr class="table-secondary">
-                                    <td><i class="fa-solid fa-money-check-dollar"></i></td>
-                                    <td>23-01-2022</td>
-                                    <td>Kh. Afjal Hossen</td>
-                                    <td>Bank Cheque</td>
-                                    <td>30,000/=</td>
-                                </tr>
-                                <tr class="table-primary">
-                                    <td><i class="fa-solid fa-money-check-dollar"></i></td>
-                                    <td>23-01-2022</td>
-                                    <td>Kh. Afjal Hossen</td>
-                                    <td>Bank Cheque</td>
-                                    <td>30,000/=</td>
-                                </tr>
-                                <tr class="table-secondary">
-                                    <td><i class="fa-solid fa-money-check-dollar"></i></td>
-                                    <td>23-01-2022</td>
-                                    <td>Kh. Afjal Hossen</td>
-                                    <td>Bank Cheque</td>
-                                    <td>30,000/=</td>
-                                </tr>
+                                @endforeach
                                 <tr style="background-color: #94549c; color:whitesmoke">
                                     <td><i class="fa-solid fa-equals"></i></td>
                                     <td colspan="3"><strong><b>Total</b></strong></td>
-                                    <td><strong><b>1,26,000</b></strong></td>
+                                    <td><strong><b>{{ $this_mount_deposit }}</b></strong></td>
                                 </tr>
                             </tbody>
                         </table>
-                        <p style="color: red">***In word, Thirty Thousand Taka Only</p>
+                        {{-- <p style="color: red">***In word, Thirty Thousand Taka Only</p> --}}
+                        <p style="color: red">***In word, {{ $word_convert }}</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -255,7 +205,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Add Possible Cost</h5>
+                        <h5 class="modal-title" id="exampleModalLongTitle">{{ $curentMonth }}`s Month Withdraw</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -272,45 +222,21 @@
                                 </tr>
                             </thead>
                             <tbody class="text-center">
-                                <tr class="table-secondary">
-                                    <td><i class="fa-solid fa-money-check-dollar"></i></td>
-                                    <td>23-01-2022</td>
-                                    <td>Kh. Afjal Hossen</td>
-                                    <td>Bank Cheque</td>
-                                    <td>30,000/=</td>
-                                </tr>
+
+                                @foreach ($withdraw_by as $item)
                                 <tr class="table-primary">
                                     <td><i class="fa-solid fa-money-check-dollar"></i></td>
-                                    <td>23-01-2022</td>
-                                    <td>Kh. Afjal Hossen</td>
-                                    <td>Bank Cheque</td>
-                                    <td>30,000/=</td>
+                                    <td>{{ $item->updated_at }}</td>
+                                    <td>{{ $item->name }}</td>
+                                    <td>{{ $item->bank_name }}</td>
+                                    <td>{{ $item->withdraw }}</td>
                                 </tr>
-                                <tr class="table-secondary">
-                                    <td><i class="fa-solid fa-money-check-dollar"></i></td>
-                                    <td>23-01-2022</td>
-                                    <td>Kh. Afjal Hossen</td>
-                                    <td>Bank Cheque</td>
-                                    <td>30,000/=</td>
-                                </tr>
-                                <tr class="table-primary">
-                                    <td><i class="fa-solid fa-money-check-dollar"></i></td>
-                                    <td>23-01-2022</td>
-                                    <td>Kh. Afjal Hossen</td>
-                                    <td>Bank Cheque</td>
-                                    <td>30,000/=</td>
-                                </tr>
-                                <tr class="table-secondary">
-                                    <td><i class="fa-solid fa-money-check-dollar"></i></td>
-                                    <td>23-01-2022</td>
-                                    <td>Kh. Afjal Hossen</td>
-                                    <td>Bank Cheque</td>
-                                    <td>30,000/=</td>
-                                </tr>
+                                @endforeach
+
                                 <tr style="background-color: #94549c; color:whitesmoke">
                                     <td><i class="fa-solid fa-equals"></i></td>
                                     <td colspan="3"><strong><b>Total</b></strong></td>
-                                    <td><strong><b>1,26,000</b></strong></td>
+                                    <td><strong><b></b></strong></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -390,7 +316,7 @@
     <div class="row">
         @foreach ($banks as $bank)
         <div class="col-xl-6 col-md-6">
-            <div class="card mb-3" style="max-width: 540px;">
+            <div class="card mb-3 myShadow" style="max-width: 540px;">
                 <div class="row no-gutters">
                     <div class="col-md-4">
                         <i class="fa-solid fa-building-columns"
@@ -398,7 +324,7 @@
                     </div>
                     <div class="col-md-8">
 
-                        <div class="card-body">
+                        <div class="card-body" style="background-color: gainsboro">
                             <h5 class="card-title">{{ $bank->accountHolder_name }} </h5>
                             <p style="background-color: yellow" class="card-text">Bank Name: {{ $bank->bank_name }}</p>
                             <p style="background-color: yellow" class="card-text">A/C Number:

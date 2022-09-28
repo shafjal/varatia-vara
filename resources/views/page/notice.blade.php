@@ -20,7 +20,7 @@
                     </i>
                     <h5 class="text-right" style="margin-top: 1px">Notice Board</h5>
                 </div>
-                <div class="card-body noticeBody">
+                <div class="card-body noticeBody text-center">
                     <h3 class="text-center"><u><b>Topic Name: {{ $notice->topic_name }}</b></u></h3>
                     <h4>{{ $notice->topic_body }}</h4>
                 </div>
@@ -35,12 +35,24 @@
                         </h5>
                     </span>
                     <span style="float:right">
-                        <form action="{{ url('notice/'.$notice->id) }}" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm"><i
-                                    class="fa-solid fa-trash"></i></button>
-                        </form>
+                        <div class="row">
+                            <div class=" col-md-3">
+                                <form action="{{ route('notice.edit',$notice->id) }}" method="GET">
+                                    @csrf
+                                    @method('')
+                                    <button type="submit" class="btn btn-success btn-sm"><i
+                                            class="fa-solid fa-edit"></i></button>
+                                </form>
+                            </div>
+                            <div class="offset-md-3 col-md-3">
+                                <form action="{{ url('notice/'.$notice->id) }}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm"><i
+                                            class="fa-solid fa-trash"></i></button>
+                                </form>
+                            </div>
+                        </div>
                     </span>
                 </div>
             </div>

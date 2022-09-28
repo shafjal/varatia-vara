@@ -6,9 +6,11 @@
         <div class="col-md-12">
             <div class="card myShadow">
                 <div class="card-header">
-                    <h3 class="">{{ __('My Profile') }} <span style="float:right; background-color: yellow; margin:1px">
+                    <h3 class="">{{ __('My Profile') }}
+                        <span style="float:right; background-color: yellow;">
                             <h5>Admin/Owner</h5>
-                        </span></h3>
+                        </span>
+                    </h3>
                 </div>
 
                 <div class="card-body text-center Metallic-Silver">

@@ -92,7 +92,10 @@ Route::post('banks/mobileBanks', 'BankController@store');
 Route::get('banks/mobileBanks', 'HomeController@mcreate')->name('mBank');
 Route::post('bank/delete', 'HomeController@bankDestroy')->name('bankAccount.Delete');
 Route::get('bank/delete/all', 'HomeController@bankDestroyAll')->name('bankAccount.Delete.all');
-Route::get('banks/deposit', 'HomeController@deposit')->name('bankAccount.deposit');
+Route::get('banks/deposit', 'BankUserController@deposit_view')->name('bankAccount.deposit');
+Route::post('banks/deposit', 'BankUserController@deposit_store')->name('bankAccount.store');
+Route::get('banks/withdraw', 'BankUserController@withdraw')->name('bankAccount.withdraw');
+Route::post('banks/withdraw/', 'BankUserController@withdraw_store')->name('bankAccount.withdraw.store');
 
 
 
