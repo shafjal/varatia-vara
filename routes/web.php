@@ -78,6 +78,7 @@ Route::get('/tenant/family/add', 'TenantController@familyMember')->name('tenant.
 Route::get('/report', 'ReportController@index')->name('report.generate');
 //Notice -RecourceRoute
 Route::resource('notice', 'NoticeController');
+Route::post('/notice/{id}/edit', 'NoticeController@update')->name('notice.update');
 //Apartment Create
 Route::post('/selectDashboard', 'HomeController@store')->name('apartment.store');
 // Apartment Destroy 
@@ -101,9 +102,9 @@ Route::post('banks/withdraw/', 'BankUserController@withdraw_store')->name('bankA
 
 //User Part -------------------------------------------------------------------------
 //Tenant User
-Route::get('/tenantDashboard', 'TenantUserContorller@index')->name('tenant.Dashboard');
+Route::get('/tenant/Dashboard/View', 'TenantUserContorller@index')->name('tenant.Dashboard');
 //Tenant Notice 
-Route::get('/tenantNotice', 'HomeController@tenantNotice')->name('tenant.notice');
+Route::get('/tenant/Notice/View', 'HomeController@tenantNotice')->name('tenant.notice');
 //Leave Notice 
 Route::get('/leave/notice', 'LeaveNoticeController@index')->name('leave.notice');
 Route::post('/leave/notice', 'LeaveNoticeController@store')->name('leave.store');

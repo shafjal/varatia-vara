@@ -243,6 +243,11 @@
     .card-border {
         border-color: #ea0164;
     }
+
+    .alert-custom {
+        background-color: rgb(27, 151, 151);
+        color: white;
+    }
 </style>
 </head>
 

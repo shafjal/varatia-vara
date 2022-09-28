@@ -20,69 +20,43 @@
                     </i>
                     <h5 class="text-right" style="margin-top: 1px">Edit Notice Board</h5>
                 </div>
-                <div class="card-body noticeBody text-center">
-                    <form method="" action="">
+                <div class="card-body noticeBody">
+                    <form class="form-group required" method="POST"
+                        action="{{ route('notice.update',$notice_id->id) }}">
                         @csrf
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
-                                    name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
+                        <div class="modal-body">
+                            <div class="form-floating mb-3">
+                                <div class="input-group ">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" style="background-color: #A4BE9A">Topic
+                                            Name</span>
+                                    </div>
+                                    <input id="topic_name" name="topic_name" type="text" class="form-control"
+                                        aria-label="Amount (to the nearest dollar)"
+                                        value="{{ $notice_id->topic_name }}">
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address')
-                                }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                    name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
+                            <div class="form-floating mb-3">
+                                <label for="exampleFormControlTextarea1">Update Notice....</label>
+                                <textarea name="topic_body" id="topic_body" class="form-control"
+                                    id="exampleFormControlTextarea1" rows="4" maxlength="200" required>{{ $notice_id->topic_body }}
+                                </textarea>
+                                <label for="limit" class="control-label">(Charecter Limit - 200)</label>
                             </div>
-                        </div>
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register Request') }}
+                            <span style="float:right">
+
+                                <a title="View" href="{{ url('/notice') }}" class="btn btn-secondary btn-sm">
+                                    <i class="fa-solid fa-backward"></i>
+                                    Back
+                                </a>
+                                <button type="submit" class="btn btn-primary btn-sm">
+                                    {{ __('Submit') }}
                                 </button>
-                            </div>
+
+                            </span>
+
                         </div>
                     </form>
-                </div>
-                <div class="card-footer  noticeFooter">
-                    <span style="float:right">
-                        <div class="row">
-                            <div class=" col-md-3">
-                                <form action="" method="GET">
-                                    @csrf
-                                    @method('')
-                                    <button type="submit" class="btn btn-success btn-sm"><i
-                                            class="fa-solid fa-edit"></i></button>
-                                </form>
-                            </div>
-                            <div class="offset-md-3 col-md-3">
-                                <form action="" method="post">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm"><i
-                                            class="fa-solid fa-trash"></i></button>
-                                </form>
-                            </div>
-                        </div>
-                    </span>
                 </div>
             </div>
         </div>
