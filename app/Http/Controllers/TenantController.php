@@ -104,7 +104,7 @@ class TenantController extends Controller
             'country' => $request->country,
             
         ]);
-        return redirect('/tenant/create')->with('success', 'Tenant new data saved!');
+        return redirect('/tenant/create')->with('success', 'New Tenant Added To List');
     }
 
     /**
@@ -178,7 +178,7 @@ class TenantController extends Controller
         $tenant->country = $request->get('country');
         $tenant->save();
 
-        return redirect('/tenant')->with('success', 'Contact updated!');
+        return redirect('/tenant')->with('success-update', 'Tenant Details Update Successfully');
     }
 
     /**
@@ -191,7 +191,7 @@ class TenantController extends Controller
     {
         $tenant = Tenant::find($id);
         $tenant->delete();
-        return redirect('/tenant')->with('success-delete', 'Tenant data deleted!');
+        return redirect('/tenant')->with('success-delete', 'Tenant Deleted Successfully');
     }
 
 }

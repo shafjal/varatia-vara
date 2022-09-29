@@ -99,6 +99,9 @@ Route::get('banks/withdraw', 'BankUserController@withdraw')->name('bankAccount.w
 Route::post('banks/withdraw/', 'BankUserController@withdraw_store')->name('bankAccount.withdraw.store');
 
 
+// Miscellaneous Cost
+Route::post('/home/{id}', 'MiscellaneousController@store')->name('miscellaneous.store');
+
 
 //User Part -------------------------------------------------------------------------
 //Tenant User
@@ -108,6 +111,8 @@ Route::get('/tenant/Notice/View', 'HomeController@tenantNotice')->name('tenant.n
 //Leave Notice 
 Route::get('/leave/notice', 'LeaveNoticeController@index')->name('leave.notice');
 Route::post('/leave/notice', 'LeaveNoticeController@store')->name('leave.store');
+Route::get('/leave/notice/{id}/edit', 'LeaveNoticeController@edit')->name('leave.edit');
+Route::post('/leave/notice/{id}/edit', 'LeaveNoticeController@update')->name('leave.update');
 Route::post('/leave/notice/{id}', 'LeaveNoticeController@destroy')->name('leave.destroy');
 
 

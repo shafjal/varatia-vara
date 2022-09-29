@@ -151,9 +151,9 @@
             <div class="card mb-4 myShadow">
                 <div class="card-header">
                     <i class="fas fa-table me-1"></i>
-                    Possible Cost List: <span style="background-color: yellow">{{ $curentMonth }}</span>
+                    Miscellaneouses Cost List: <span style="background-color: yellow">{{ $curentMonth }}</span>
                     <span style="background-color: green; color:white">Total Tk:
-                        95,000</span>
+                        {{ $miscellaneous_cost }}</span>
                     <a href="" data-toggle="modal" data-target="#exampleModalCenter">
                         <i class="fas fa-plus-square me-1 float-right" style="font-size: 20px; color: Dodgerblue;">
                         </i>
@@ -164,34 +164,46 @@
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLongTitle">Add Possible Cost</h5>
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Miscellaneous Cost</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <div class="modal-body">
-                                    <form>
+                                <form action="{{ route('miscellaneous.store',$currentAppt->id) }}" method="POST">
+                                    @csrf
+                                    <div class="modal-body">
                                         <div class="form-floating mb-3">
-                                            <input class="form-control" id="inputEmail" type="text"
+                                            <select class="form-control" id="apartment_id" name="apartment_id">
+                                                @foreach ($apartment_all as $item)
+                                                <option value="{{ $item->apartment_name }}"> {{ $item->apartment_name }}
+                                                </option>
+                                                @endforeach
+                                            </select>
+                                            <label class="control-label" for="inputApartmentId">Select Apartment</label>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="apartment_floor" type="text"
+                                                name="apartment_floor" placeholder="Floor Number / Flat Number" />
+                                            <label for="inputApartmentFloor">Floor Number / Flat Number</label>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <input class="form-control" id="task_name" type="text" name="task_name"
                                                 placeholder="Task Name" />
-                                            {{-- <label for="inputEmail">Task Name</label> --}}
+                                            <label for="inputTaskName">Task Name</label>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input class="form-control" id="inputPassword" type="text"
-                                                placeholder="Location" />
-                                            {{-- <label for="inputPassword">Amount</label> --}}
+                                            <input class="form-control" id="will_amount" type="number"
+                                                name="will_amount" placeholder="Estimated Cost" />
+                                            <label for="inputEstimatedCost">Estimated Cost</label>
                                         </div>
-                                        <div class="form-floating mb-3">
-                                            <input class="form-control" id="inputPassword" type="number"
-                                                placeholder="Amount" />
-                                            {{-- <label for="inputPassword">Amount</label> --}}
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
-                                </div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -201,37 +213,33 @@
                         <table class="table table-bordered table-hover " id="datatablesSimple">
                             <thead class="text-center bg-info">
                                 <tr>
+                                    <th>Created At</th>
+                                    <th>Created By</th>
                                     <th>Task Name</th>
-                                    <th>Location</th>
-                                    <th>Amount</th>
-                                    <th colspan="2">Action</th>
+                                    <th>Apartment</th>
+                                    <th>Floor/Flat</th>
+                                    <th>Estimeted Cost</th>
+                                    <th colspan="1">Action</th>
                                 </tr>
                             </thead>
                             <tbody class="text-center">
+                                @foreach ($miscellaneous_all as $item)
                                 <tr>
-                                    <td>Roof/Tiles</td>
-                                    <td>2B</td>
-                                    <td>20000</td>
+                                    <td>{{ $item->created_at }}</td>
+                                    <td>{{ $item->name }}</td>
+                                    <td>{{ $item->task_name }}</td>
+                                    <td>{{ $item->apartment_id }}</td>
+                                    <td>{{ $item->apartment_floor }}</td>
+                                    <td>{{ $item->will_amount }}</td>
+
                                     <td>
                                         <a href=""><i class="fas fa-trash-alt" style="color: red"></i></a>
                                     </td>
-                                    <td>
+                                    {{-- <td>
                                         <a href=""><i class="fas fa-edit" style="color: blue"></i></a>
-                                    </td>
-
+                                    </td> --}}
                                 </tr>
-                                <tr>
-                                    <td>Wash Room</td>
-                                    <td>4A</td>
-                                    <td>75000</td>
-                                    <td>
-                                        <a href=""><i class="fas fa-trash-alt" style="color: red"></i></a>
-                                    </td>
-                                    <td>
-                                        <a href=""><i class="fas fa-edit" style="color: blue"></i></a>
-                                    </td>
-                                </tr>
-
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

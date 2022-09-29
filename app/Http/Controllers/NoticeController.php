@@ -49,7 +49,7 @@ class NoticeController extends Controller
             'created_at' => Carbon::now(),
             
         ]);
-        return redirect('/notice')->with('success', 'Notice Added Successfully!');
+        return redirect('/notice')->with('success', 'Notice Added Successfully');
     }
 
     /**
@@ -89,7 +89,7 @@ class NoticeController extends Controller
         $notice_edit->topic_body =  $request->get('topic_body');
         $notice_edit->save();
 
-        return redirect('/notice')->with('success-update', 'Notice updated!');
+        return redirect('/notice')->with('success-update', 'Notice Updated Successfully');
     }
 
     /**
@@ -102,6 +102,6 @@ class NoticeController extends Controller
     {
         $notice = Notice::find($id);
         $notice->delete();
-        return redirect('/notice')->with('success-delete', 'Notice data deleted!');
+        return redirect('/notice')->with('success-delete', 'Notice Deleted Successfully');
     }
 }

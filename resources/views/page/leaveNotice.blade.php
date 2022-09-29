@@ -22,7 +22,30 @@
     </h5>
     <hr style="width:100%;text-align:left;margin-left:0; border: 1px solid white;">
     {{-- card section --}}
-
+    @if (session('success-update'))
+    <div class="alert alert-custom alert-dismissible fade show" role="alert">
+        <strong>{{ session('success-update')}}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    @endif
+    @if (session('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>{{ session('success')}}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    @endif
+    @if (session('success-delete'))
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>{{ session('success-delete')}}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    @endif
     <div class="row justify-content-center">
         <div class="col-xl-8 col-md-8">
             @foreach ($leave_notices as $leave_notice)
@@ -134,8 +157,12 @@
                     <span style="float:right">
                         <div class="row">
                             <div class="col-md-3">
-                                <button type="submit" class="btn btn-success btn-sm" data-toggle="modal"
-                                    data-target="#editmodal"><i class="fa-solid fa-user-pen"></i></button>
+                                <div class=" col-md-3">
+                                    <a href="{{ route('leave.edit',$leave_notice->id) }}"
+                                        class="btn btn-success btn-sm">
+                                        <i class="fa-solid fa-edit"></i>
+                                    </a>
+                                </div>
                             </div>
                             <div class="offset-md-3 col-md-3">
                                 <form action="{{ route('leave.destroy',$leave_notice->id) }}" method="POST">

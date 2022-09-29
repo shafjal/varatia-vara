@@ -12,6 +12,8 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\File; 
 use App\Notice;
 use Illuminate\Support\Facades\Auth;
+use App\Miscellaneous;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -46,9 +48,17 @@ class HomeController extends Controller
                 $curentDay = Carbon::createFromFormat('d/m/Y',$currentDate)->format('l');
                 $curentMonth = Carbon::createFromFormat('d/m/Y',$currentDate)->format('F');
                 $apartment_all = Apartment::all();
+                $miscellaneous_all = DB::table('miscellaneouses')
+                ->join('users','miscellaneouses.user_id','users.id')
+                ->select('miscellaneouses.*','users.name')
+                ->get();
+                $miscellaneous_cost = Miscellaneous::all()->sum('will_amount');
                 $currentAppt = Apartment::find($variable);
                 
-                return view('page.dashboard', compact('admin','curentDay','currentDate','curentMonth','currentYear','apartment_all','currentAppt'));
+
+
+                return view('page.dashboard', compact('admin','curentDay','currentDate',
+                'curentMonth','currentYear','apartment_all','currentAppt','miscellaneous_all','miscellaneous_cost'));
         
         }
         public function selectDashboard()
