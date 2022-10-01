@@ -59,7 +59,7 @@ class MiscellaneousController extends Controller
                 
             // return view('page.dashboard', compact('admin','curentDay',
             // 'currentDate','curentMonth','currentYear','apartment_all','currentAppt','miscellaneous_all'));
-            return redirect('/selectDashboard')->with('success', 'New Notice Added To List');
+            return redirect('/selectDashboard')->with('success-miscellaneous', 'New Miscellaneous Added To List');
 
             // $result = (new HomeController)->index2($id);
     }
@@ -106,6 +106,8 @@ class MiscellaneousController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $miscellaneous_delete = Miscellaneous::find($id);
+        $miscellaneous_delete->delete();
+        return redirect('/selectDashboard')->with('success-delete-miscellaneous', 'Delete Miscellaneous From List Succsessfully');
     }
 }

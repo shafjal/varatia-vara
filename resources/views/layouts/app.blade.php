@@ -404,7 +404,7 @@
                                 <a class="dropdown-item" href="{{ route('tenant') }}">
 
                                     <i class="fa-solid fa-people-group fa-sm " style="color: Dodgerblue;"></i>
-                                    {{ __('Tenant Details') }}
+                                    {{ __('Tenant List') }}
                                 </a>
                                 {{-- Tenant Create --}}
                                 <a class="dropdown-item" href="{{ route('tenant.create') }}">
@@ -534,7 +534,7 @@
                                 <a class="dropdown-item" href="{{ route('tenant') }}">
 
                                     <i class="fa-solid fa-people-group fa-sm " style="color: Dodgerblue;"></i>
-                                    {{ __('Tenant Details') }}
+                                    {{ __('Tenant List') }}
                                 </a>
                                 {{-- Tenant Create --}}
                                 <a class="dropdown-item" href="{{ route('tenant.create') }}">

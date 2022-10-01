@@ -14,6 +14,7 @@ use App\Notice;
 use Illuminate\Support\Facades\Auth;
 use App\Miscellaneous;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\BankController;
 
 class HomeController extends Controller
 {
@@ -32,7 +33,16 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    
+//tips
+// echo "<pre>";
+// print_r($events->all()->toArray()); 
+// echo "</pre>";
+// die;
+// 1. dump($var)
+// 2. dd($id)
+// 3. var_dump($var)
+// 4. die($var)
+// 5. print_r($var)
         public function index2(Request $request)
         {
                 $var = $request->id;
@@ -55,10 +65,11 @@ class HomeController extends Controller
                 $miscellaneous_cost = Miscellaneous::all()->sum('will_amount');
                 $currentAppt = Apartment::find($variable);
                 
-
+                $word_convert = BankController::convert_number_to_words($miscellaneous_cost);
 
                 return view('page.dashboard', compact('admin','curentDay','currentDate',
-                'curentMonth','currentYear','apartment_all','currentAppt','miscellaneous_all','miscellaneous_cost'));
+                'curentMonth','currentYear','apartment_all','currentAppt',
+                'miscellaneous_all','miscellaneous_cost','word_convert'));
         
         }
         public function selectDashboard()

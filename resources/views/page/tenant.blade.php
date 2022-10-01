@@ -73,8 +73,8 @@
                         <td>{{ $tenant->e_phone }}</td>
                         {{-- Assign --}}
                         <td d class="text-center">
-                            <a title="Assing To Appartment" href="" data-toggle="modal"
-                                data-target="#exampleModalCenter">
+                            <a title="Assing To Appartment" href="{{ route('tenant.assign.view',$tenant->id) }}">
+                                @csrf
                                 <i class="fa-solid fa-house-circle-check" style="color: blue"></i>
                             </a>
                         </td>

@@ -74,6 +74,8 @@ Route::get('/tenant/create', 'TenantController@create')->name('tenant.create');
 Route::post('/tenant/create', 'TenantController@store')->name('tenant.store');
 Route::get('/tenant/{id}', 'TenantController@destroy')->name('tenant.destroy');
 Route::get('/tenant/family/add', 'TenantController@familyMember')->name('tenant.family');
+Route::get('/tenant/assign/{id}', 'TenantController@assign')->name('tenant.assign.view');
+Route::get('/tenant/rent/collection', 'TenantController@rent_collection')->name('tenant.rent.collection');
 //Report Genenate
 Route::get('/report', 'ReportController@index')->name('report.generate');
 //Notice -RecourceRoute
@@ -101,6 +103,7 @@ Route::post('banks/withdraw/', 'BankUserController@withdraw_store')->name('bankA
 
 // Miscellaneous Cost
 Route::post('/home/{id}', 'MiscellaneousController@store')->name('miscellaneous.store');
+Route::get('/home/{id}/delete', 'MiscellaneousController@destroy')->name('miscellaneous.destroy');
 
 
 //User Part -------------------------------------------------------------------------

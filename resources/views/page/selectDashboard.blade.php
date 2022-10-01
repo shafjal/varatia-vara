@@ -18,6 +18,22 @@
         </button>
     </div>
     @endif
+    @if (session('success-delete-miscellaneous'))
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>{{ session('success-delete-miscellaneous')}}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    @endif
+    @if (session('success-miscellaneous'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>{{ session('success-miscellaneous')}}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    @endif
     <h5 class="mt-4 textColor">Select Building
         <a class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModalCenterReply"
             title="Create New"><i class="fa-solid fa-circle-plus"></i> Add Building
@@ -31,8 +47,6 @@
     {{-- card section --}}
     <div class="row">
         @foreach ($imgs as $img)
-
-
         <div class="col-xl-3 col-md-6">
             <div class="card bg-info text-white mb-4 myShadow" style="width: 18rem;">
                 <img class="card-img-top" src="{{ $img->apartmant_image }}" alt="Card image cap" style="height: 300px">

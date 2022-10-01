@@ -6,6 +6,8 @@ use App\Tenant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Auth\User;
+Use App\Apartment;
+Use Illuminate\Support\Facades\DB;
 
 class TenantController extends Controller
 {
@@ -37,8 +39,9 @@ class TenantController extends Controller
         // } else {
         //     return view('page.message');
         // }
+            $maps = Apartment::all();
 
-        return view('page.test');
+        return view('page.test',compact('maps'));
     }
     public function index()
     {
@@ -192,6 +195,22 @@ class TenantController extends Controller
         $tenant = Tenant::find($id);
         $tenant->delete();
         return redirect('/tenant')->with('success-delete', 'Tenant Deleted Successfully');
+    }
+    public function assign($id)
+    {
+        $tenant = Tenant::find($id);
+                $tenant_null = Tenant::select("*")
+                        ->whereNull('created_at')
+                        ->get();
+        $apartment_list = Apartment::all();
+
+        return view('page.tenantAssign',compact('tenant_null','tenant','apartment_list'));
+    }
+    public function rent_collection()
+    {
+
+
+        return view('page.rentCollection');
     }
 
 }

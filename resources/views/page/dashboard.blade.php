@@ -90,22 +90,22 @@
                     <h5 class="text-right" style="margin-top: 1px">Miscellaneous</h5>
                 </div>
                 <div class="card-body">
-                    <h5 class="text-center">95,000/=</h5>
+                    <h5 class="text-center">{{ $miscellaneous_cost }}/=</h5>
                 </div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
                     <a class="small text-white stretched-link" href="#" data-toggle="modal"
-                        data-target="#viewdetails">View Details</a>
+                        data-target=".miscellaneous_cost-modal-lg">View Details</a>
                     <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                 </div>
             </div>
         </div>
         <!-- Modal -->
-        <div class="modal fade" id="viewdetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal fade miscellaneous_cost-modal-lg" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Add Possible Cost</h5>
+                        <h5 class="modal-title" id="exampleModalLongTitle">List Of Possible Cost</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -114,29 +114,33 @@
                         <table class="table table-bordered table-hover " id="datatablesSimple">
                             <thead class="text-center bg-info">
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Amount</th>
+                                    <th>Created At</th>
+                                    <th>Created By</th>
+                                    <th>Task Name</th>
+                                    <th>Apartment</th>
+                                    <th>Floor/Flat</th>
+                                    <th>Estimeted Cost</th>
                                 </tr>
                             </thead>
                             <tbody class="text-center">
+                                @foreach ($miscellaneous_all as $item)
                                 <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>20000</td>
+                                    <td>{{ $item->created_at }}</td>
+                                    <td>{{ $item->name }}</td>
+                                    <td>{{ $item->task_name }}</td>
+                                    <td>{{ $item->apartment_id }}</td>
+                                    <td>{{ $item->apartment_floor }}</td>
+                                    <td>{{ $item->will_amount }}</td>
                                 </tr>
-                                <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>20000</td>
-                                </tr>
-                                <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>20000</td>
-                                </tr>
-                                <tr>
-                                    <td>Total</td>
-                                    <td>80000</td>
+                                @endforeach
+                                <tr style="background-color: #94549c; color:whitesmoke">
+                                    <td><i class="fa-solid fa-equals"></i></td>
+                                    <td colspan="4"><strong><b>Total</b></strong></td>
+                                    <td><strong><b>{{ $miscellaneous_cost }}</b></strong></td>
                                 </tr>
                             </tbody>
                         </table>
+                        <p style="color: red">***In word, {{ $word_convert }}</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -233,7 +237,8 @@
                                     <td>{{ $item->will_amount }}</td>
 
                                     <td>
-                                        <a href=""><i class="fas fa-trash-alt" style="color: red"></i></a>
+                                        <a title="Delete" href="{{ route('miscellaneous.destroy',$item->id) }}">
+                                            @csrf<i class="fas fa-trash-alt" style="color: red"></i></a>
                                     </td>
                                     {{-- <td>
                                         <a href=""><i class="fas fa-edit" style="color: blue"></i></a>
