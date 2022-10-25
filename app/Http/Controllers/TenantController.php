@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Auth\User;
 Use App\Apartment;
 Use Illuminate\Support\Facades\DB;
+Use App\Assign;
+use phpDocumentor\Reflection\Types\Null_;
 
 class TenantController extends Controller
 {
@@ -46,7 +48,9 @@ class TenantController extends Controller
     public function index()
     {
         
-        $tenats = Tenant::all()->sortDesc();
+        $tenats = Tenant::all()
+        // ->whereNull('apartment_id')
+        ->sortDesc();
         return view('page.tenant', compact('tenats'))->with('no',1);
     }
 
@@ -105,7 +109,6 @@ class TenantController extends Controller
             'job_location' => $request->job_location,
             'religious' => $request->religious,
             'country' => $request->country,
-            
         ]);
         return redirect('/tenant/create')->with('success', 'New Tenant Added To List');
     }
@@ -206,11 +209,51 @@ class TenantController extends Controller
 
         return view('page.tenantAssign',compact('tenant_null','tenant','apartment_list'));
     }
+    public function assign_store(Request $request ,$id)
+    {   
+        $tenant = Tenant::find($id);
+        $tenant->apartment_id =  $request->get('apartment_id');
+        $tenant->floor_number =  $request->get('floor_number');
+        $tenant->save();
+        Assign::insert([
+            'user_id' => $id,
+            'apartment_id' => $request->apartment_id,
+            'floor_number' => $request->floor_number,
+            'rent' => $request->rent,
+        ]);
+
+        return redirect('/tenant/allocation/apartment')->with('success', 'Tenant Assign Done');
+ 
+
+    }
     public function rent_collection()
     {
-
-
         return view('page.rentCollection');
+    }
+    public function assign_list()
+    {
+        $tenats_apartment_null = Tenant::all()
+        ->whereNull('apartment_id')
+        ->sortDesc();
+        $tenats_apartment_not_null =DB::table('assigns')
+            ->join('tenants', 'tenants.id', '=', 'assigns.user_id')
+            ->join('apartments', 'apartments.id', '=', 'assigns.apartment_id')
+            ->select('assigns.*', 'tenants.name',
+            'tenants.phone','apartments.apartment_name'
+            ,'tenants.address','tenants.fathers_name','tenants.e_name','tenants.e_phone')
+            // ->whereNotNull('apartment_id')
+            ->get();
+        return view('page.tenantAllocation', compact('tenats_apartment_null','tenats_apartment_not_null'))->with('no',1);
+    }
+    public function assign_destroy($id,$tid)
+    {   
+        $tenant = Tenant::find($tid);
+        $tenant->apartment_id = Null;
+        $tenant->floor_number =  Null;
+        $tenant->save();
+        $tenant_assign = Assign::find($id);
+        $tenant_assign->delete();
+        return redirect('/tenant/allocation/apartment')->with('success-delete', 'Tenant Delete From Apartment Successfully');
     }
 
 }

@@ -3,9 +3,9 @@
 @section('content')
 
 <div class="container-fluid px-4">
-    <h5 class="mt-4 textColor">Tenant Details
-        <a class="btn btn-success btn-sm" href="{{ route('tenant.create') }}">+ Add Tenant
-        </a>
+    <h5 class="mt-4 textColor">Assign Tenant
+        {{-- <a class="btn btn-success btn-sm" href="{{ route('tenant.create') }}">+ Add Tenant
+        </a> --}}
         <span style="float:right">
             {{-- Dropdown Searcch --}}
             {{-- <div class="btn-group dropleft">
@@ -28,7 +28,73 @@
     <hr style="width:100%;text-align:left;margin-left:0; border: 1px solid white;">
     {{-- card section --}}
     <div class="row">
+        <div class="col-md-12">
+            @if (session('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>{{ session('success')}}</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            @endif
+            <table class="table table-hover table-responsive-md table-bordered myShadow">
+                <thead class="bg-success text-center">
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>Father Name</th>
+                        <th>Emergency Contact Name</th>
+                        <th>Emergency Contact Phone</th>
+                        {{-- <th>Email <span> <sub>(Can Not Be Change)</sub></span></th> --}}
+                        <th colspan="3">Action</th>
+                    </tr>
+                </thead>
 
+                @foreach ($tenats_apartment_null as $tenant)
+                <tbody class="bg-info">
+                    <tr class="text-center">
+                        <td>{{ $no++ }}</td>
+                        <td>{{ $tenant->name }}</td>
+                        <td>{{ $tenant->phone }}</td>
+                        <td>{{ $tenant->address }}</td>
+                        <td>{{ $tenant->fathers_name }}</td>
+                        <td>{{ $tenant->e_name }}</td>
+                        <td>{{ $tenant->e_phone }}</td>
+                        {{-- Assign --}}
+                        <td d class="text-center">
+                            <a title="Assing To Appartment" href="{{ route('tenant.assign.view',$tenant->id) }}">
+                                @csrf
+                                <i class="fa-solid fa-house-circle-check" style="color: #C04000"></i>
+                            </a>
+                        </td>
+                        {{-- View--}}
+                        {{-- <td d class="text-center">
+                            <a title="View" href="{{ route('tenant.show',$tenant->id) }}">
+                                <i class="fas fa-eye" style="color: green"></i>
+                            </a>
+                        </td> --}}
+                        {{-- Delete --}}
+                        {{-- <td class="text-center">
+                            <a title="Delete" type="submit" href="{{ route('tenant.destroy', $tenant->id)}}">
+                                @csrf
+                                <i class="fas fa-trash" style="color: red"></i>
+                            </a>
+                        </td> --}}
+
+                    </tr>
+
+                </tbody>
+                @endforeach
+            </table>
+        </div>
+
+    </div>
+    <h5 class="mt-4 textColor">Already Assign To Apartment</h5>
+    <hr style="width:100%;text-align:left;margin-left:0; border: 1px solid white;">
+    {{-- card section --}}
+    <div class="row">
         <div class="col-md-12">
             @if (session('success-delete'))
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -47,7 +113,7 @@
             </div>
             @endif
             <table class="table table-hover table-responsive-md table-bordered myShadow">
-                <thead class="bg-success text-center">
+                <thead class="text-center" style="background-color: #F8C471">
                     <tr>
                         <th>#</th>
                         <th>Name</th>
@@ -56,13 +122,15 @@
                         <th>Father Name</th>
                         <th>Emergency Contact Name</th>
                         <th>Emergency Contact Phone</th>
+                        <th>Apartment Name</th>
+                        <th>Floor/Flat</th>
                         {{-- <th>Email <span> <sub>(Can Not Be Change)</sub></span></th> --}}
-                        <th colspan="2">Action</th>
+                        <th colspan="3">Action</th>
                     </tr>
                 </thead>
 
-                @foreach ($tenats as $tenant)
-                <tbody class="bg-info">
+                @foreach ($tenats_apartment_not_null as $tenant)
+                <tbody class="" style="background-color: #ceb13f">
                     <tr class="text-center">
                         <td>{{ $no++ }}</td>
                         <td>{{ $tenant->name }}</td>
@@ -71,6 +139,8 @@
                         <td>{{ $tenant->fathers_name }}</td>
                         <td>{{ $tenant->e_name }}</td>
                         <td>{{ $tenant->e_phone }}</td>
+                        <td>{{ $tenant->apartment_name }}</td>
+                        <td>{{ $tenant->floor_number }}</td>
                         {{-- Assign --}}
                         {{-- <td d class="text-center">
                             <a title="Assing To Appartment" href="{{ route('tenant.assign.view',$tenant->id) }}">
@@ -79,14 +149,15 @@
                             </a>
                         </td> --}}
                         {{-- View--}}
-                        <td d class="text-center">
+                        {{-- <td d class="text-center">
                             <a title="View" href="{{ route('tenant.show',$tenant->id) }}">
                                 <i class="fas fa-eye" style="color: green"></i>
                             </a>
-                        </td>
+                        </td> --}}
                         {{-- Delete --}}
                         <td class="text-center">
-                            <a title="Delete" type="submit" href="{{ route('tenant.destroy', $tenant->id)}}">
+                            <a title="Delete" type="submit"
+                                href="{{ route('tenant.assign.destroy', [$tenant->id, $tenant->user_id])}}">
                                 @csrf
                                 <i class="fas fa-trash" style="color: red"></i>
                             </a>

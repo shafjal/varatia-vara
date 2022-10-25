@@ -32,6 +32,8 @@ class CreateTenantsTable extends Migration
             $table->string('job_location');
             $table->string('religious');   
             $table->string('country');
+            $table->string('apartment_id')->nullable();
+            $table->string('floor_number')->nullable();
             $table->timestamps();
         });
     }

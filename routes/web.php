@@ -74,7 +74,10 @@ Route::get('/tenant/create', 'TenantController@create')->name('tenant.create');
 Route::post('/tenant/create', 'TenantController@store')->name('tenant.store');
 Route::get('/tenant/{id}', 'TenantController@destroy')->name('tenant.destroy');
 Route::get('/tenant/family/add', 'TenantController@familyMember')->name('tenant.family');
-Route::get('/tenant/assign/{id}', 'TenantController@assign')->name('tenant.assign.view');
+Route::get('/tenant/allocation/apartment/{id}', 'TenantController@assign')->name('tenant.assign.view');
+Route::get('/tenant/allocation/apartment', 'TenantController@assign_list')->name('tenant.assign.list');
+Route::post('/tenant/allocation/apartment/{id}', 'TenantController@assign_store')->name('tenant.assign.store');
+Route::get('/tenant/allocation/apartment/{id}/destroy/{tid}', 'TenantController@assign_destroy')->name('tenant.assign.destroy');
 Route::get('/tenant/rent/collection', 'TenantController@rent_collection')->name('tenant.rent.collection');
 //Report Genenate
 Route::get('/report', 'ReportController@index')->name('report.generate');
@@ -105,6 +108,10 @@ Route::post('banks/withdraw/', 'BankUserController@withdraw_store')->name('bankA
 Route::post('/home/{id}', 'MiscellaneousController@store')->name('miscellaneous.store');
 Route::get('/home/{id}/delete', 'MiscellaneousController@destroy')->name('miscellaneous.destroy');
 
+//Rent
+Route::get('/rent', 'RentController@index')->name('rent');
+Route::get('/rent/apartment/{id}', 'RentController@rent_by_apartment')->name('rent.by.apartment');
+Route::post('/rent/apartment/{id}', 'RentController@rent_by_apartment_store')->name('rent.by.apartment.store');
 
 //User Part -------------------------------------------------------------------------
 //Tenant User

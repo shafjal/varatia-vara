@@ -412,6 +412,12 @@
                                     <i class="fa-solid fa-person-circle-plus fa-sm " style="color: Dodgerblue;"></i>
                                     {{ __('Add Tenant') }}
                                 </a>
+                                {{-- Assign --}}
+                                <a class="dropdown-item" href="{{ route('tenant.assign.list') }}">
+
+                                    <i class="fa-solid fa-building-user fa-sm " style="color: Dodgerblue;"></i>
+                                    {{ __('Assign Tenant') }}
+                                </a>
                                 {{-- Report --}}
                                 <a class="dropdown-item" href="{{ route('report.generate') }}">
 
@@ -541,6 +547,12 @@
 
                                     <i class="fa-solid fa-person-circle-plus fa-sm " style="color: Dodgerblue;"></i>
                                     {{ __('Add Tenant') }}
+                                </a>
+                                {{-- Assign --}}
+                                <a class="dropdown-item" href="{{ route('tenant.assign.list') }}">
+
+                                    <i class="fa-solid fa-building-user fa-sm " style="color: Dodgerblue;"></i>
+                                    {{ __('Assign Tenant') }}
                                 </a>
                                 {{-- Report --}}
                                 <a class="dropdown-item" href="{{ route('report.generate') }}">
