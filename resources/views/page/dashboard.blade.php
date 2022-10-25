@@ -40,12 +40,12 @@
                     <h5 class="text-right" style="margin-top: 1px">Current Balance</h5>
                 </div>
                 <div class="card-body">
-                    <h5 class="text-center">70,000/=</h5>
+                    <h5 class="text-center">{{ $curentBalance }}/=</h5>
                 </div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
-                    <a class="small text-white stretched-link" href="#" data-toggle="modal"
+                    {{-- <a class="small text-white stretched-link" href="#" data-toggle="modal"
                         data-target="#viewdetails">View Details</a>
-                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    <div class="small text-white"><i class="fas fa-angle-right"></i></div> --}}
                 </div>
             </div>
         </div>
@@ -57,12 +57,12 @@
                     <h5 class="text-right" style="margin-top: 1px">Current Due</h5>
                 </div>
                 <div class="card-body">
-                    <h5 class="text-center">70,000/=</h5>
+                    <h5 class="text-center">{{ $total_due }}/=</h5>
                 </div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
-                    <a class="small text-white stretched-link" href="#" data-toggle="modal"
+                    {{-- <a class="small text-white stretched-link" href="#" data-toggle="modal"
                         data-target="#viewdetails">View Details</a>
-                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    <div class="small text-white"><i class="fas fa-angle-right"></i></div> --}}
                 </div>
             </div>
         </div>

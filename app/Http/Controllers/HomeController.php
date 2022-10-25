@@ -67,9 +67,17 @@ class HomeController extends Controller
                 
                 $word_convert = BankController::convert_number_to_words($miscellaneous_cost);
 
+                $curentBalance = DB::table('rents')
+                    ->where('apartment_id', '=', $variable)
+                    ->sum('rent_amount');
+
+                //Current Due
+                $estimate = DB::table('assigns') ->where('apartment_id', '=', $variable) ->sum('rent');
+                $collected = DB::table('rents') ->where('apartment_id', '=', $variable) ->sum('rent_amount');
+                $total_due = $estimate - $collected;
                 return view('page.dashboard', compact('admin','curentDay','currentDate',
                 'curentMonth','currentYear','apartment_all','currentAppt',
-                'miscellaneous_all','miscellaneous_cost','word_convert'));
+                'miscellaneous_all','miscellaneous_cost','word_convert','curentBalance','total_due'));
         
         }
         public function selectDashboard()

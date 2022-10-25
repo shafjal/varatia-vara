@@ -47,7 +47,7 @@
                             </td>
                             <td class="text-center">
                                 <input id="rent_amount" type="text" class="form-control " name="rent_amount[]"
-                                    value="{{ $item->rent }}" required autocomplete="rent_amount">
+                                    value="{{ $item->rent }}" autocomplete="rent_amount">
                             </td>
                         </tr>
                         @endforeach

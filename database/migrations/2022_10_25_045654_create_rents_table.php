@@ -18,6 +18,7 @@ class CreateRentsTable extends Migration
             $table->timestamps();
             $table->string('user_id')->nullable();
             $table->string('apartment_id')->nullable();
+            $table->string('phone')->nullable();
             $table->string('apartment_name')->nullable();
             $table->string('floor_number')->nullable();
             $table->string('rent_amount_fixed')->nullable();
