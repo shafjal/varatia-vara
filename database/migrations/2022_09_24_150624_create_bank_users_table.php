@@ -18,6 +18,7 @@ class CreateBankUsersTable extends Migration
             $table->timestamps();
             $table->integer('banks_id');
             $table->integer('user_id');
+            $table->string('trxid')->nullable();
             $table->string('amount');
             $table->string('withdraw');
         });

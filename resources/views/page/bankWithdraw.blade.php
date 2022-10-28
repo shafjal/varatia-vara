@@ -97,7 +97,7 @@
                                     </select>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <label class="control-label" for="inputCountry">Country</label>
+                                    <label class="control-label" for="inputCountry">Amount</label>
                                     <input id="" type="text" class="form-control" name="withdraw_amount" required
                                         autocomplete="country" autofocus placeholder="Enter Ammount">
 

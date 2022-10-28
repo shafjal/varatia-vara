@@ -25,13 +25,16 @@ class RentController extends Controller
     public function rent_by_apartment($id)
     {
         $apt_id = $id;
+        $apartment_name_sp = Apartment::select('*')
+                           ->where('id', '=', $id)
+                           ->first();
         $apt = DB::table('assigns')
                 ->join('tenants','assigns.user_id','tenants.id')
                 ->join('apartments','assigns.apartment_id','apartments.id')
                 ->select('tenants.name','tenants.phone','apartments.apartment_name','assigns.floor_number','assigns.rent','assigns.user_id')
                 ->Where('assigns.apartment_id', '=', $id)
                 ->get();
-        return view('page.rentCollectByApartment',compact('apt','apt_id'));
+        return view('page.rentCollectByApartment',compact('apt','apt_id','apartment_name_sp'));
     }
     public function rent_by_apartment_store(Request $request,$id)
     {
@@ -55,6 +58,19 @@ class RentController extends Controller
                 'rent_amount' => $rent_amount[$i],
             ];
             DB::table('rents')->insert($data_save);
+          
         }
+          return redirect('/rent')->with('success', 'Rent Collection Done From Whole Apartment');
+    }
+
+    
+        public function all_rent()
+    {
+                $apt = DB::table('assigns')
+                ->join('tenants','assigns.user_id','tenants.id')
+                ->join('apartments','assigns.apartment_id','apartments.id')
+                ->select('tenants.name','tenants.phone','apartments.apartment_name','assigns.floor_number','assigns.rent','assigns.user_id')
+                ->get();
+        return view('page.rentCollectByIndivisual',compact('apt'));
     }
 }

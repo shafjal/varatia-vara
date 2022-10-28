@@ -53,7 +53,6 @@
                         <h5>
                             @php
                             $dt = $notice->created_at;
-                            $dt = new DateTime('now', new DateTimezone('Asia/Dhaka'));
                             echo $dt->format('F j, Y, g:i a');
                             @endphp
                         </h5>

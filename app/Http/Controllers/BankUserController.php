@@ -34,6 +34,7 @@ class BankUserController extends Controller
                 BankUser::insert([
                 'banks_id' => $request->select_bank,
                 'user_id' => Auth::user()->id,
+                'trxid' => $request->trxid,
                 'created_at' => Carbon::now(),
                 'amount' => $request->amount,
             ]);

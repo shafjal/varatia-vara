@@ -43,9 +43,9 @@
                     <h5 class="text-center">{{ $curentBalance }}/=</h5>
                 </div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
-                    {{-- <a class="small text-white stretched-link" href="#" data-toggle="modal"
-                        data-target="#viewdetails">View Details</a>
-                    <div class="small text-white"><i class="fas fa-angle-right"></i></div> --}}
+                    <a class="small text-white stretched-link" href="#" data-toggle="modal"
+                        data-target=".curentBalance-modal-lg">View
+                        Details</a>
                 </div>
             </div>
         </div>
@@ -60,9 +60,9 @@
                     <h5 class="text-center">{{ $total_due }}/=</h5>
                 </div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
-                    {{-- <a class="small text-white stretched-link" href="#" data-toggle="modal"
+                    <a class="small text-white stretched-link" href="#" data-toggle="modal"
                         data-target="#viewdetails">View Details</a>
-                    <div class="small text-white"><i class="fas fa-angle-right"></i></div> --}}
+                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                 </div>
             </div>
         </div>
@@ -73,7 +73,7 @@
                     <h5 class="text-right" style="margin-top: 1px">Previous Due</h5>
                 </div>
                 <div class="card-body">
-                    <h5 class="text-center">70,000/=</h5>
+                    <h5 class="text-center">0/=</h5>
                 </div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
                     <a class="small text-white stretched-link" href="#" data-toggle="modal"
@@ -141,6 +141,54 @@
                             </tbody>
                         </table>
                         <p style="color: red">***In word, {{ $word_convert }}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade curentBalance-modal-lg" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Current Balance</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-bordered table-hover " id="datatablesSimple">
+                            <thead class="text-center bg-info">
+                                <tr>
+                                    <th>Paid At</th>
+                                    <th>Paid By</th>
+                                    <th>Phone</th>
+                                    <th>Apartment</th>
+                                    <th>Floor/Flat</th>
+                                    <th>Rent Paid</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-center">
+                                @foreach ($paid_user as $item)
+                                <tr>
+                                    <td>{{ $item->created_at }}</td>
+                                    <td>{{ $item->name }}</td>
+                                    <td>{{ $item->phone }}</td>
+                                    <td>{{ $item->apartment_name }}</td>
+                                    <td>{{ $item->floor_number }}</td>
+                                    <td>{{ $item->rent_amount }}</td>
+                                </tr>
+                                @endforeach
+                                <tr style="background-color: #94549c; color:whitesmoke">
+                                    <td><i class="fa-solid fa-equals"></i></td>
+                                    <td colspan="4"><strong><b>Total</b></strong></td>
+                                    <td><strong><b>{{ $total_paid }}</b></strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p style="color: red">***In word, {{ $in_word }} taka only</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -275,20 +323,20 @@
                                 </tr>
                             </thead>
                             <tbody class="text-center">
+                                @foreach ($due_user as $item)
                                 <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>02 999 9999</td>
-                                    <td>6B</td>
-                                    <td>2011/04/25</td>
-                                    <td>Tk 350000</td>
+                                    <td>{{ $item->name }}</td>
+                                    <td>{{ $item->phone }}</td>
+                                    <td>{{ $item->floor_number }} - {{ $item->apartment_name }}</td>
+                                    @if (is_NUll($item->created_at))
+                                    <td>{{ "No Last Payment" }}</td>
+                                    @else
+                                    <td>{{ $item->created_at }}</td>
+                                    @endif
+
+                                    <td>{{ $item->rent }}</td>
                                 </tr>
-                                <tr>
-                                    <td>Garrett Winters</td>
-                                    <td>02 888 8888</td>
-                                    <td>8B</td>
-                                    <td>2011/07/25</td>
-                                    <td>Tk 70,750</td>
-                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

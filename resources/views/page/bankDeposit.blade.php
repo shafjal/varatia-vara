@@ -44,7 +44,12 @@
                             <h6><i class="fa-solid fa-hashtag fa-sm" style="color: #B2BABB"></i> Last Deposit By</h6>
                             <h5>
                                 <i class="fa-solid fa-user-clock fa-sm " style="color: Salmon"></i>
+                                @if (is_NUll($last_row->name))
+                                {{ "No Data" }}
+                                @else
                                 {{ $last_row->name}}
+                                @endif
+
                             </h5>
                             <h6><i class="fa-solid fa-hashtag fa-sm" style="color: #B2BABB"></i> Last Deposit Account
                             </h6>
@@ -77,6 +82,15 @@
                                             $item->accountHolder_name}} - {{ $item->account_number }} </option>
                                         @endforeach
                                     </select>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <label class="control-label" for="amount">Ref/cheque/TrxiD No</label>
+                                    <input id="trxid" type="text" class="form-control" name="trxid" required
+                                        autocomplete="trxid" autofocus placeholder="Enter Your Transacetion Number">
+
+                                    @error('amount')
+                                    <span class="text-danger">{{ $message}}</span>
+                                    @enderror
                                 </div>
                                 <div class="form-floating mb-3">
                                     <label class="control-label" for="amount">Enter Amount</label>

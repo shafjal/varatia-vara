@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Miscellaneous;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\BankController;
+use App\Rent;
 
 class HomeController extends Controller
 {
@@ -75,9 +76,27 @@ class HomeController extends Controller
                 $estimate = DB::table('assigns') ->where('apartment_id', '=', $variable) ->sum('rent');
                 $collected = DB::table('rents') ->where('apartment_id', '=', $variable) ->sum('rent_amount');
                 $total_due = $estimate - $collected;
+
+                //Current Due List User 
+                $due_user = DB::table('tenants')
+                        ->select('tenants.name', 'tenants.phone', 'rents.user_id', 'assigns.rent', 'apartments.apartment_name', 'rents.created_at','assigns.floor_number')
+                        ->join('assigns','tenants.id','=','assigns.user_id')
+                        ->join('apartments','apartments.id','=','assigns.apartment_id')
+                        ->leftJoin('rents','tenants.id','=','rents.user_id')
+                        ->whereNull('rents.user_id')
+                        ->get();
+
+                $paid_user = DB::table('rents')
+                        ->select('rents.*','tenants.name')
+                        ->join('tenants','rents.user_id','=','tenants.id')
+                        ->get();
+                $total_paid = Rent::all()->sum('rent_amount');
+                $in_word = BankController::convert_number_to_words($total_paid);
+
                 return view('page.dashboard', compact('admin','curentDay','currentDate',
                 'curentMonth','currentYear','apartment_all','currentAppt',
-                'miscellaneous_all','miscellaneous_cost','word_convert','curentBalance','total_due'));
+                'miscellaneous_all','miscellaneous_cost','word_convert','curentBalance','total_due',
+                'due_user','paid_user','total_paid','in_word'));
         
         }
         public function selectDashboard()

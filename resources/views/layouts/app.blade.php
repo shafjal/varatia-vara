@@ -412,6 +412,24 @@
                                     <i class="fa-solid fa-person-circle-plus fa-sm " style="color: Dodgerblue;"></i>
                                     {{ __('Add Tenant') }}
                                 </a>
+                                {{-- Add Family --}}
+                                <a class="dropdown-item" href="{{ route('tenant.family') }}">
+
+                                    <i class="fa-solid fa-people-roof fa-sm " style="color: Dodgerblue;"></i>
+                                    {{ __('Tenant Family') }}
+                                </a>
+                                {{-- Contact Paper --}}
+                                <a class="dropdown-item" href="{{ route('chuktipotro.index') }}">
+
+                                    <i class="fa-solid fa-file-signature" style="color: Dodgerblue;"></i>
+                                    {{ __('Contact Paper') }}
+                                </a>
+                                {{-- Rent --}}
+                                <a class="dropdown-item" href="{{ route('rent') }}">
+
+                                    <i class="fa-solid fa-sack-dollar" style="color: Dodgerblue;"></i>
+                                    {{ __('Rent Collect') }}
+                                </a>
                                 {{-- Assign --}}
                                 <a class="dropdown-item" href="{{ route('tenant.assign.list') }}">
 
@@ -547,6 +565,24 @@
 
                                     <i class="fa-solid fa-person-circle-plus fa-sm " style="color: Dodgerblue;"></i>
                                     {{ __('Add Tenant') }}
+                                </a>
+                                {{-- Add Family --}}
+                                <a class="dropdown-item" href="{{ route('tenant.family') }}">
+
+                                    <i class="fa-solid fa-people-roof fa-sm " style="color: Dodgerblue;"></i>
+                                    {{ __('Tenant Family') }}
+                                </a>
+                                {{-- Contact Paper --}}
+                                <a class="dropdown-item" href="{{ route('chuktipotro.index') }}">
+
+                                    <i class="fa-solid fa-file-signature" style="color: Dodgerblue;"></i>
+                                    {{ __('Contact Paper') }}
+                                </a>
+                                {{-- Rent --}}
+                                <a class="dropdown-item" href="{{ route('rent') }}">
+
+                                    <i class="fa-solid fa-sack-dollar" style="color: Dodgerblue;"></i>
+                                    {{ __('Rent Collect') }}
                                 </a>
                                 {{-- Assign --}}
                                 <a class="dropdown-item" href="{{ route('tenant.assign.list') }}">

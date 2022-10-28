@@ -12,6 +12,14 @@
     </h5>
     <hr style="width:100%;text-align:left;margin-left:0; border: 1px solid white;">
     {{-- card section --}}
+    @if (session('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>{{ session('success')}}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    @endif
     <div class="row">
         <div class="col-xl-3 col-md-6">
             <div class="card bg-info text-white mb-4 myShadow" style="width: 18rem;">
@@ -21,7 +29,7 @@
                     <h5 class="card-title">Collect Rent From All Tenant</h5>
                     <p class="card-text">
                     </p>
-                    <a href="" class="btn btn-warning" title="Collect Rent">Collect Rent</a>
+                    <a href="{{ route('all.rent') }}" class="btn btn-warning" title="Collect Rent">Collect Rent</a>
                 </div>
             </div>
         </div>

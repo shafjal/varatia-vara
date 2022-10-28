@@ -110,6 +110,7 @@ Route::get('/home/{id}/delete', 'MiscellaneousController@destroy')->name('miscel
 
 //Rent
 Route::get('/rent', 'RentController@index')->name('rent');
+Route::get('/rent/all', 'RentController@all_rent')->name('all.rent');
 Route::get('/rent/apartment/{id}', 'RentController@rent_by_apartment')->name('rent.by.apartment');
 Route::post('/rent/apartment/{id}', 'RentController@rent_by_apartment_store')->name('rent.by.apartment.store');
 
